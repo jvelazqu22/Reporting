@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+ <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="ibhotelactivity">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Recloc" type="xs:string" minOccurs="0" />
+<xs:element name="Hplusmin" type="xs:int" minOccurs="0" />
+<xs:element name="Acct" type="xs:string" minOccurs="0" />
+<xs:element name="Acctdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Break1" type="xs:string" minOccurs="0" />
+<xs:element name="Break2" type="xs:string" minOccurs="0" />
+<xs:element name="Break3" type="xs:string" minOccurs="0" />
+<xs:element name="Passlast" type="xs:string" minOccurs="0" />
+<xs:element name="Passfrst" type="xs:string" minOccurs="0" />
+<xs:element name="Hotcity" type="xs:string" minOccurs="0" />
+<xs:element name="Hotstate" type="xs:string" minOccurs="0" />
+<xs:element name="Hotcityst" type="xs:string" minOccurs="0" />
+<xs:element name="Datein" type="xs:dateTime" minOccurs="0" />
+<xs:element name="Hotelnam" type="xs:string" minOccurs="0" />
+<xs:element name="Chaincod" type="xs:string" minOccurs="0" />
+<xs:element name="Roomtype" type="xs:string" minOccurs="0" />
+<xs:element name="Nights" type="xs:int" minOccurs="0" />
+<xs:element name="Rooms" type="xs:int" minOccurs="0" />
+<xs:element name="Bookrate" type="xs:decimal" minOccurs="0" />
+<xs:element name="Weeknum" type="xs:decimal" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</NewDataSet>

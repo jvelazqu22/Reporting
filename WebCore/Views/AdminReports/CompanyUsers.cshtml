@@ -1,0 +1,88 @@
+﻿@model PagedList.IPagedList<iBank.Services.Orm.ibuser>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Administreation";
+}
+
+<br/>
+<div class="text-center text-info">
+    <h2>Company Users</h2>
+</div>
+<br />
+
+<table class="table table-responsive table-bordered table-striped">
+    <thead style="background-color:gray; color: white;">
+        <tr>
+            <th>
+                Last Name
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                User ID
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Last Login
+            </th>
+            <th>
+                Admin Level
+            </th>
+            <th>
+                Rpt Access
+            </th>
+            <th>
+                Days Until Pruge
+            </th>
+            <th>
+                Email Address
+            </th>
+            <th>
+                Account Access
+            </th>
+        </tr>
+    </thead>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(u => user.lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => user.firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => user.userid)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => user.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => user.LastLogin)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => user.AdminLvl)
+                </td>
+                <td>
+                    @Html.Display("empty")
+                </td>
+                <td>
+                    @Html.Display("empty")
+                </td>
+                <td>
+                    @Html.DisplayFor(u => user.emailaddr)
+                </td>
+                <td>
+                    @Html.Display("empty")
+                </td>
+            </tr>
+        }
+</table>
+
+
+
+@Html.PagedListPager(Model, page => Url.Action("CompanyUsers", new { page }))

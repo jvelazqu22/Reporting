@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iBank.Repository.SQL</name>
+    </assembly>
+    <members>
+        <member name="M:iBank.Repository.SQL.Repository.ClientDataStore.#ctor(System.String,System.String)">
+            <summary>
+            Sets CommandTimeout value of query database to 0.
+            </summary>
+            <param name="clientServer"></param>
+            <param name="clientDatabase"></param>
+        </member>
+        <member name="M:iBank.Repository.SQL.Repository.ClientDataStore.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Sets CommandTimeout value of query database to value of commandTimeout parameter.
+            </summary>
+            <param name="clientServer"></param>
+            <param name="clientDatabase"></param>
+            <param name="commandTimeout"></param>
+        </member>
+        <member name="M:iBank.Repository.SQL.Repository.iBankClientQueryable.#ctor(System.String,System.String)">
+            <summary>
+            Sets the CommandTimeout property to 0.
+            </summary>
+            <param name="serverName"></param>
+            <param name="databaseName"></param>
+        </member>
+        <member name="M:iBank.Repository.SQL.Repository.iBankClientQueryable.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Sets the CommandTimeout property to the value of commandTimeout parameter.
+            </summary>
+            <param name="serverName"></param>
+            <param name="databaseName"></param>
+            <param name="commandTimeout"></param>
+        </member>
+    </members>
+</doc>

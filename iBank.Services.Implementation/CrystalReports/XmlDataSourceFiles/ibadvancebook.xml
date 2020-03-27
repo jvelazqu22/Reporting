@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+ <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="ibadvancebook">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Acct" type="xs:string" minOccurs="0" />
+<xs:element name="Acctdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Break1" type="xs:string" minOccurs="0" />
+<xs:element name="Break2" type="xs:string" minOccurs="0" />
+<xs:element name="Break3" type="xs:string" minOccurs="0" />
+<xs:element name="Reckey" type="xs:int" minOccurs="0" />
+<xs:element name="Seqno" type="xs:int" minOccurs="0" />
+<xs:element name="Bookdate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="Depdate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="Passlast" type="xs:string" minOccurs="0" />
+<xs:element name="Passfrst" type="xs:string" minOccurs="0" />
+<xs:element name="Origin" type="xs:string" minOccurs="0" />
+<xs:element name="Orgdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Destinat" type="xs:string" minOccurs="0" />
+<xs:element name="Destdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Airline" type="xs:string" minOccurs="0" />
+<xs:element name="Airchg" type="xs:decimal" minOccurs="0" />
+<xs:element name="Actfare" type="xs:decimal" minOccurs="0" />
+<xs:element name="Rdepdate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="ClassCode" type="xs:string" minOccurs="0" />
+<xs:element name="Fltno" type="xs:string" minOccurs="0" />
+<xs:element name="Bookdays" type="xs:decimal" minOccurs="0" />
+<xs:element name="Bookcat" type="xs:string" minOccurs="0" />
+<xs:element name="Catdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Alinedesc" type="xs:string" minOccurs="0" />
+<xs:element name="Cryspgbrk" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</NewDataSet>

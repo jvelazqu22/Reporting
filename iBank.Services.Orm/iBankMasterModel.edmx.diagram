@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="463844daca304d338ff80d0c5fc81606" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="ibankmastersModel.reporthandoff" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibwhcrit" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.Collist2Captions" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ClientImages" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ClientExtras" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.mstragcy" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.MstrCorpAccts" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibRptLog" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibProcVerbiage" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibFuncLangTags" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.LanguageTags" Width="1.5" PointX="9.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.LanguageTranslations" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.userTranslations" Width="1.5" PointX="11.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.collist2" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.errorlog" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.Languages" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.intlparm" Width="1.5" PointX="13.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.curcountry" Width="1.5" PointX="13.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibproccrit" Width="1.5" PointX="7.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibRptLogCrit" Width="1.5" PointX="9.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibRptLogResults" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.curconversion" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.transtrack" Width="1.5" PointX="15.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.miscparams" Width="1.5" PointX="15.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.RRStations" Width="1.5" PointX="11.375" PointY="15.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.CarbonCalculators" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.RROperators" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.iBankDatabases" Width="1.5" PointX="17.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.iBankServers" Width="1.5" PointX="3.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.TimeZones" Width="1.5" PointX="5.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.bcstAllowMultiples" Width="1.5" PointX="7.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.eProfiles" Width="1.5" PointX="13.375" PointY="18.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.xmlrpts" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.bcstque4" Width="1.5" PointX="17.375" PointY="8.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.airlines" Width="1.5" PointX="19.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ClientImageXData" Width="1.5" PointX="9.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.bcstrptinstance" Width="1.5" PointX="19.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.cartypes" Width="1.5" PointX="15.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.roomtype" Width="1.5" PointX="19.375" PointY="16.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.mstrAgcySourceExtras" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.MstrAgcySources" Width="1.5" PointX="17.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.airports" Width="1.5" PointX="19.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.Countries" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibproces" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.metro" Width="1.5" PointX="13.375" PointY="15.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.chainClass" Width="1.5" PointX="0.75" PointY="21.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.chainParents" Width="1.5" PointX="2.75" PointY="21.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.chains" Width="1.5" PointX="21.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.JunctionAgcyCorp" Width="1.5" PointX="4.75" PointY="21.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.TripChangeCodes" Width="1.5" PointX="6.75" PointY="21.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.WorldRegions" Width="1.5" PointX="21.375" PointY="7.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.xmlrpt2" Width="1.5" PointX="21.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibRunningRpts" Width="1.5" PointX="21.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.ibRptLogSQL" Width="1.5" PointX="21.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.eProfExpTypes" Width="1.5" PointX="21.375" PointY="21.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.eProfileProcs" Width="1.5" PointX="9.375" PointY="22.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.TradingPartners" Width="1.5" PointX="11.375" PointY="22.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.broadcast_stage_agencies" Width="1.5" PointX="7.625" PointY="25.875" />
+        <AssociationConnector Association="ibankmastersModel.FK__broadcast__agenc__5E00C4E5" />
+        <EntityTypeShape EntityType="ibankmastersModel.broadcast_long_running_agencies" Width="1.5" PointX="7.625" PointY="29" />
+        <AssociationConnector Association="ibankmastersModel.FK__broadcast__agenc__678A2F1F" />
+        <EntityTypeShape EntityType="ibankmastersModel.CorpAcctNbrs" Width="1.5" PointX="13.375" PointY="22.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.report_server_stage" Width="1.5" PointX="23.625" PointY="12.625" />
+        <AssociationConnector Association="ibankmastersModel.fk_database" />
+        <AssociationConnector Association="ibankmastersModel.fk_agency" />
+        <EntityTypeShape EntityType="ibankmastersModel.report_rollout_stage" Width="1.5" PointX="23.625" PointY="7.75" />
+        <AssociationConnector Association="ibankmastersModel.fk_database_name_rollout" />
+        <AssociationConnector Association="ibankmastersModel.fk_processkey" />
+        <AssociationConnector Association="ibankmastersModel.fk_agency_rollout" />
+        <EntityTypeShape EntityType="ibankmastersModel.broadcast_high_alert_agency" Width="1.5" PointX="7.625" PointY="32.25" />
+        <EntityTypeShape EntityType="ibankmastersModel.overdue_broadcasts" Width="1.5" PointX="23.375" PointY="0.75" />
+        <AssociationConnector Association="ibankmastersModel.fk_high_alert_agency_name" />
+        <EntityTypeShape EntityType="ibankmastersModel.timeout_broadcasts" Width="1.5" PointX="23.375" PointY="15.75" />
+        <EntityTypeShape EntityType="ibankmastersModel.state_names" Width="1.5" PointX="23.375" PointY="19.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="518de0573b6f403dbe5f69ae2ff5f3a9" Name="Diagram1" ZoomLevel="57">
+        <EntityTypeShape EntityType="iBankClientEntities.hibtrip" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibtrip" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibuser" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.acctmast" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.acctparent" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.Organization" Width="1.5" PointX="9.375" PointY="3.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.UserSource" Width="1.5" PointX="9.375" PointY="9.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.useracct" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.userbrks1" Width="1.5" PointX="11.375" PointY="3.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.userbrks2" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.StyleGroupExtra" Width="1.5" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibUserExtra" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.savedrpt2" Width="1.5" PointX="9.375" PointY="12.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.savedrpt3" Width="1.5" PointX="11.375" PointY="12.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibbatch" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibbatch2" Width="1.5" PointX="13.375" PointY="11.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.picklist" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.hibleg" Width="1.5" PointX="15.375" PointY="4.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibleg" Width="1.5" PointX="5.375" PointY="15.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ClassCatMstr" Width="1.5" PointX="7.375" PointY="15.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.userrpt" Width="1.5" PointX="15.375" PointY="13.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.xmluserrpt2" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.xmluserrpt" Width="1.5" PointX="2.75" PointY="16.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.hibSvcFee" Width="1.5" PointX="9.375" PointY="16.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.bcreportlog" Width="1.5" PointX="11.375" PointY="16.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.userrpt2" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.hibcar" Width="1.5" PointX="17.375" PointY="7.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibcar" Width="1.5" PointX="17.375" PointY="16.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.hibhotel" Width="1.5" PointX="13.375" PointY="18.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibhotel" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibtravauth" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.hibudid" Width="1.5" PointX="0.75" PointY="21.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibudid" Width="1.5" PointX="2.75" PointY="21.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibUserMacro" Width="1.5" PointX="21.375" PointY="8.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibUserMacroData" Width="1.5" PointX="21.375" PointY="12.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibUserMacroRpt" Width="1.5" PointX="21.375" PointY="17.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.hibMiscSeg" Width="1.5" PointX="19.375" PointY="20.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibMiscSeg" Width="1.5" PointX="21.375" PointY="20.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.clientsTL" Width="1.5" PointX="7.375" PointY="22.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibreascd" Width="1.5" PointX="9.375" PointY="22.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.savedrpt1" Width="1.5" PointX="7.25" PointY="0.875" />
+        <EntityTypeShape EntityType="iBankClientEntities.vendor" Width="1.5" PointX="23.375" PointY="0.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ReasonSet" Width="1.5" PointX="23.375" PointY="3.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.UserFieldCat" Width="1.5" PointX="23.375" PointY="6.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.StyleGroup" Width="1.5" PointX="23.375" PointY="9.75" />
+        <EntityTypeShape EntityType="iBankClientEntities.ibbatchhistory" Width="1.5" PointX="23.375" PointY="19.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

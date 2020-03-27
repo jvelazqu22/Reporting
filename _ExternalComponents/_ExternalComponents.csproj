@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0EB58184-5A37-40BE-9454-040657F1DCFA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_ExternalComponents</RootNamespace>
+    <AssemblyName>_ExternalComponents</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Production\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|x64'">
+    <OutputPath>bin\Keystone\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Production\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Keystone\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="iBank.Entities, Version=3.7.18.79, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBank.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="iBank.Repository.SQL, Version=19.6.19.100, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBank.Repository.SQL.dll</HintPath>
+    </Reference>
+    <Reference Include="iBankDomain, Version=3.1.1.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBankDomain.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CODEFramework\CODE.Framework.Core.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Core.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Core.Utilities.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Core.Utilities.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Core.Utilities.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Core.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Client.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Client.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Client.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Contracts.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Contracts.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Contracts.xml" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Server.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Server.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Server.WebApi.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Server.WebApi.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Server.WebApi.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Server.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Tools.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Tools.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Services.Tools.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Documents.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Documents.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Documents.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Mvvm.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Mvvm.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Mvvm.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Battleship.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Battleship.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Battleship.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Geek.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Geek.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Geek.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Metro.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Metro.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Metro.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Newsroom.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Newsroom.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Newsroom.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Vapor.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Vapor.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Vapor.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Wildcat.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Wildcat.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Wildcat.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Workplace.dll" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Workplace.pdb" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.Theme.Workplace.XML" />
+    <Content Include="CODEFramework\CODE.Framework.Wpf.XML" />
+    <Content Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

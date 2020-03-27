@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*"
+           Name="iBank.OverdueBroadcastMonitor"
+           Language="1033"
+           Version="!(bind.FileVersion.F_iBank.OverdueBroadcastMonitor.exe)"
+           Manufacturer="Cornerstone Information Systems"
+           UpgradeCode="{DA05E4C2-7608-4ADE-A61D-8659257C62AD}">
+
+    <Package Manufacturer="Cornerstone Information Systems"
+             InstallerVersion="200"
+             Compressed="yes"
+             InstallScope="perMachine"
+             Platform="x64"/>
+
+    <Property Id="PREVIOUSVERSIONINSTALLED" Secure="yes"/>
+    <Property Id="USER" Value="dev\keystoneapp4"/>
+    <Property Id="PSWD" Value="CISapp4#"/>
+
+    <MajorUpgrade Schedule="afterInstallInitialize"
+                  AllowDowngrades="yes"/>
+
+    <Media Id="1" Cabinet="iBank.OverdueBroadcastMonitor.cab" EmbedCab="yes"/>
+
+    <Property Id="iBank.OverdueBroadcastMonitor">1</Property>
+
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder" Name="PFiles">
+        <Directory Id="iBankFolder" Name="iBank">
+          <Directory Id="ServersFolder" Name="Servers">
+            <Directory Id="INSTALLFOLDER" Name="iBank.OverdueBroadcastMonitor">
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <ComponentGroup Id="Dlls" Directory="INSTALLFOLDER">
+      <Component Id="C_Dlls" Guid="{9AF4D856-3E0B-4E1C-9F48-35C07D12BA0E}" Win64="yes">
+        <File Id="F_iBank.OverdueBroadcastMonitor.exe" Name="iBank.OverdueBroadcastMonitor.exe" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_iBank.OverdueBroadcastMonitor.exe.config" Name="iBank.OverdueBroadcastMonitor.exe.config" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+
+        <File Id="F_CISLogger.dll" Name="CISLogger.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+
+        <File Id="F_CODE.Framework.Core.dll" Name="CODE.Framework.Core.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_CODE.Framework.Core.pdb" Name="CODE.Framework.Core.pdb" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        
+        <File Id="F_Domain.dll" Name="Domain.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        
+        <File Id="F_EntityFramework.dll" Name="EntityFramework.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_EntityFramework.SqlServer.dll" Name="EntityFramework.SqlServer.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_EntityFramework.xml" Name="EntityFramework.xml" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_EntityFramework.SqlServer.xml" Name="EntityFramework.SqlServer.xml" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+
+        <File Id="F_iBank.Server.Utilities.dll" Name="iBank.Server.Utilities.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_iBank.Server.Utilities.pdb" Name="iBank.Server.Utilities.pdb" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+
+        <File Id="F_iBank.Entities.dll" Name="iBank.Entities.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_iBankDomain.dll" Name="iBankDomain.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_iBank.Repository.SQL.dll" Name="iBank.Repository.SQL.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        
+        <File Id="F_log4net.dll" Name="log4net.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_log4net.config" Name="log4net.config" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        
+        <File Id="F_MoreLinq.dll" Name="MoreLinq.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+        <File Id="F_NodaTime.dll" Name="NodaTime.dll" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.OverdueBroadcastMonitor\bin\$(var.Configuration)\"/>
+
+        <ServiceInstall
+             Id="ServiceInstaller"
+             Type="ownProcess"
+             Vital="yes"
+             Name="iBank.OverdueBroadcastMonitor"
+             DisplayName="iBank.OverdueBroadcastMonitor"
+             Description="Monitors the ibbatch tables for overdue broadcasts."
+             Start="auto"
+             Account="[USER]"
+             Password="[PSWD]"
+             ErrorControl="normal"
+             Interactive="no" />
+
+        <ServiceControl
+          Id="StartService"
+          Start="install"
+          Stop="both"
+          Remove="uninstall"
+          Name="iBank.OverdueBroadcastMonitor"
+          Wait="yes"/>
+
+      </Component>
+    </ComponentGroup>
+
+    <Feature Id="Complete"
+             Title="iBank.OverdueBroadcastMonitor"
+             Level="1"
+             Display="expand">
+      <ComponentGroupRef Id="Dlls"/>
+    </Feature>
+
+  </Product>
+</Wix>

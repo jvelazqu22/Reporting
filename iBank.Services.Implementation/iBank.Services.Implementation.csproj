@@ -1,0 +1,2618 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{123A9EF3-72AD-4489-A3C0-9B61BB746990}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iBank.Services.Implementation</RootNamespace>
+    <AssemblyName>iBank.Services.Implementation</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Production\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Keystone\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Production\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Keystone\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CODE.Framework.Core">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Core.Utilities">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Core.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fasterflect, Version=2.1.3.0, Culture=neutral, PublicKeyToken=38d18473284c1ca7, processorArchitecture=MSIL">
+      <HintPath>..\packages\fasterflect.2.1.3\lib\net40\Fasterflect.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iBank.Entities, Version=3.7.18.79, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBank.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="iBank.Repository.SQL, Version=19.6.19.100, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBank.Repository.SQL.dll</HintPath>
+    </Reference>
+    <Reference Include="iBankDomain, Version=3.1.1.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBankDomain.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MoreLinq, Version=2.6.20831.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.2.6.0\lib\net40\MoreLinq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Interfaces\IXmlReportBuilder.cs" />
+    <Compile Include="Classes\ParentClassQuickInformation.cs" />
+    <Compile Include="Classes\PortInformation.cs" />
+    <Compile Include="Classes\RoutingCriteria.cs" />
+    <Compile Include="Classes\TripAirCo2Information.cs" />
+    <Compile Include="Classes\TripCarCo2Information.cs" />
+    <Compile Include="Classes\TripCo2Information.cs" />
+    <Compile Include="Classes\UdidInformation.cs" />
+    <Compile Include="Classes\VendorTypeInformation.cs" />
+    <Compile Include="CrystalReports\execSumGraphs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>execSumGraphs.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\execSumGraphsRail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>execSumGraphsRail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAcctSum1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAcctSum1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAcctSum1A.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAcctSum1A.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAcctSum2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAcctSum2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAdvanceBook.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAdvanceBook.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAdvanceBook2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAdvanceBook2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAdvBookSum.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAdvBookSum.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAdvBookSum2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAdvBookSum2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAgcyValCarr.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAgcyValCarr.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAgentAirActivity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAgentAirActivity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAgentProd1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAgentProd1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAgentProd2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAgentProd2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAgentSummary.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAgentSummary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibAirUdid.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibAirUdid.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibArrival.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibArrival.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibArrival3.cs">
+      <DependentUpon>ibArrival3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="CrystalReports\ibCarActivity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCarActivity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCarAdvRes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCarAdvRes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCarCity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCarCity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCarSavings.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCarSavings.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCarVendor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCCDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCCDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCCRecon21.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCCRecon2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCCRecon2A.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCCRecon2A.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCCRecon3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCCRecon.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCCReconA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCCReconA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibClassofSvc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibClassofSvc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibClassofSvc2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibClassofSvc2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibClassofSvc3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibClassofSvc3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibClassofSvcDIT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibClassofSvcDIT.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibClassofSvcDIT2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibClassofSvcDIT2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibClassofSvcDIT3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibClassofSvcDIT3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCO2AirSum.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCstDataDict.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCstDataDict.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCustAct.cs">
+      <DependentUpon>ibCustAct.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="CrystalReports\ibCustAct2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCustAct2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCustAct2Carb1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCustAct2Carb1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCustAct2Carb2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCustAct2Carb2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCustActCarb1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibCustActCarb1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibCustActCarb2.cs">
+      <DependentUpon>ibCustActCarb2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="CrystalReports\ibDepart.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibDepart.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibDepart3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibDepart3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibExceptAir.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibExceptAir.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibExceptCar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibExceptCar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibExceptHotel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibExceptHotel.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibFareSave4.cs">
+      <DependentUpon>ibFareSave4.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibFareSave3.cs">
+      <DependentUpon>ibFareSave3.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibFareSave2.cs">
+      <DependentUpon>ibFareSave2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibFareSave.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibFareSave.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibFareSaveSum.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibFareSaveSum.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibgraph1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibgraph1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibGraph2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibGraph2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibHotelActivity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibHotelActivity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibHotelAdvRes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibHotelAdvRes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibHotelCity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibHotelCity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibHotelVendor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibHotelVendor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibInvoice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibMarket1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibMarket1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibMarket1a.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibMarket1a.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibMarket2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibMarket2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibMarket2a.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibMarket2a.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibMarket3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibMarket3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibMarket3a.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibMarket3a.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibMeetGreet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibMeetGreet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibMeetGreet2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibMeetGreet2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibMissedHotel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibMissedHotel.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibNegoSave.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibNegoSave.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibOverlap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibpaxOnPlane.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibpaxOnPlane.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibpaxOnPlane2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibpaxOnPlane2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibPubSave.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibPubSave.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibQview1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibQview1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibQview1a.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibQview1a.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibPubSaveSum.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibPubSaveSum.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibQview2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibQview2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibQview2b.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibQview2b.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibQview3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibQview3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibRailActivity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibRailActivity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibRailActivity2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibRailActivity2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibSameCity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibSameCity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibSavedRptList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibSavedRptList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibSendOff.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibSendOff.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibSendOff2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibSendOff2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibSvcFeeDetTran.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibSvcFeeDetTran.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibSvcFeeDetTrip.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibSvcFeeDetTrip.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibSvcFeeSumTran.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibSvcFeeSumTran.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibtopAcctAir.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibtopAcctAir.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopAcctcar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopAcctcar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopAcctHotel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopAcctHotel.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCar3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCar3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCar4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCar4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCar5.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCar5.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCars.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCars.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCityPair.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCityPair.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCityPair2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCityPair2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCityPair2A.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCityPair2A.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCityPairA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCityPairA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCityPairACarb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCityPairACarb.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCityPairCarb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCityPairCarb.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCityPairOnlineAdopt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCityPairOnlineAdopt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCityPairOnlineAdoptA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCityPairOnlineAdoptA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCityPairRail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCityPairRail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopCostCtr.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopCostCtr.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopDests1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopDests1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopDests2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopDests2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopExceptions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopExceptions.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopHotel2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopHotel2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopHotel3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopHotel3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopHotel4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopHotel4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopHotels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopHotels.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopSegCarr.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopSegCarr.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopTravAll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopTravAll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopTravAll2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopTravAll2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopTravAllByUdid.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopTravAllByUdid.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopTravAllCarb1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopTravAllCarb.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopTravAllCarb2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopTravAllCarb2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopTravCar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopTravCar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopTravs1.cs">
+      <DependentUpon>ibTopTravs.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopTravs2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopTravs2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopValCarr1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopValCarr1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopValCarr1B.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopValCarr1B.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopValCarr1C.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopValCarr1C.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopValCarr2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopValCarr2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopValCarr2B.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopValCarr2B.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTopValCarr2C.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTopValCarr2C.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTransactSum1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTransactSum1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTransactSum2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTransactSum2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravAuthDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTravAuthDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravAuthKPI.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTravAuthKPI.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravAuthOOPMonth.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTravAuthOOPMonth.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravAuthStatusDet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTravAuthStatusDet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravAuthStatusLog.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTravAuthStatusLog.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravAuthTopOOP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravByCountry.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTravByCountry.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravDet1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTravDet1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravDet2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTravDet2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravelGlance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTravelGlance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTravelMgmt.cs">
+      <DependentUpon>ibTravelMgmt.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTripChange.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTripChange.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTripChngSum.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTripChngSum.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibTripDuration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibTripDuration.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibUpcoming.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibUpcoming.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibWeeklyActivity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibWeeklyActivity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibWeeklyActivity2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibWeeklyActivity2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibWeeklyActivity2A.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibWeeklyActivity2A.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\ibWeeklyActivityA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ibWeeklyActivityA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPrograms\AccountSummaryAir12MonthTrend\AcctSum12MonthCalculations.cs" />
+    <Compile Include="ReportPrograms\AccountSummaryAir12MonthTrend\AcctSum12MonthDataProcessor.cs" />
+    <Compile Include="ReportPrograms\AccountSummaryAir12MonthTrend\AcctSum12MonthSqlCreator.cs" />
+    <Compile Include="ReportPrograms\AccountSummary\AccountSummary.cs" />
+    <Compile Include="ReportPrograms\AccountSummary\AccountSummaryData.cs" />
+    <Compile Include="ReportPrograms\AccountSummary\AccountSummaryFinalDataCalculator.cs" />
+    <Compile Include="ReportPrograms\AccountSummary\AccountSummaryRawDataCalculator.cs" />
+    <Compile Include="ReportPrograms\AccountSummaryAir12MonthTrend\AcctSum2.cs" />
+    <Compile Include="ReportPrograms\AdvanceBookAir\AdvanceBookAirCalculations.cs" />
+    <Compile Include="ReportPrograms\AdvanceBookAir\AdvanceBookAirDataProcessor.cs" />
+    <Compile Include="ReportPrograms\AdvanceBookAir\AdvanceBookAirSqlCreator.cs" />
+    <Compile Include="ReportPrograms\AdvanceBookAir\SubReportHandler.cs" />
+    <Compile Include="ReportPrograms\AdvanceBookAir\TimeBucketHandler.cs" />
+    <Compile Include="ReportPrograms\AgentAirActivity\AgentAirActivity.cs" />
+    <Compile Include="ReportPrograms\AgentAirActivity\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\AgentProductivity\AgentProductivity.cs" />
+    <Compile Include="ReportPrograms\AgentProductivity\AgentProductivityHelpers.cs" />
+    <Compile Include="ReportPrograms\AgentProductivity\AgentProductivityProcessor.cs" />
+    <Compile Include="ReportPrograms\AgentProductivity\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\AgentSummary\AgentSummary.cs" />
+    <Compile Include="ReportPrograms\AgentSummary\AgentSummaryProcessor.cs" />
+    <Compile Include="ReportPrograms\AgentSummary\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\AirActivityByUdid\AirActivityUdid.cs" />
+    <Compile Include="ReportPrograms\AirActivityByUdid\AirActivityUdidCalculations.cs" />
+    <Compile Include="ReportPrograms\AirActivityByUdid\AirActivityUdidDataProcessor.cs" />
+    <Compile Include="ReportPrograms\AirActivityByUdid\AirActivityUdidSqlCreator.cs" />
+    <Compile Include="ReportPrograms\AirActivity\AirActivityCalculations.cs" />
+    <Compile Include="ReportPrograms\AirActivity\AirActivityDataProcessor.cs" />
+    <Compile Include="ReportPrograms\AirActivity\AirActivityRawDataSqlCreator.cs" />
+    <Compile Include="ReportPrograms\AirActivity\ReportDocumentParameters.cs" />
+    <Compile Include="ReportPrograms\AirActivity\ServiceFeeHandler.cs" />
+    <Compile Include="ReportPrograms\AirActivity\UdidDataRetriever.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\AirFareSavingsCalculations.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\AirFareSavingsData.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\AirFareSavingsExtensions.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\AirFareSavingsSqlCreator.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\AirFareSavingsSubReportLosses.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\AirFareSavingsSubReportSavings.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\AirFareSavingsSubReport.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\ReportOptions.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\Udid.cs" />
+    <Compile Include="ReportPrograms\AirTopBottomSegment\AirTopBottomData.cs" />
+    <Compile Include="ReportPrograms\AirTopBottomSegment\AirTopBottomSegment.cs" />
+    <Compile Include="ReportPrograms\AirTopBottomSegment\AirTopBottomSegmentCalculations.cs" />
+    <Compile Include="ReportPrograms\AirTopBottomSegment\AirTopBottomSegmentSqlCreator.cs" />
+    <Compile Include="ReportPrograms\BroadcastDetails\BroadcastDetails.cs" />
+    <Compile Include="ReportPrograms\BroadcastDetails\BroadcastDetailsHelper.cs" />
+    <Compile Include="ReportPrograms\BroadcastDetails\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\BroadcastStatus\BroadcastStatus.cs" />
+    <Compile Include="ReportPrograms\BroadcastStatus\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\Arrival\ArrivalCalculations.cs" />
+    <Compile Include="ReportPrograms\Arrival\ArrivalRawDataSqlCreator.cs" />
+    <Compile Include="ReportPrograms\Arrival\ArrivalDataProcessor.cs" />
+    <Compile Include="ReportPrograms\CarActivity\CarActivity.cs" />
+    <Compile Include="ReportPrograms\CarActivity\CarActivityFinalData.cs" />
+    <Compile Include="ReportPrograms\CarActivity\CarActivityHelper.cs" />
+    <Compile Include="ReportPrograms\CarActivity\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\CarFareSavings\CarFareSavingsSummaryData.cs" />
+    <Compile Include="ReportPrograms\CarFareSavings\CarFareSavingsFinalData.cs" />
+    <Compile Include="ReportPrograms\CarFareSavings\CarSavingsHelper.cs" />
+    <Compile Include="ReportPrograms\CarFareSavings\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\CCRecon\CcTripRecordsMapping.cs" />
+    <Compile Include="ReportPrograms\CCRecon\CcReconSortHandler.cs" />
+    <Compile Include="ReportPrograms\CCRecon\CCReconHelper.cs" />
+    <Compile Include="ReportPrograms\RailTopBottomCityPair\TopCityPairRailProcessDataHandler.cs" />
+    <Compile Include="ReportPrograms\TopBottomDestinations\SortHandler.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAllByUdid\TopTravAllByUdid.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAllByUdid\TopTravAllCarbonCalc.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAllByUdid\TopTravAllData.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAllByUdid\TopTravAllExceptiions.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAllByUdid\TopTravAllFinalDataCalculator.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAllByUdid\TopTravAllFinalGroupData.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAllByUdid\TopTravAllRawDataCalculator.cs" />
+    <Compile Include="ReportPrograms\TravelOptixReport\SettingsRetriever.cs" />
+    <Compile Include="ReportPrograms\TravelOptixReport\TravelOptix.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesAir\FinalDataExportHandler.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesAir\FinalDataHandler.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesAir\RawDataHandler.cs" />
+    <Compile Include="ReportPrograms\TripDuration\FinalDataHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\UdidSqlBuilder.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRulesFactory.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\FlDuration.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\DstCtryCod.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\LgFareType.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\NullColLookupLegFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\OrgDstCont.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\OrgDstCnty.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\DstContInt.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\OrgContInt.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\OrgMetCode.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\DstMetCode.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\PreClsDesc.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\Legs_SegPr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\LbsFareTax.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\LgBaseFare.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\EquipDesc.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\DepTime.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\ArrTime.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\Cpm.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\SegCost.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\ToisoCtry.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\SegCntr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\RDepDtTim.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\RDepDtDoW.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\RarrDtTim.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\OrgRegion.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\OrgMetStat.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\OrgMetCity.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\OrgCountry.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\OrgaIrpt.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\Miles.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\FrmIsoCtry.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\DstRegion.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\DstMetStat.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\DstMetCity.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\DstCountry.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\DestAirpt.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\Connect.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\ClassCtNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\ClassCdNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\Class.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\ArrDtDow.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\AirlnIata.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\AirCarrier.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupLegFieldHandler\ActFare.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AcctCat5.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AcctCat4.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AcctCat3.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AcctCat2.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\BoSFareTax.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\BoBaseFare.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\LgtPair.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\LgtPairDes.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\SegPrDesc.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\SegPairCd.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MAirLine.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MDitCode.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MFltNo.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\BiCityPair.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\BiPairDes.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MkndaNams.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MkDuration.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MkndMetro.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MkTndCNams.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MktDaNams.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MktdCNams.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\MktdState.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\OdoTrCtry.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\OdoTrMetro.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\GrosAvgCpm.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsFieldHandler\NullColLookupMktSegsFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\NullColLookupMktSegsRailTickerFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalTotAmt.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalSegNum.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalDstsTn.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalOrgStn.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalBasPr2.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalBasPr1.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalConfNbr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalMeals.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalTrnNbr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalClasCod.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalVendCod.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalVendNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalDuratn.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalArrTim.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalDestNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalArrDate.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalDepTim.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalOrigNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalDepDate.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupMktSegsRailTickerFieldHandler\RalSegStat.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\NetNumSegs.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\OrgDesReg.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\PdFareTf.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\OrgDetCnty.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\Refundable.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\SegNo.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\SegRouteFirstOriginCode.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\ShareLogic.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\ValCarIata.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\IataDest.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TktUsed.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AdvTktGrp.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CityPrDesc.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AdvBookGrp.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CppTktIndr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\FltCount.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CarAvgRate.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CarCount.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\HtlAvgRate.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\FareBase1.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TransId.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvFMon.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvFyr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\LegClsCats.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\LegSvcs.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\PotlNites.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\PrdOCtyNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\PrdCtyName.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\SavedMkt.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\SavedAir.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\OrgCtyCod.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\SavngReasn.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\BookDtDow.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\DSaveErrMk.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\FallOc.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\G6Field.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\OrdByRmk.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AcctCat1.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CtryNbr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\HtlCount.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\PrdCarRNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\LegAirCods.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\PaxCount.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CityPairCd.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\IataOrg.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\VendTypes.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\VendNames.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\LostAir.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvFqtr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\FareType.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\RefundInd.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\VoidCount.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TrpOrgRgn.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TrpOrgCtry.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TrpDstrgn.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TrpDstCtry.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TrpClasDsc.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TrpClasCat.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TrpAltrCo2.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TrpAltcCo2.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripOrigin.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripOrgCod.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripMiles.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripDstcod.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripDest.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripDays.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripCo2.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripCntr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripClass.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TripAirCo2.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\TktCount.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\SourceDesc.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\SegRouting.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\RoundTrip.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\PaxNameAbr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\PaxName.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\ParentDesc.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\ParentAcct.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\OrigTktInv.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\OrigTktChg.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\OrigTktCar.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\LegRouting.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvYrMo.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvYr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvQtr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvMthNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvMthAbbr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvMonth.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvMo.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvDtDow.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\InvAmtnFee.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\HomCtryNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\HomCtryCod.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\Exchange.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\DepDtDow.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CurSymbol.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CredCount.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\ClientName.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CcCompany.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\CarrDesc.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\BkYear.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\BkQtr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\BkMthNam.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\BkMthAbbr.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\BkMonth.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\ArrDateDow.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AirReasn.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AdvPurch.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\AdvBook.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\ColValRulesParams.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\IColumnValue.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\NullColLookupTripFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColumnValueRules\LookupTripFieldHandler\Account.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\TripCarbonHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LegSegOrderFixer.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\CppTicketIndicatorHelper.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ReportLokkup\BuildLegSegSqlHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ReportLokkup\FareTypeHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\RowSortValueSetter.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\TripFieldsSuppressHandler.cs" />
+    <Compile Include="Shared\LoadedListsParams.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\AportLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\TripDerivedDataLookup.cs" />
+    <Compile Include="Shared\SpecifyUdid\ExportSpecifyUdidFields.cs" />
+    <Compile Include="Shared\SpecifyUdid\UdidCalculator.cs" />
+    <Compile Include="Shared\SpecifyUdid\UdidHandler.cs" />
+    <Compile Include="ReportPrograms\ConcurrentSegmentsBooked\OverlapFinalDataProcessor.cs" />
+    <Compile Include="ReportPrograms\ConcurrentSegmentsBooked\OverlapHelper.cs" />
+    <Compile Include="ReportPrograms\EventLog\EventLogHelper.cs" />
+    <Compile Include="ReportPrograms\EventLog\EventLogProcessor.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummarywithGraphs\DataRetrieval.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummarywithGraphs\DataTransformer.cs" />
+    <Compile Include="ReportPrograms\Invoice\AccountAddressInfo.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceDataSources.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceReportDataLists.cs" />
+    <Compile Include="ReportPrograms\Invoice\Udid.cs" />
+    <Compile Include="ReportPrograms\PTARequestActivity\TravAuthStatusDetFinalData.cs" />
+    <Compile Include="ReportPrograms\PTARequestActivity\TravAuthStatusDetRawDataRetriever.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\ExportFieldHandler.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\RowBuilderHotelData.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\RowBuilderCarData.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\RowBuilderTripData.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\RowBuilderAuthorizerData.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\TravAuthDetailRawDataRetriever.cs" />
+    <Compile Include="ReportPrograms\ReportLog\ProcessDataHandler.cs" />
+    <Compile Include="ReportPrograms\SavedReportList\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\ServiceFeeDetailByTransaction\SvcFeeDetailByTransactionFinalData.cs" />
+    <Compile Include="ReportPrograms\ServiceFeeDetailByTransaction\SvcFeeDetailByTransactionSqlCreator.cs" />
+    <Compile Include="ReportPrograms\ServiceFeeDetailByTransaction\SvcFeeDettailByTransaction.cs" />
+    <Compile Include="ReportPrograms\TopBottomCostCenter\TopBottomCostCenterFinalData.cs" />
+    <Compile Include="ReportPrograms\TravAuthKpi\TravAuthKPIDateValidator.cs" />
+    <Compile Include="ReportPrograms\TravAuthKpi\TravAuthKPIRawDataRetriever.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesAir\TripChangeDataProcessor.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesMeetAndGreet\ExportFieldsHelper.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesMeetAndGreet\MeetGreetFinalDataGroupAndSort.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesMeetAndGreet\MeetGreetFinalDataProcessor.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesMeetAndGreet\MeetGreetRawDataProcessor.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesMeetAndGreet\MeetGreetSqlCreator.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesSendOff\SendOffDataExportHandler.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesTypeSummary\TripChngSqlCreator.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesTypeSummary\TripChngSumRawDataProcessor.cs" />
+    <Compile Include="ReportPrograms\UserDefinedLayout\UserDefinedLayoutHelper.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\CarDataSetHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\ChangeLogDataSetHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\HotelDataSetHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\LegDataSetHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\MarketSegDataSetHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\MiscDataSetHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\MiscSegmentDataSetHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\ServiceFeeDataSetHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataSetHandler\UdidDataSetHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LegSegBuilder.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LegSegInfo.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LegSegTemp.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupMiscSegsFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupMiscSegsCruiseFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupMiscSegsLimoFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupMiscSegsTourFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupTravAuhtFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupMktSegsRailTickerFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupMktSegsFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupLegCarFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupHotelFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupServiceFeeFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupAuthorizerFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupTripFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupLegRailFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupLegAirFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LookupFieldHandlers\LookupLegFieldHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ReportLookups.cs" />
+    <Compile Include="ReportPrograms\UserDefined\NoneCombineDetailReportHandler.cs" />
+    <Compile Include="Shared\AdvancedClause\AdvancedWhere.cs" />
+    <Compile Include="Shared\AdvancedClause\ClauseParser.cs" />
+    <Compile Include="Shared\AdvancedClause\EntityFieldsLookup.cs" />
+    <Compile Include="Shared\AdvancedClause\AdvancedParameterAppender.cs" />
+    <Compile Include="Shared\AdvancedClause\FieldPrefixer.cs" />
+    <Compile Include="Shared\AdvancedClause\MissingFieldParamsHandler.cs" />
+    <Compile Include="Shared\AdvancedClause\WhereClauseWithAdvanceParamsHandler.cs" />
+    <Compile Include="Shared\Client\LookupReason.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\AirlineLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\AirMileageLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\AirportLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\CarLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\ChainsLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\ColumnCaptionsLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\CountriesLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\CurrencyCountriesLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\DomesticInternationalLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\EquipmentsLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\HomeCountriesLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\MasterAgencySourcesLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\MetrosLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\OperatorsLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\RailroadAndAirportComboLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\RailroadOperatorsLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\RailroadStationLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\ReportTypesLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\RoomTypeLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\StateNamesLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\TripChangeInformationLookup.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\WorldRegionsLookup.cs" />
+    <Compile Include="Shared\MacroHelpers\ExcelProcessChecker.cs" />
+    <Compile Include="Shared\MacroHelpers\ExcelFunctions.cs" />
+    <Compile Include="Shared\XMLReport\CriteriaBuilder.cs" />
+    <Compile Include="Shared\XMLReport\DateTimeFormater.cs" />
+    <Compile Include="Shared\XMLReport\ElementBuilder.cs" />
+    <Compile Include="Shared\XMLReport\Elements\AirElement.cs" />
+    <Compile Include="Shared\XMLReport\Elements\CarElement.cs" />
+    <Compile Include="Shared\XMLReport\Elements\HotelElement.cs" />
+    <Compile Include="Shared\XMLReport\Elements\RailElement.cs" />
+    <Compile Include="Shared\XMLReport\Elements\TravelerElement.cs" />
+    <Compile Include="Shared\XMLReport\Elements\TravelerNameElement.cs" />
+    <Compile Include="Shared\XMLReport\TravelerInfoBuilder.cs" />
+    <Compile Include="Shared\XMLReport\ValueConverter.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportMarketSegElementBuilder.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportAirElementBuilder.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportHelper.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportRailElementBuilder.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportRentDetailsElementBuilder.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportServiceFeeElementBuilder.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportStayDetailsElementBuilder.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportStoredFareElementBuilder.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportUdidElementBuilder.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportValueLooksup.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportConstants.cs" />
+    <Compile Include="Utilities\ExportHelpers\CsvConverterHandler.cs" />
+    <Compile Include="Utilities\ExportHelpers\ExceptionRules.cs" />
+    <Compile Include="Utilities\ExportHelpers\ListToXlsxHandler.cs" />
+    <Compile Include="Utilities\ExportHelpers\StringListToCsvHandler.cs" />
+    <Compile Include="Utilities\ExportHelpers\StringListToXlsxHandler.cs" />
+    <Compile Include="Utilities\ImageSizer.cs" />
+    <Compile Include="Utilities\UdidLoader.cs" />
+    <Compile Include="ReportPrograms\CarrierConcentration\CarrierCalculatedValues.cs" />
+    <Compile Include="ReportPrograms\CarrierConcentration\CarrierConcentration.cs" />
+    <Compile Include="ReportPrograms\CarrierConcentration\CarrierConcentrationCalculations.cs" />
+    <Compile Include="ReportPrograms\CarrierConcentration\CarrierConcentrationDataProcessor.cs" />
+    <Compile Include="ReportPrograms\CarrierConcentration\CarrierConcentrationExtensions.cs" />
+    <Compile Include="ReportPrograms\CarrierConcentration\CarrierConcentrationSqlCreator.cs" />
+    <Compile Include="ReportPrograms\CarTopBottomAccounts\CarTopBottomAccountRawDataCalculator.cs" />
+    <Compile Include="ReportPrograms\CarTopBottomAccounts\CarTopBottomAccountFinalDataCalculator.cs" />
+    <Compile Include="ReportPrograms\CarTopBottomAccounts\CarTopBottomAccountsData.cs" />
+    <Compile Include="ReportPrograms\CarTopBottomAccounts\CarTopBottomAccountsHelper.cs" />
+    <Compile Include="ReportPrograms\CarTopBottomAccounts\CarTopBottomAccountsSqlCreator.cs" />
+    <Compile Include="ReportPrograms\CCRecon\CcReconCalculations.cs" />
+    <Compile Include="ReportPrograms\CCRecon\CcReconDataProcessor.cs" />
+    <Compile Include="ReportPrograms\CCRecon\CcReconDataRetriever.cs" />
+    <Compile Include="ReportPrograms\CCRecon\CcReconSqlCreator.cs" />
+    <Compile Include="ReportPrograms\ClassOfService\ClassofSvc.cs" />
+    <Compile Include="ReportPrograms\ClassOfService\ClassofSvcCalculations.cs" />
+    <Compile Include="ReportPrograms\ClassOfService\ClassOfSvcDataProcessor.cs" />
+    <Compile Include="ReportPrograms\ClassOfService\ClassOfSvcSqlCreator.cs" />
+    <Compile Include="ReportPrograms\CO2AirSummary\CO2AirSum.cs" />
+    <Compile Include="ReportPrograms\CO2AirSummary\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\CO2AirSummary\SubReportBuilderAir.cs" />
+    <Compile Include="ReportPrograms\CO2CombinedSummary\CO2ExecSum.cs" />
+    <Compile Include="ReportPrograms\CO2CombinedSummary\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\CO2CombinedSummary\SubReportBuilder.cs" />
+    <Compile Include="ReportPrograms\ConcurrentSegmentsBooked\Overlap.cs" />
+    <Compile Include="ReportPrograms\ConcurrentSegmentsBooked\OverlapSqlCreator.cs" />
+    <Compile Include="ReportPrograms\CreditCardDetail\CreditCardDetail.cs" />
+    <Compile Include="ReportPrograms\CreditCardDetail\CreditCardDetailHelpers.cs" />
+    <Compile Include="ReportPrograms\CreditCardDetail\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\Departures\Depart.cs" />
+    <Compile Include="ReportPrograms\Departures\DepartCalculations.cs" />
+    <Compile Include="ReportPrograms\Departures\DepartDataProcessor.cs" />
+    <Compile Include="ReportPrograms\Departures\DepartRawDataSqlCreator.cs" />
+    <Compile Include="ReportPrograms\DocumentDeliveryLog\TravAuthStatusLogHelpers.cs" />
+    <Compile Include="ReportPrograms\DocumentDeliveryLog\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\DocumentDeliveryLog\TravAuthStatusLog.cs" />
+    <Compile Include="ReportPrograms\EventLog\EventLog.cs" />
+    <Compile Include="ReportPrograms\EventLog\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\ExceptAir\ExceptAirCalculations.cs" />
+    <Compile Include="ReportPrograms\ExceptAir\ExceptAirDataProcessor.cs" />
+    <Compile Include="ReportPrograms\ExceptAir\ExceptAirSqlCreator.cs" />
+    <Compile Include="ReportPrograms\ExceptCar\ExceptCar.cs" />
+    <Compile Include="ReportPrograms\ExceptCar\ExceptCarCalculations.cs" />
+    <Compile Include="ReportPrograms\ExceptCar\ExceptCarProcessor.cs" />
+    <Compile Include="ReportPrograms\ExceptCar\ExceptCarSqlCreator.cs" />
+    <Compile Include="ReportPrograms\ExceptHotel\ExceptHotel.cs" />
+    <Compile Include="ReportPrograms\AirFareSavings\AirFareSavings.cs" />
+    <Compile Include="ReportPrograms\ExceptHotel\ExceptHotelCalculations.cs" />
+    <Compile Include="ReportPrograms\ExceptHotel\ExceptHotelProcessor.cs" />
+    <Compile Include="ReportPrograms\ExceptHotel\ExceptHotelSqlCreator.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryByHomeCountry\ExecutiveSummaryByHomeCountryCalculations.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryByHomeCountry\ExecutiveSummaryByHomeCountryDataProcessor.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryByHomeCountry\ExecutiveSummaryByHomeCountrySqlCreator.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryByHomeCountry\ExecutiveSummaryHomeCountry.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummarywithGraphs\Qview4.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummarywithGraphs\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummarywithGraphs\SubReportBuilder.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummarywithGraphs\Translations.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\AirSummaryBuilder.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\CarSummaryBuilder.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\ExecSummaryWhereClauseTransformer.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\ExecSummaryYrToYrDateCalculator.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\ExecutiveSummaryYearToYearCalculations.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\ExecutiveSummaryYearToYearSqlCreator.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\HotelSummaryBuilder.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\ExecutiveSummaryYearToYear.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\ReportSummaryBuilder.cs" />
+    <Compile Include="ReportPrograms\ExecutiveSummaryYearToYear\RowBuilder.cs" />
+    <Compile Include="ReportPrograms\CarFareSavings\CarSavings.cs" />
+    <Compile Include="ReportPrograms\HotelAccountTopBottom\HotelAccountsTopBottomSqlCreator.cs" />
+    <Compile Include="ReportPrograms\HotelAccountTopBottom\HotelAccountTopBottomData.cs" />
+    <Compile Include="ReportPrograms\HotelAccountTopBottom\HotelAccountTopBottomFinalDataCalculator.cs" />
+    <Compile Include="ReportPrograms\HotelAccountTopBottom\HotelAccountTopBottomRawDataCalculator.cs" />
+    <Compile Include="ReportPrograms\HotelActivity\HotelActivityCalculator.cs" />
+    <Compile Include="ReportPrograms\HotelActivity\HotelActivityData.cs" />
+    <Compile Include="ReportPrograms\HotelActivity\HotelActivitySqlCreator.cs" />
+    <Compile Include="ReportPrograms\HotelFareSavings\HotelSavings.cs" />
+    <Compile Include="ReportPrograms\HotelAccountTopBottom\HotelAccountTopBottom.cs" />
+    <Compile Include="ReportPrograms\HotelActivity\HotelActivity.cs" />
+    <Compile Include="ReportPrograms\HotelFareSavings\HotelSavingsFinalData.cs" />
+    <Compile Include="ReportPrograms\HotelFareSavings\HotelSavingsHelper.cs" />
+    <Compile Include="ReportPrograms\HotelFareSavings\HotelSavingsSummaryData.cs" />
+    <Compile Include="ReportPrograms\HotelFareSavings\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\HotelTopBottomTravelers\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\HotelTopBottomTravelers\TopTravHotelHelpers.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceDataRetriever.cs" />
+    <Compile Include="ReportPrograms\Invoice\Invoice.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceFinalCarData.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceFinalDataCalc.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceFinalHotelData.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceFinalLegData.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceFinalSvcFeeData.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceFinalTaxesData.cs" />
+    <Compile Include="ReportPrograms\Invoice\InvoiceSqlProcessor.cs" />
+    <Compile Include="ReportPrograms\Market\Market.cs" />
+    <Compile Include="ReportPrograms\Arrival\Arrival.cs" />
+    <Compile Include="ReportPrograms\AdvanceBookAir\AdvanceBook.cs" />
+    <Compile Include="ReportPrograms\CCRecon\CCRecon.cs" />
+    <Compile Include="ReportPrograms\Market\MarketSqlCreator.cs" />
+    <Compile Include="ReportPrograms\Market\MarketCalculations.cs" />
+    <Compile Include="ReportPrograms\Market\MarketDataProcessor.cs" />
+    <Compile Include="ReportPrograms\MissedHotelOpportunities\MissedHotel.cs" />
+    <Compile Include="ReportPrograms\MissedHotelOpportunities\MissedHotelCalculations.cs" />
+    <Compile Include="ReportPrograms\MissedHotelOpportunities\MissedHotelDataProcessor.cs" />
+    <Compile Include="ReportPrograms\MissedHotelOpportunities\MissedHotelSqlCreator.cs" />
+    <Compile Include="ReportPrograms\NegotiatedSavings\NegoSave.cs" />
+    <Compile Include="ReportPrograms\PassengersOnPlane\PaxOnPlaneCalculations.cs" />
+    <Compile Include="ReportPrograms\PassengersOnPlane\PaxOnPlaneDataProcessor.cs" />
+    <Compile Include="ReportPrograms\PassengersOnPlane\PaxOnPlaneSqlCreator.cs" />
+    <Compile Include="ReportPrograms\PTARequestActivity\PtaLookups.cs" />
+    <Compile Include="ReportPrograms\PTARequestActivity\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\PTARequestActivity\TravAuthStatusDet.cs" />
+    <Compile Include="ReportPrograms\PTARequestActivity\TravAuthStatusDetHelpers.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\RowBuilder.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\TravAuthDetail.cs" />
+    <Compile Include="ReportPrograms\PTATravelersDetail\TravAuthDetailHelpers.cs" />
+    <Compile Include="ReportPrograms\PublishedSavings\PubSave.cs" />
+    <Compile Include="ReportPrograms\PublishedSavings\SqlCreator.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\Calculations\CarDataCalculations.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\Calculations\HotelCalculations.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\Calculations\QuickSummaryMonthCalculations.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\DataTypes.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\FinalDataProcessor.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\Calculations\AirDataCalculations.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\QView1.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\Factories\RawDataFactory.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\Factories\SqlScriptFactory.cs" />
+    <Compile Include="ReportPrograms\QuickSummaryByMonth\Calculations\ReportDataCalculations.cs" />
+    <Compile Include="ReportPrograms\QuickSummary\Qview2.cs" />
+    <Compile Include="ReportPrograms\QuickSummary\RowBuilder.cs" />
+    <Compile Include="ReportPrograms\QuickSummary\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\QuickSummary\Translations.cs" />
+    <Compile Include="ReportPrograms\RailActivity\RailActivity.cs" />
+    <Compile Include="ReportPrograms\RailActivity\RailActivityData.cs" />
+    <Compile Include="ReportPrograms\RailActivity\RailActivitySqlCreator.cs" />
+    <Compile Include="ReportPrograms\RailTopBottomCityPair\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\RailTopBottomCityPair\TopCityPairRailHelpers.cs" />
+    <Compile Include="ReportPrograms\ReportLog\LookupProcess.cs" />
+    <Compile Include="ReportPrograms\ReportLog\ReportLog.cs" />
+    <Compile Include="ReportPrograms\ReportLog\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\ReportRunner.cs" />
+    <Compile Include="ReportPrograms\AirActivity\CustAct2.cs" />
+    <Compile Include="ReportPrograms\ExceptAir\ExceptAir.cs" />
+    <Compile Include="ReportPrograms\ReportRunnerErrorHandling.cs" />
+    <Compile Include="ReportPrograms\SameCity\SameCity.cs" />
+    <Compile Include="ReportPrograms\SameCity\SameCityCalculations.cs" />
+    <Compile Include="ReportPrograms\SameCity\SameCityDataProcessor.cs" />
+    <Compile Include="ReportPrograms\SameCity\SameCitySqlCreator.cs" />
+    <Compile Include="ReportPrograms\SavedReportList\SavedReportList.cs" />
+    <Compile Include="ReportPrograms\ServiceFeeDetailByTransaction\SvcFeeDetTran.cs" />
+    <Compile Include="ReportPrograms\CarTopBottomAccounts\CarTopBottomAccounts.cs" />
+    <Compile Include="ReportPrograms\RailTopBottomCityPair\TopCityPairRail.cs" />
+    <Compile Include="ReportPrograms\ServiceFeeDetailByTrip\SvcFeeDetailByTripCalculations.cs" />
+    <Compile Include="ReportPrograms\ServiceFeeDetailByTrip\SvcFeeDetailByTripDataProcessor.cs" />
+    <Compile Include="ReportPrograms\ServiceFeeDetailByTrip\SvcFeeDetailTripSqlCreator.cs" />
+    <Compile Include="ReportPrograms\SvcFeeSumTran\SvcFeeSumTranCalculations.cs" />
+    <Compile Include="ReportPrograms\SvcFeeSumTran\SvcFeeSumTranDataProcessor.cs" />
+    <Compile Include="ReportPrograms\SvcFeeSumTran\SvcFeeSumTranSqlCreator.cs" />
+    <Compile Include="ReportPrograms\TopAccountAir\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TopAccountAir\TopAccountAir.cs" />
+    <Compile Include="ReportPrograms\TopAccountAir\TopAccountAirDataProcessor.cs" />
+    <Compile Include="ReportPrograms\TopAccountAir\TopAccountAirHelpers.cs" />
+    <Compile Include="ReportPrograms\TopBottomCars\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TopBottomCars\TopBottomCarsFinalData.cs" />
+    <Compile Include="ReportPrograms\TopBottomCars\TopBottomCarsRawData.cs" />
+    <Compile Include="ReportPrograms\TopBottomCars\TopCarHelpers.cs" />
+    <Compile Include="ReportPrograms\TopBottomCars\TopCars.cs" />
+    <Compile Include="ReportPrograms\TopBottomCityPair\DataTypes.cs" />
+    <Compile Include="ReportPrograms\TopBottomCityPair\DataHelper.cs" />
+    <Compile Include="ReportPrograms\TopBottomCityPair\FinalDataProducer.cs" />
+    <Compile Include="ReportPrograms\TopBottomCityPair\SemiDataProducer.cs" />
+    <Compile Include="ReportPrograms\TopBottomCityPair\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TopBottomCityPair\TopCityPair.cs" />
+    <Compile Include="ReportPrograms\TopBottomCityPair\TopCityPairHelper.cs" />
+    <Compile Include="ReportPrograms\TopBottomCostCenter\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TopBottomCostCenter\TopBottomCostCenter.cs" />
+    <Compile Include="ReportPrograms\TopBottomCostCenter\TopBottomCostCenterData.cs" />
+    <Compile Include="ReportPrograms\TopBottomCostCenter\TopBottomCostCenterHelpers.cs" />
+    <Compile Include="ReportPrograms\TopBottomDestinations\FinalDataCalculator.cs" />
+    <Compile Include="ReportPrograms\TopBottomDestinations\RawDataSqlCreator.cs" />
+    <Compile Include="ReportPrograms\TopBottomDestinations\TopBottomDestinations.cs" />
+    <Compile Include="ReportPrograms\PublishedSavings\TopBottomDestinationsData.cs" />
+    <Compile Include="ReportPrograms\TopBottomExceptionReason\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TopBottomExceptionReason\TopBottomExceptionReasonData.cs" />
+    <Compile Include="ReportPrograms\TopBottomExceptionReason\TopBottomExceptionReasonFinalData.cs" />
+    <Compile Include="ReportPrograms\TopBottomExceptionReason\TopExceptionHelpers.cs" />
+    <Compile Include="ReportPrograms\TopBottomExceptionReason\TopExceptions.cs" />
+    <Compile Include="ReportPrograms\TopBottomHotels\ExcelGenerator.cs" />
+    <Compile Include="ReportPrograms\TopBottomHotels\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TopBottomHotels\TopBottomHotelFinalGroupData.cs" />
+    <Compile Include="ReportPrograms\TopBottomHotels\TopBottomHotelGraph.cs" />
+    <Compile Include="ReportPrograms\TopBottomHotels\TopBottomHotelRawGroupData.cs" />
+    <Compile Include="ReportPrograms\TopBottomHotels\TopHotelHelpers.cs" />
+    <Compile Include="ReportPrograms\TopBottomHotels\TopHotels.cs" />
+    <Compile Include="ReportPrograms\TopBottomTravelerAir\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TopBottomTravelerAir\TopTravAir.cs" />
+    <Compile Include="ReportPrograms\TopBottomTravelerAir\TopTravAirDataProcessor.cs" />
+    <Compile Include="ReportPrograms\TopBottomTravelerAir\TopTravAirHelpers.cs" />
+    <Compile Include="ReportPrograms\TopBottomTravelerCar\CarTopBottomTravelerData.cs" />
+    <Compile Include="ReportPrograms\TopBottomTravelerCar\CarTopBottomTravelerFinalDataCalculator.cs" />
+    <Compile Include="ReportPrograms\TopBottomTravelerCar\CarTopBottomTravelerRawDataCalculator.cs" />
+    <Compile Include="ReportPrograms\TopBottomTravelerCar\TopBottomTravelerCarSqlCreator.cs" />
+    <Compile Include="ReportPrograms\TopBottomTravelerCar\TopTravCar.cs" />
+    <Compile Include="ReportPrograms\HotelTopBottomTravelers\TopTravHotel.cs" />
+    <Compile Include="ReportPrograms\TopBottomUdids\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TopBottomUdids\TopBottomUdids.cs" />
+    <Compile Include="ReportPrograms\TopBottomUdids\TopBottomUdidsHelper.cs" />
+    <Compile Include="ReportPrograms\TopBottomValidatingCarriers\DataTypes.cs" />
+    <Compile Include="ReportPrograms\TopBottomValidatingCarriers\DataHelper.cs" />
+    <Compile Include="ReportPrograms\TopBottomValidatingCarriers\FinalDataHelper.cs" />
+    <Compile Include="ReportPrograms\TopBottomValidatingCarriers\GraphDataHelper.cs" />
+    <Compile Include="ReportPrograms\TopBottomValidatingCarriers\RawDataHelper.cs" />
+    <Compile Include="ReportPrograms\TopBottomValidatingCarriers\SubReportDataHelper.cs" />
+    <Compile Include="ReportPrograms\TopBottomValidatingCarriers\TopBottomValidatingCarriers.cs" />
+    <Compile Include="ReportPrograms\TopTravelersAudited\TravAuthTopOOP.cs" />
+    <Compile Include="ReportPrograms\TopTravelersAudited\TravAuthTopOopHelpers.cs" />
+    <Compile Include="ReportPrograms\TransactionSummary\TransactionSummaryData.cs" />
+    <Compile Include="ReportPrograms\TransactionSummary\TransactionSummaryFinalDataCalculator.cs" />
+    <Compile Include="ReportPrograms\TransactionSummary\TransactionSummarySqlCreator.cs" />
+    <Compile Include="ReportPrograms\TopTravelersAudited\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TravAuthKpi\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TravAuthKpi\TravAuthKpiHelpers.cs" />
+    <Compile Include="ReportPrograms\TravelAuditReasonsbyMonth\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\TravelAuditReasonsbyMonth\TravAuthOopMonth.cs" />
+    <Compile Include="ReportPrograms\TravelAuditReasonsbyMonth\TravAuthOopMonthHelpers.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAll\TopTravAllRawDataCalculator.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAll\TopTravAll.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAll\TopTravAllCarbonCalc.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAll\TopTravAllData.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAll\TopTravAllExceptiions.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAll\TopTravAllFinalDataCalculator.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TopTravAll\TopTravAllFinalGroupData.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TravDet1.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TravDet2.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TravDetShared.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TravDetSharedSqlCreator.cs" />
+    <Compile Include="ReportPrograms\TravelDetail\TravelAtAGlance.cs" />
+    <Compile Include="ReportPrograms\TravelerByCountry\TravByCountry.cs" />
+    <Compile Include="ReportPrograms\TravelerByCountry\TravByCountryCalculations.cs" />
+    <Compile Include="ReportPrograms\TravelerByCountry\TravByCountryDataProcessor.cs" />
+    <Compile Include="ReportPrograms\TravelerByCountry\TravByCountrySqlCreator.cs" />
+    <Compile Include="ReportPrograms\TravelManagementSummary\DataLoader.cs" />
+    <Compile Include="ReportPrograms\TravelManagementSummary\DataSqlScripts\AirSqlScript.cs" />
+    <Compile Include="ReportPrograms\TravelManagementSummary\DataSqlScripts\CarSqlScript.cs" />
+    <Compile Include="ReportPrograms\TravelManagementSummary\DataSqlScripts\HotelSqlScript.cs" />
+    <Compile Include="ReportPrograms\TravelManagementSummary\DataSqlScripts\LegSqlScript.cs" />
+    <Compile Include="ReportPrograms\TravelManagementSummary\DataSqlScripts\ServiceFeeSqlScript.cs" />
+    <Compile Include="ReportPrograms\TravelManagementSummary\TravelManagementSummary.cs" />
+    <Compile Include="ReportPrograms\TripChanges\SharedClasses\TripChangesCalculations.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesMeetAndGreet\MeetGreet.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesSendOff\SendOff.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesSendOff\SendOffCalculations.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesAir\TripChange.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesSendOff\SendOffDataProcessor.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesSendOff\SendOffSqlCreator.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesSendOff\UdidInformationRetriever.cs" />
+    <Compile Include="ReportPrograms\TripChanges\TripChangesTypeSummary\TripChngSum.cs" />
+    <Compile Include="ReportPrograms\TripDuration\TripDurationCalculations.cs" />
+    <Compile Include="ReportPrograms\TripDuration\TripDurationSqlCreator.cs" />
+    <Compile Include="ReportPrograms\UpcomingPlans\UpcomingCalculations.cs" />
+    <Compile Include="ReportPrograms\UpcomingPlans\UpcomingPlans.cs" />
+    <Compile Include="ReportPrograms\UpcomingPlans\UpcomingPlansData.cs" />
+    <Compile Include="ReportPrograms\UpcomingPlans\UpcomingSqlCreator.cs" />
+    <Compile Include="ReportPrograms\UserDefinedLayout\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\UserDefinedLayout\UserDefinedLayout.cs" />
+    <Compile Include="ReportPrograms\UserDefined\ColumnConstructor.cs" />
+    <Compile Include="ReportPrograms\UserDefined\CustomColumnMapper.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\CarDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\UserDefined\EnforceHeader.cs" />
+    <Compile Include="ReportPrograms\UserDefined\HeaderConstructor.cs" />
+    <Compile Include="ReportPrograms\UserDefined\LookupColumnTableConductor.cs" />
+    <Compile Include="ReportPrograms\UserDefined\LookupHelpers.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ColorManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\DataManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\LocateTravelerManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\ReportRowHelper.cs" />
+    <Compile Include="ReportPrograms\UserDefined\RowVoidHandler.cs" />
+    <Compile Include="ReportPrograms\UserDefined\RowCounter.cs" />
+    <Compile Include="ReportPrograms\UserDefined\TripParameterFilter.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserDefinedColumnBuilder.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserDefinedRowBuilder.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserReportUpdater.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\DataSqlScripts\CarDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\DataSqlScripts\HotelDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\DataSqlScripts\LegDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\DataSqlScripts\MktSegDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\DataSqlScripts\SvcFeeDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\DataSqlScripts\TripDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\DataSqlScripts\UdidDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\DataSwitches.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\Managers\DataManager.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\Managers\XmlDataStructure.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\XmlExport.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\XmlExtractHelpers.cs" />
+    <Compile Include="Shared\AdvancedClause\AdvancedClauseBuilder.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\AbstractWhere.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\BuildWhereUtilities.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\CarWhere.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\ChangesWhere.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\DateWhere.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\HotelWhere.cs" />
+    <Compile Include="Shared\CarbonCalculations\CarbonCalculator.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\CarbonLookup.cs" />
+    <Compile Include="Shared\CarbonCalculations\CarbonValue.cs" />
+    <Compile Include="Shared\CollapserHelper.cs" />
+    <Compile Include="Shared\DateComparer.cs" />
+    <Compile Include="Shared\DecimalComparer.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\RoundTripCalculator.cs" />
+    <Compile Include="Shared\MetricImperialConverter.cs" />
+    <Compile Include="Shared\MultiUdid\MultiUdidOperatorRetrieval.cs" />
+    <Compile Include="Shared\WhereRoute\Helpers\BidirectionalDisplayNameFactory.cs" />
+    <Compile Include="Shared\WhereRoute\RouteFilters\AirlineRouting.cs" />
+    <Compile Include="Shared\WhereRoute\RouteFilters\BidirectionalRouting.cs" />
+    <Compile Include="Shared\WhereRoute\Helpers\DestinationDisplayNameFactory.cs" />
+    <Compile Include="Shared\WhereRoute\Helpers\NotInDecider.cs" />
+    <Compile Include="Shared\WhereRoute\Helpers\OriginDisplayNameFactory.cs" />
+    <Compile Include="Shared\WhereRoute\Helpers\RoutingCriteria.cs" />
+    <Compile Include="Shared\WhereRoute\BothOriginAndDestCriteria.cs" />
+    <Compile Include="Shared\WhereRoute\Helpers\Combiner.cs" />
+    <Compile Include="Shared\WhereRoute\RouteFilters\DateRangeRouting.cs" />
+    <Compile Include="Shared\WhereRoute\RouteFilters\DestinationRouting.cs" />
+    <Compile Include="Shared\WhereRoute\Helpers\FirstOriginDestinationTextBuilder.cs" />
+    <Compile Include="Shared\WhereRoute\RouteFilters\FlightTypeFilter.cs" />
+    <Compile Include="Shared\WhereRoute\RouteFilters\IRouting.cs" />
+    <Compile Include="Shared\WhereRoute\OnlyOriginOrDestinationCriteria.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\RoutingCriteriaUtility.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\TripWhere.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\UdidWhere.cs" />
+    <Compile Include="Shared\MasterFunctions.cs" />
+    <Compile Include="Shared\CustomReportEffects.cs" />
+    <Compile Include="Shared\LookupFunctionHelpers\CarbonSql.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\UserSecurityBuilder.cs" />
+    <Compile Include="Shared\ModeHelper.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\TwoValuesCompareManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\HotelDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\LegDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\ChangeLogManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\UserDefinedLookupManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\MarketSegmentSqlScript.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\MiscDataSqlScript.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\MiscSegSharedSqlScript.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\RoutingWhereTextManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\ServiceFeeSqlScript.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\SwitchManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\TravelAuthorizersSqlScript.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\TravelAuthSqlScript.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\UserReportSortManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserDefined.cs" />
+    <Compile Include="ReportPrograms\UserDefined\Managers\UserDefinedReportCarbonManager.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserDefinedConditional.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserReportColumnInformation.cs" />
+    <Compile Include="ReportPrograms\UserDefined\DataSqlScripts\UserReportTripSqlBuilder.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserReportCheckLists.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserReportDefinitionRetriever.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserReportInformation.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserReportValidator.cs" />
+    <Compile Include="ReportPrograms\UserList\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\UserList\UserList.cs" />
+    <Compile Include="ReportPrograms\ValidatingCarrier\AgcyValCarr.cs" />
+    <Compile Include="ReportPrograms\ValidatingCarrier\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\WeeklyTravelerActivity\UdidCalculator.cs" />
+    <Compile Include="ReportPrograms\WeeklyTravelerActivity\WeeklyTravelerActivityData.cs" />
+    <Compile Include="ReportPrograms\WeeklyTravelerActivity\WeeklyTravelerActivityFinalDataCalculator.cs" />
+    <Compile Include="ReportPrograms\WeeklyTravelerActivity\WeeklyTravelerActivitySqlCreator.cs" />
+    <Compile Include="ReportPrograms\WeeklyTravelerActivity\WTAAirportRailAndLocationData.cs" />
+    <Compile Include="ReportPrograms\WeeklyTravelerActivity\WTAHotelData.cs" />
+    <Compile Include="ReportPrograms\WtsFareSavings\FinalDataComparer.cs" />
+    <Compile Include="ReportPrograms\WtsFareSavings\FinalDataProcessor.cs" />
+    <Compile Include="ReportPrograms\WtsFareSavings\SqlBuilder.cs" />
+    <Compile Include="ReportPrograms\WtsFareSavings\WtsFareSavings.cs" />
+    <Compile Include="ReportPrograms\WtsFareSavings\WtsFareSavingsHelper.cs" />
+    <Compile Include="ReportPrograms\XmlExtract\XmlExtract.cs" />
+    <Compile Include="ReportPrograms\TripDuration\TripDuration.cs" />
+    <Compile Include="ReportPrograms\ServiceFeeDetailByTrip\SvcFeeDetTrip.cs" />
+    <Compile Include="ReportPrograms\SvcFeeSumTran\SvcFeeSumTran.cs" />
+    <Compile Include="ReportPrograms\WeeklyTravelerActivity\WeeklyTravelerActivity.cs" />
+    <Compile Include="ReportPrograms\TravAuthKpi\TravAuthKPI.cs" />
+    <Compile Include="ReportPrograms\PassengersOnPlane\PaxOnPlane.cs" />
+    <Compile Include="ReportPrograms\SavedRptList.cs" />
+    <Compile Include="ReportPrograms\TransactionSummary\TransactionSummary.cs" />
+    <Compile Include="Classes\Interfaces\IReportRunner.cs" />
+    <Compile Include="ReportPrograms\ReportSwitch.cs" />
+    <Compile Include="Shared\AdvancedClause\AdvancedClauseProcessor.cs" />
+    <Compile Include="Shared\AdvancedCriteriaHandler.cs" />
+    <Compile Include="Shared\AdvancedClause\AdvancedParameterFixer.cs" />
+    <Compile Include="Shared\AirMileage.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\BuildWhere.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\WhereClauseBuilder.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\WhereTextBuilder.cs" />
+    <Compile Include="Shared\BuildWhereHelpers\ParamsBuilder.cs" />
+    <Compile Include="Shared\Collapser.cs" />
+    <Compile Include="Shared\CollapserMapper.cs" />
+    <Compile Include="Shared\NumericComparer.cs" />
+    <Compile Include="Shared\CrystalFunctions.cs" />
+    <Compile Include="Shared\FareByMileage.cs" />
+    <Compile Include="Shared\Client\ClientFunctions.cs" />
+    <Compile Include="Shared\LookupFunctions.cs" />
+    <Compile Include="Shared\MultiUdid\MultiUdidConditionals.cs" />
+    <Compile Include="Shared\MultiUdid\MultiUdidCriteria.cs" />
+    <Compile Include="Shared\MultiUdid\UdidParameter.cs" />
+    <Compile Include="Shared\PickListParms.cs" />
+    <Compile Include="Shared\MacroHelpers\PowerMacroHandling.cs" />
+    <Compile Include="Shared\SqlProcessor.cs" />
+    <Compile Include="Shared\ReportHelper.cs" />
+    <Compile Include="Shared\WhereRoute\RouteFilters\OriginRouting.cs" />
+    <Compile Include="Shared\WhereRoute\Helpers\RoutingCriteriaFactory.cs" />
+    <Compile Include="Shared\WhereRoute\RoutingProcessor.cs" />
+    <Compile Include="Shared\WhereRoute\WhereRouteApplier.cs" />
+    <Compile Include="Shared\WhereRoute\Helpers\WhereRouteData.cs" />
+    <Compile Include="Shared\WhereRoute\WhereRouteTextBuilder.cs" />
+    <Compile Include="Shared\ZeroOut.cs" />
+    <Compile Include="Shared\XMLReport\XMLReportBuilder.cs" />
+    <Compile Include="Utilities\ClientData\ClientDataRetrieval.cs" />
+    <Compile Include="Utilities\ClientData\DataRetriever.cs" />
+    <Compile Include="Utilities\ClientData\SharedDataSourceRetriever.cs" />
+    <Compile Include="Utilities\ClientData\TripUdidRetriever.cs" />
+    <Compile Include="Utilities\ClientData\UdidFilter.cs" />
+    <Compile Include="Utilities\CurrencyConversion\ConversionRateCalculator.cs" />
+    <Compile Include="Utilities\CurrencyConversion\ConversionRateRetriever.cs" />
+    <Compile Include="Utilities\CurrencyConversion\CurrencyConversionSettings.cs" />
+    <Compile Include="Utilities\CurrencyConversion\CurrencyConverter.cs" />
+    <Compile Include="Utilities\CurrencyConversion\ExchangePropertyHolder.cs" />
+    <Compile Include="Utilities\CurrencyConversion\CurrencyPropertyRetriever.cs" />
+    <Compile Include="Utilities\eFFECTS\FileOutputTransformer.cs" />
+    <Compile Include="Utilities\DateConverter.cs" />
+    <Compile Include="Utilities\EFExceptionHelper.cs" />
+    <Compile Include="Utilities\eFFECTS\EffectsOutputHandler.cs" />
+    <Compile Include="Utilities\eFFECTS\EProfileFileMaskHandler.cs" />
+    <Compile Include="Utilities\eFFECTS\FileHandler.cs" />
+    <Compile Include="Utilities\eFFECTS\TimeStrings.cs" />
+    <Compile Include="Utilities\eFFECTS\XmlReport.cs" />
+    <Compile Include="Utilities\eFFECTS\XmlReportHandler.cs" />
+    <Compile Include="Utilities\EncodingWrapper.cs" />
+    <Compile Include="Utilities\ExportHelper.cs" />
+    <Compile Include="Utilities\FlightSegmentFilter.cs" />
+    <Compile Include="Utilities\FontHandler.cs" />
+    <Compile Include="Utilities\GlobalsCalculator.cs" />
+    <Compile Include="Utilities\Helpers.cs" />
+    <Compile Include="Utilities\MathHelper.cs" />
+    <Compile Include="Utilities\ReportChecker.cs" />
+    <Compile Include="Utilities\ReportRunConditionals.cs" />
+    <Compile Include="Utilities\ReportRunnerFactory.cs" />
+    <Compile Include="Utilities\ReportSetup\ReportStatusHandler.cs" />
+    <Compile Include="Utilities\SpeedLookup.cs" />
+    <Compile Include="Utilities\SqlTransformer.cs" />
+    <Compile Include="ReportPrograms\UserDefined\UserDefinedReportLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CISLogger\CISLogger.csproj">
+      <Project>{11333bca-8cf5-4be2-ad2c-ae5e23f679a3}</Project>
+      <Name>CISLogger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{a1189aca-c062-41eb-a985-22b735e830b7}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBank.Server.Utilities\iBank.Server.Utilities.csproj">
+      <Project>{60903167-EAD8-4741-9031-51673DB68F11}</Project>
+      <Name>iBank.Server.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.Api\Repository.Api.csproj">
+      <Project>{e8f255d4-6981-4e2a-89e4-a1313a161523}</Project>
+      <Name>Repository.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserDefinedReports\UserDefinedReports.csproj">
+      <Project>{dea0990d-67b5-4924-b9e6-7f59735d9c90}</Project>
+      <Name>UserDefinedReports</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CrystalReports\execSumGraphsRail_MK.rpt" />
+    <None Include="CrystalReports\execSumGraphs_MK.rpt" />
+    <None Include="CrystalReports\ibbcdetails.rpt" />
+    <None Include="CrystalReports\ibbcstatus.rpt" />
+    <None Include="CrystalReports\ibCarAdvRes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCarAdvRes.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibCarCity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCarCity.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibCarrierConc.rpt" />
+    <None Include="CrystalReports\ibCarrierConc2.rpt" />
+    <None Include="CrystalReports\ibCarrierConc2A.rpt" />
+    <None Include="CrystalReports\ibCarrierConcA.rpt" />
+    <None Include="CrystalReports\ibCarSavings2.rpt" />
+    <None Include="CrystalReports\ibCarSavingSum.rpt" />
+    <None Include="CrystalReports\ibCarVendor.rpt" />
+    <None Include="CrystalReports\ibEventLog.rpt" />
+    <None Include="CrystalReports\ibHomeCtrySum.rpt" />
+    <None Include="CrystalReports\ibHotelSavings.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibHotelSavings1.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibHotelSavings2.rpt" />
+    <None Include="CrystalReports\ibHotelSavingSum.rpt" />
+    <None Include="CrystalReports\ibInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibInvoice.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibPubSave.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibPubSave.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibQview2a.rpt" />
+    <None Include="CrystalReports\ibQview2b.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibQview2b.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibQview3A.rpt" />
+    <None Include="CrystalReports\ibRptLog1.rpt" />
+    <None Include="CrystalReports\ibRptLog2.rpt" />
+    <None Include="CrystalReports\ibtopAcctAir2.rpt" />
+    <None Include="CrystalReports\ibTopCar2.rpt" />
+    <None Include="CrystalReports\ibTopCar3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCar3.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibTopCityPairRail2.rpt" />
+    <None Include="CrystalReports\ibTopCityPairRail2A.rpt" />
+    <None Include="CrystalReports\ibTopCityPairRailA.rpt" />
+    <None Include="CrystalReports\ibTopHotel2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopHotel2.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibTopHotel3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopHotel3.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibTopHotel4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopHotel4.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibTopUdids.rpt" />
+    <None Include="CrystalReports\ibTravAuthDetailSub.rpt" />
+    <None Include="CrystalReports\ibTravAuthKPINotNOTIFY.rpt" />
+    <None Include="CrystalReports\ibTravAuthStatusLog.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravAuthStatusLog.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibTravelMgmt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravelMgmt.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReports\ibUserList.rpt" />
+    <None Include="CrystalReports\uc_ibInvoice.rpt" />
+    <None Include="CrystalReports\wtsFareSave.rpt" />
+    <None Include="CrystalReports\wtsFareSave2.rpt" />
+    <None Include="CrystalReports\wtsFareSaveSum.rpt" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CrystalReports\execSumGraphs.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>execSumGraphs.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\execSumGraphsRail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>execSumGraphsRail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAcctSum1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAcctSum1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAcctSum1A.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAcctSum1A.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAcctSum2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAcctSum2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAdvanceBook.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAdvanceBook.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAdvanceBook2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAdvanceBook2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAdvBookSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAdvBookSum.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAdvBookSum2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAdvBookSum2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAgcyValCarr.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAgcyValCarr.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAgentAirActivity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAgentAirActivity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAgentProd1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAgentProd1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAgentProd2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAgentProd2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAgentSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAgentSummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibAirUdid.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibAirUdid.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibArrival.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibArrival.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibArrival3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibArrival31.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCarActivity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCarActivity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCarSavings.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCarSavings.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCCDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCCDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCCRecon.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCCRecon3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCCRecon2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCCRecon21.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCCRecon2A.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCCRecon2A.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCCReconA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCCReconA.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibClassofSvc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibClassofSvc.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibClassofSvc2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibClassofSvc2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibClassofSvc3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibClassofSvc3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibClassofSvcDIT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibClassofSvcDIT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibClassofSvcDIT2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibClassofSvcDIT2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibClassofSvcDIT3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibClassofSvcDIT3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCO2AirSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCO2AirSum1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCstDataDict.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCstDataDict.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCustAct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCustAct.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCustAct2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCustAct2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCustAct2Carb1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCustAct2Carb1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCustAct2Carb2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCustAct2Carb2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCustActCarb1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCustActCarb1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibCustActCarb2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibCustActCarb2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibDepart.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibDepart.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibDepart3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibDepart3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibExceptAir.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibExceptAir.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibExceptCar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibExceptCar.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibExceptHotel.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibExceptHotel.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibFareSave4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibFareSave4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibFareSave3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibFareSave3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibFareSave2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibFareSave2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibFareSave.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibFareSave.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibFareSaveSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibFareSaveSum.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibgraph1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibgraph1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibGraph2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibGraph2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibHotelActivity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibHotelActivity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibHotelAdvRes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibHotelAdvRes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibHotelCity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibHotelCity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibHotelVendor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibHotelVendor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibMarket1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibMarket1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibMarket1a.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibMarket1a.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibMarket2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibMarket2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibMarket2a.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibMarket2a.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibMarket3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibMarket3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibMarket3a.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibMarket3a.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibMeetGreet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibMeetGreet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibMeetGreet2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibMeetGreet2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibMissedHotel.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibMissedHotel.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibNegoSave.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibNegoSave.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibOverlap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibpaxOnPlane.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibpaxOnPlane.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibpaxOnPlane2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibpaxOnPlane2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibQview1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibQview1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibQview1a.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibQview1a.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibPubSaveSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibPubSaveSum.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibQview2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibQview2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibQview3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibQview3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibRailActivity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibRailActivity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibRailActivity2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibRailActivity2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibSameCity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibSameCity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibSavedRptList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibSavedRptList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibSendOff.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibSendOff.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibSendOff2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibSendOff2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibSvcFeeDetTran.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibSvcFeeDetTran.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibSvcFeeDetTrip.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibSvcFeeDetTrip.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibSvcFeeSumTran.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibSvcFeeSumTran.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibtopAcctAir.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibtopAcctAir.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopAcctcar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopAcctcar.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopAcctHotel.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopAcctHotel.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCar4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCar4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCar5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCar5.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCars.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCars.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCityPair.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCityPair.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCityPair2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCityPair2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCityPair2A.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCityPair2A.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCityPairA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCityPairA.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCityPairACarb.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCityPairACarb.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCityPairCarb.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCityPairCarb.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCityPairOnlineAdopt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCityPairOnlineAdopt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCityPairOnlineAdoptA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCityPairOnlineAdoptA.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCityPairRail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCityPairRail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopCostCtr.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopCostCtr.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopDests1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopDests1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopDests2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopDests2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopExceptions.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopExceptions.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopHotels.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopHotels.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopSegCarr.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopSegCarr.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopTravAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopTravAll2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopTravAll2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopTravAllByUdid.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopTravAllByUdid.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopTravAllCarb.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopTravAllCarb1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopTravAllCarb2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopTravAllCarb2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopTravCar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopTravCar.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopTravs.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopTravs1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopTravs2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopTravs2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopValCarr1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopValCarr1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopValCarr1B.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopValCarr1B.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopValCarr1C.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopValCarr1C.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopValCarr2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopValCarr2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopValCarr2B.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopValCarr2B.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTopValCarr2C.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTopValCarr2C.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTransactSum1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTransactSum1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTransactSum2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTransactSum2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTravAuthDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravAuthDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTravAuthKPI.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravAuthKPI.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTravAuthOOPMonth.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravAuthOOPMonth.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTravAuthStatusDet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravAuthStatusDet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTravAuthTopOOP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTravByCountry.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravByCountry.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTravDet1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravDet1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTravDet2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravDet2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTravelGlance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTravelGlance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTripChange.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTripChange.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTripChngSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTripChngSum.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibTripDuration.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibTripDuration.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibUpcoming.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibUpcoming.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibWeeklyActivity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibWeeklyActivity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibWeeklyActivity2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibWeeklyActivity2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibWeeklyActivity2A.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibWeeklyActivity2A.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\ibWeeklyActivityA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ibWeeklyActivityA.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibadvancebook.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibAdvBookSub.rpt.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibankdatasource.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibarrival.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibarrival3.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibccrecon.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibclassofsvc.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibClassofSvcSubRpt.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibcustact.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibcustact2.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibdepart.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibdepart3.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibdeparture.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibfaresave.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibFareSaveSub.rpt.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibhotelactivity.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibtopacctcar.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibtopaccthotel.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibtopcitypair.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibtopdests1.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibtopsegcarr.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibtoptravallbyudid.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibtoptravall.xml" />
+    <Content Include="CrystalReports\XmlDataSourceFiles\ibtoptravcar.xml" />
+    <Content Include="Images\ibanklogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,50 @@
+﻿@model Domain.Models.ViewModels.LoadLogViewModel
+@*@using Domain.Models.Helper*@
+@using Domain.Test
+
+<h2>Load Log Search</h2>
+
+<div class="form-group">
+    <div class="editor-label">
+        <label for="Affiliation" class="col-md-2 control-label input-lg">
+            Load Type
+            <em style="color: #a20000" title="Affiliation">*</em>
+        </label>
+    </div>
+
+    <div class="col-md-10">
+        @Html.DropDownList("LoadTypeSelected", new SelectList(WebTestDataModel.LoadTypeList, "Value", "Text"), new { @class = "form-control input-lg" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="editor-label">
+        <label for="Affiliation" class="col-md-2 control-label input-lg">
+            Publication Type
+            <em style="color: #a20000" title="Affiliation">*</em>
+        </label>
+    </div>
+
+    <div class="col-md-10">
+        @Html.DropDownList("PeriodSelected", new SelectList(WebTestDataModel.PeriodList, "Value", "Text"), new { @class = "form-control input-lg" })
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="editor-label">
+        <label for="FirstName" class="col-md-2 control-label input-lg">
+            Date
+            <em style="color: #a20000" title="First Name">*</em>
+        </label>
+    </div>
+
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.DateSelected, new { @class = "form-control input-lg", placeholder = "10/21/2017" })
+        @Html.ValidationMessageFor(m => m.DateSelected, "", new { @class = "text-danger", aria_required = true, role = "alert", aria_atomic = "true", aria_describedby = "date selected" })
+    </div>
+</div>
+
+<br />
+<button class="btn btn-lg btn-primary col-sm-12">Search</button>
+<hr />
+<br />

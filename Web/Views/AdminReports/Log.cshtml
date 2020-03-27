@@ -1,0 +1,102 @@
+﻿@model PagedList.IPagedList<Domain.Models.ViewModels.LoadLogViewModelDisplayData>
+@using PagedList.Mvc
+@using Domain.Test
+@using PagedList;
+@using Domain.Constants
+
+@{
+    ViewBag.Title = "Administreation";
+}
+
+<br />
+<div class="text-center text-info">
+    <h2>Load Log</h2>
+</div>
+<br />
+
+@using (Html.BeginForm("Log", "AdminReports", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-4">
+            <strong>From Date:</strong> @Html.TextBox("FromLoadDateSelected", ViewBag.FromLoadDateSelected as string, new { @class = "form-control", placeholder = new DateTime(1900, 1, 1).ToShortDateString() })
+            <strong>To Date:</strong> @Html.TextBox("ToLoadDateSelected", ViewBag.ToLoadDateSelected as string, new { @class = "form-control", placeholder = @DateTime.Today.ToShortDateString() })
+        </div>
+        <div class="col-md-4">
+            <strong>Load Type:</strong> @Html.DropDownList("LoadTypeSelected", new SelectList(WebTestDataModel.LoadTypeList, "Value", "Text", ViewBag.LoadTypeSelected as string), new { @class = "form-control" })
+            <strong>GDS/BO:</strong> @Html.DropDownList("GdsBo", new SelectList(WebTestDataModel.GdsBoList, "Value", "Text", ViewBag.GdsBo as string), new { @class = "form-control" })
+        </div>
+        <div class="col-md-4">
+            <strong>Data Source:</strong> @Html.DropDownList("DataSource", new SelectList(WebTestDataModel.DataSourceList, "Value", "Text", ViewBag.DataSource as string), new { @class = "form-control" })
+            <br/>
+            <button class="btn btn-lg btn-primary col-md-10">Apply Filter</button>
+        </div>
+    </div>
+    @*<p>
+        <br />
+        <button class="btn btn-lg btn-primary col-md-12">Apply Filter</button>
+        <br /><br />
+    </p>*@
+
+}
+<br/> <hr/><br/>
+<table class="table table-responsive table-bordered table-striped">
+    <thead style="background-color:gray; color: white;">
+        <tr>
+            <th>
+                Load Date
+            </th>
+            <th>
+                Load Type
+            </th>
+            <th>
+                Event
+            </th>
+            <th>
+                GDS/BO
+            </th>
+            <th>
+                Data Source
+            </th>
+            <th>
+                # Trips
+            </th>
+            <th>
+                Date
+            </th>
+        </tr>
+    </thead>
+        @foreach (var log in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(u => log.loaddate)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.loadtype)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.loadmsg)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.gds_bo)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.sourceabbr)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.triprecs)
+                </td>
+                <td>
+                    @Html.Raw(log.startdate.ToShortDateString() + " - " + log.enddate.ToShortDateString())
+                </td>
+            </tr>
+        }
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Log", new { page, LoadTypeSelected = ViewBag.LoadTypeSelected, FromLoadDateSelected = ViewBag.FromLoadDateSelected, ToLoadDateSelected = ViewBag.ToLoadDateSelected, GdsBo = ViewBag.GdsBo, DataSource = ViewBag.DataSource }), new PagedListRenderOptions { DisplayEllipsesWhenNotShowingAllPageNumbers = true, MaximumPageNumbersToDisplay = Size.MAXIMUM_PAGE_NUMBERS_TO_DISPLAY, LinkToFirstPageFormat = "<< First", LinkToPreviousPageFormat = "< Previous", LinkToNextPageFormat = "Next >", LinkToLastPageFormat = "Last >>" })
+
+@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Log", new { page = page, LoadTypeSelected = ViewBag.LoadTypeSelected, FromLoadDateSelected = ViewBag.FromLoadDateSelected, ToLoadDateSelected = ViewBag.ToLoadDateSelected, GdsBo = ViewBag.GdsBo, DataSource = ViewBag.DataSource }), new PagedListRenderOptions { DisplayEllipsesWhenNotShowingAllPageNumbers = true, FunctionToDisplayEachPageNumber = page => ((page - 1) * Model.PageSize + 1).ToString() + "-" + (((page - 1) * Model.PageSize) + Model.PageSize).ToString(), MaximumPageNumbersToDisplay = Size.MAXIMUM_PAGE_NUMBERS_TO_DISPLAY, LinkToFirstPageFormat = "<< First", LinkToPreviousPageFormat = "< Previous", LinkToNextPageFormat = "Next >", LinkToLastPageFormat = "Last >>" })*@
+

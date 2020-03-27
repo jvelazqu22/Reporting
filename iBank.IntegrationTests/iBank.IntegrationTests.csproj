@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C4A48E1-FB7C-4DF2-9170-CE2F8B0C96D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iBank.IntegrationTests</RootNamespace>
+    <AssemblyName>iBank.IntegrationTests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iBank.Entities, Version=2.0.1.17, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.2.0.1.6\lib\iBank.Entities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iBank.Repository.SQL, Version=2.0.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.2.0.1.6\lib\iBank.Repository.SQL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iBankDomain, Version=2.0.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.2.0.1.6\lib\iBankDomain.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\AcctSum2Tests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\AcctSumTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\AdvanceBookTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\AgentAirActivityTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\AgentProductivityAirTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\AgentSummaryTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\AirActivityUdidTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\ArrivalTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\CarActivityTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\Co2AirSumTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\Co2ExecSumTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\HotelFareSavingsTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\CarFareSavingsTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\CarrierConcentrationTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\CCReconTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\ClassofSvcTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\CustAct2Tests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\DepartTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\ExceptAirTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\ExceptCarTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\ExceptHotelTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\ExecutiveSummaryHomeCountryTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\ExecutiveSummaryWithGraphsTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\InvoiceTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\MarketShareTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\MeetGreetTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\MissedHotelOpportunitiesTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\NegoSaveTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\OverlapTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\PaxOnPlaneTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\PtaRequestActivityTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\PubSaveTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\QuickSummaryTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\RailActivityTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\ReportLogTesting.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\SameCityTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\SendOffTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\SvcFeeDetTranTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\SvcFeeDetTripTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\SvcFeeSumTranTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopAccountAirTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopBottomCostCenterTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopBottomDestinationTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopBottomUdidTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopCarTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopExceptionTravelerTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopExceptionReasonTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopHotelTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopTravAirTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopTravHotelTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TransactSumTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TravByCountryTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TravDet1Tests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TravelAtAGlanceTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TravelManagementTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TravDet2Tests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TripChangeTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TripChngSumTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TripDurationTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\UpcomingTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\UserDefinedTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\TopCityPairRailTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\UserListTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\ValidatingCarrierTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\WeeklyActivityTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\WtsFareSaveTests.cs" />
+    <Compile Include="iBank.Services.Implementation\ReportPrograms\XmlExtractTests.cs" />
+    <Compile Include="iBank.Services.Implementation\Shared\PowerMacroHandlingTests.cs" />
+    <Compile Include="iBank.Services.Implementation\Shared\PowerMacroIntegrationTests.cs" />
+    <Compile Include="iBank.Services.Implementation\Utilities\FileHandlerTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestTools\BaseUnitTest.cs" />
+    <Compile Include="TestTools\DatabaseGeneration\GenerateTestingDatabase.cs" />
+    <Compile Include="TestTools\DatabaseGeneration\iBankDemoGenerator.cs" />
+    <Compile Include="TestTools\DatabaseGeneration\iBankMastersGenerator.cs" />
+    <Compile Include="TestTools\IntegrationTestBase.cs" />
+    <Compile Include="TestTools\ReportHandoffInformation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="iBank.BroadcastServer\" />
+    <Folder Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankdemo\data_generation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="iBank.Services.Implementation\Shared\PowerMacroExternalFiles\PowerMacroControlInput.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="iBank.Services.Implementation\Shared\PowerMacroExternalFiles\PowerMacroControlOutput.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{a1189aca-c062-41eb-a985-22b735e830b7}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBank.BroadcastServer\iBank.BroadcastServer.csproj">
+      <Project>{DFB45277-6957-49A4-A351-183560AE7373}</Project>
+      <Name>iBank.BroadcastServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBank.Server.Utilities\iBank.Server.Utilities.csproj">
+      <Project>{60903167-ead8-4741-9031-51673db68f11}</Project>
+      <Name>iBank.Server.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBank.Services.Implementation\iBank.Services.Implementation.csproj">
+      <Project>{123a9ef3-72ad-4489-a3c0-9b61bb746990}</Project>
+      <Name>iBank.Services.Implementation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankdemo\ibankdemo_database.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankdemo\ibankdemo_schema.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.airlines.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.airports.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.bcstAllowMultiples.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.bcstque4.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.bcstrptinstance.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.CarbonCalculators.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.cartypes.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.chainClass.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.chainParents.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.chains.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ClientExtras.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ClientImages.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ClientImageXData.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.collist.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.collist2.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.Collist2Captions.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.Countries.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.curconversion.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.curcountry.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.eProfiles.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.iBankDatabases.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.iBankServers.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ibFuncLangTags.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ibproccrit.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ibproces.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ibProcVerbiage.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ibRptLog.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ibRunningRpts.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.ibwhcrit.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.intlparm.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.JunctionAgcyCorp.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.Languages.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.LanguageTags.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.LanguageTranslations.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.metro.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.miscparams.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.mstragcy.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.mstrAgcySourceExtras.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.MstrAgcySources.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.MstrCorpAccts.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.roomtype.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.RROperators.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.RRStationMappings.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.RRStations.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.TimeZones.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.transtrack.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.TripChangeCodes.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.userTranslations.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.WorldRegions.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.xmlrpt2.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\data_generation\dbo.xmlrpts.Table.sql" />
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\ibankmasters_database.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestTools\DatabaseGeneration\DatabaseGenerationScripts\ibankmasters\ibankmasters_schema.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

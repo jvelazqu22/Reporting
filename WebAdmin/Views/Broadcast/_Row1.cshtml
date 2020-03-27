@@ -1,0 +1,59 @@
+﻿@model Domain.Models.WebModels.BroadcastDiagnostics.DiagnosticsParams
+
+<div class="card-group">
+    <div class="card @Model.BroadcastDiagnosticsRow1.GetTotalNumberOfBrodcastInTheQueueTextColor() bg-@Model.BroadcastDiagnosticsRow1.GetTotalNumberOfBrodcastInTheQueueTileColor() mb-3" style="max-width: 20rem;">
+        <div class="card-header"><span class="badge badge-light">1</span> Total Records: @Model.BroadcastDiagnosticsRow1.TotalNumberOfBrodcastInTheQueue</div>
+        <div class="card-body">
+            <h4 class="card-title">bcstque4 Table</h4>
+            <p class="card-text">
+                Total number of broadcast records in the queue
+            </p>
+        </div>
+        <div class="card-footer">
+            <small>Records should be greater than zero in prod</small>
+        </div>
+    </div>
+
+    <div>&nbsp;</div>
+    <div class="card @Model.BroadcastDiagnosticsRow1.GetNumberOfPendingBrodcastInTheQueueTextColor() bg-@Model.BroadcastDiagnosticsRow1.GetNumberOfPendingBrodcastInTheQueueTileColor() mb-3" style="max-width: 20rem;">
+        <div class="card-header"><span class="badge badge-light">2</span> Total Records: @Model.BroadcastDiagnosticsRow1.NumberOfPendingBrodcastInTheQueue</div>
+        <div class="card-body">
+            <h4 class="card-title">bcstque4 Table</h4>
+            <p class="card-text">
+                Total number of broadcast records in the queue in pending status
+            </p>
+        </div>
+        <div class="card-footer">
+            <small>Records should be greater than zero in prod</small>
+        </div>
+    </div>
+
+    <div>&nbsp;</div>
+    <div class="card @Model.BroadcastDiagnosticsRow1.GetNumberOfRunningBrodcastInTheQueueTextColor() bg-@Model.BroadcastDiagnosticsRow1.GetNumberOfRunningBrodcastInTheQueueTileColor() mb-3" style="max-width: 20rem;">
+        <div class="card-header"><span class="badge badge-light">3</span> Total Records: @Model.BroadcastDiagnosticsRow1.NumberOfRunningBrodcastInTheQueue</div>
+        <div class="card-body">
+            <h4 class="card-title">bcstque4 Table</h4>
+            <p class="card-text">
+                Total number of broadcast records in the queue in running status
+            </p>
+        </div>
+        <div class="card-footer">
+            <small>Records should be greater than zero in prod</small>
+        </div>
+    </div>
+
+    <div>&nbsp;</div>
+    <div class="card @Model.BroadcastDiagnosticsRow1.GetNumberOfServerPrimary20RunningBrodcastInTheQueueTextColor() bg-@Model.BroadcastDiagnosticsRow1.GetNumberOfServerPrimary20RunningBrodcastInTheQueueTileColor() mb-3" style="max-width: 20rem;">
+        <div class="card-header"><span class="badge badge-light">4</span> Total Records: @Model.BroadcastDiagnosticsRow1.NumberOfServerPrimary20RunningBrodcastInTheQueue</div>
+        <div class="card-body">
+            <h4 class="card-title">bcstque4 Table</h4>
+            <p class="card-text">
+                Total number of broadcast records in the queue in running status by server number: 20
+            </p>
+        </div>
+        <div class="card-footer">
+            <small>Records could be zero at times</small>
+        </div>
+    </div>
+
+</div>

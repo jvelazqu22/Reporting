@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+ <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="ibClassofSvcSubRpt">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ClassCode" type="xs:string" minOccurs="0" />
+<xs:element name="Segcost" type="xs:decimal" minOccurs="0" />
+<xs:element name="Segs" type="xs:int" minOccurs="0" />
+<xs:element name="Domsegs" type="xs:decimal" minOccurs="0" />
+<xs:element name="Domsegcost" type="xs:decimal" minOccurs="0" />
+<xs:element name="Trnsegs" type="xs:decimal" minOccurs="0" />
+<xs:element name="Trnsegcost" type="xs:decimal" minOccurs="0" />
+<xs:element name="Intsegs" type="xs:decimal" minOccurs="0" />
+<xs:element name="Intsegcost" type="xs:decimal" minOccurs="0" />
+<xs:element name="Totsegcost" type="xs:decimal" minOccurs="0" />
+<xs:element name="Totsegs" type="xs:decimal" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</NewDataSet>

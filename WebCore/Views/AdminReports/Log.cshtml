@@ -1,0 +1,68 @@
+﻿@model PagedList.IPagedList<Domain.ViewModels.LoadLogViewModel>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Administreation";
+}
+
+<br />
+<div class="text-center text-info">
+    <h2>Load Logs Report</h2>
+</div>
+<br />
+
+<table class="table table-responsive table-bordered table-striped">
+    <thead style="background-color:gray; color: white;">
+        <tr>
+            <th>
+                Load Date
+            </th>
+            <th>
+                Load Type
+            </th>
+            <th>
+                Event
+            </th>
+            <th>
+                GDS/BO
+            </th>
+            <th>
+                Data Source
+            </th>
+            <th>
+                # Trips
+            </th>
+            <th>
+                Date
+            </th>
+        </tr>
+    </thead>
+        @foreach (var log in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(u => log.loaddate)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.loadtype)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.loadmsg)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.gds_bo)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.sourceabbr)
+                </td>
+                <td>
+                    @Html.DisplayFor(u => log.triprecs)
+                </td>
+                <td>
+                    @Html.Raw(log.startdate.ToShortDateString() + " - " + log.enddate.ToShortDateString())
+                </td>
+            </tr>
+        }
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Log", new { page }))

@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1189ACA-C062-41EB-A985-22B735E830B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Production\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Keystone\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Production\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Keystone\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iBank.Entities, Version=3.7.18.79, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBank.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="iBank.Repository.SQL, Version=19.6.19.100, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBank.Repository.SQL.dll</HintPath>
+    </Reference>
+    <Reference Include="iBankDomain, Version=3.1.1.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBankDomain.dll</HintPath>
+    </Reference>
+    <Reference Include="NodaTime, Version=2.2.4.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NodaTime.2.2.4\lib\net45\NodaTime.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants\Broadcasts.cs" />
+    <Compile Include="Constants\QlikApiStatus.cs" />
+    <Compile Include="Constants\CalendarRange.cs" />
+    <Compile Include="Constants\CarbonCalculationKeys.cs" />
+    <Compile Include="Constants\EmailPlaceholders.cs" />
+    <Compile Include="Constants\Enums.cs" />
+    <Compile Include="Constants\Configurations.cs" />
+    <Compile Include="Constants\FieldList.cs" />
+    <Compile Include="Constants\General.cs" />
+    <Compile Include="Constants\BroadcastLoggingMessage.cs" />
+    <Compile Include="Constants\LookupConstants.cs" />
+    <Compile Include="Constants\DbViews.cs" />
+    <Compile Include="Constants\SqlErrorCode.cs" />
+    <Compile Include="Constants\ReportFilters.cs" />
+    <Compile Include="Constants\ReportNames.cs" />
+    <Compile Include="Exceptions\BuildWhereException.cs" />
+    <Compile Include="Exceptions\CarbonRateNotFound.cs" />
+    <Compile Include="Exceptions\CurrencyConversionException.cs" />
+    <Compile Include="Exceptions\InvalidDatabaseConfigurationException.cs" />
+    <Compile Include="Exceptions\DatabaseNotFoundException.cs" />
+    <Compile Include="Exceptions\ExportPropertiesException.cs" />
+    <Compile Include="Exceptions\FeatureFlagDoesNotExistException.cs" />
+    <Compile Include="Exceptions\HaulNotFoundException.cs" />
+    <Compile Include="Exceptions\ImageNotFoundException.cs" />
+    <Compile Include="Exceptions\InvalidAgencyCodeException.cs" />
+    <Compile Include="Exceptions\MissingFieldParamsHandlerException.cs" />
+    <Compile Include="Exceptions\MissingUserDefinedColumnsException.cs" />
+    <Compile Include="Exceptions\NotTimeToRunBroadcastException.cs" />
+    <Compile Include="Exceptions\PushTimedOutReportOfflineException.cs" />
+    <Compile Include="Exceptions\ReportAbandonedException.cs" />
+    <Compile Include="Exceptions\ReportNotFoundException.cs" />
+    <Compile Include="Exceptions\ReportNotSupportedException.cs" />
+    <Compile Include="Exceptions\ReportOutputLocationException.cs" />
+    <Compile Include="Exceptions\SendEmailException.cs" />
+    <Compile Include="Exceptions\ServerAddressNotFoundException.cs" />
+    <Compile Include="Exceptions\TimeBucketException.cs" />
+    <Compile Include="Exceptions\ColumnComparisonException.cs" />
+    <Compile Include="Exceptions\UnknownWildcardException.cs" />
+    <Compile Include="Exceptions\UserDefinedColumnNotFoundException.cs" />
+    <Compile Include="Exceptions\UserDoesNotExistException.cs" />
+    <Compile Include="Extensions\BroadcastTypeExtensions.cs" />
+    <Compile Include="Extensions\DataCopy.cs" />
+    <Compile Include="Extensions\MstragcyExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Extensions\IQueryableExtensions.cs" />
+    <Compile Include="Extensions\TransactionScopeBuilder.cs" />
+    <Compile Include="FeatureToggle.cs" />
+    <Compile Include="Helper\AdvancedParameter.cs" />
+    <Compile Include="Helper\AdvancedParameters.cs" />
+    <Compile Include="Helper\AdvancedParameterSpecialCases.cs" />
+    <Compile Include="Helper\AgencyDotNetSettings.cs" />
+    <Compile Include="Helper\Attributes.cs" />
+    <Compile Include="Helper\AvancedParameterQueryTableRef.cs" />
+    <Compile Include="Helper\BroadcastCriteria.cs" />
+    <Compile Include="Helper\BroadcastReportInformation.cs" />
+    <Compile Include="Constants\BroadcastTimingConstants.cs" />
+    <Compile Include="Helper\CacheKeys.cs" />
+    <Compile Include="Helper\Constants.cs" />
+    <Compile Include="Helper\ConversionRates.cs" />
+    <Compile Include="Helper\CorpAccountDataSource.cs" />
+    <Compile Include="Helper\DatabaseAddress.cs" />
+    <Compile Include="Helper\DataSource.cs" />
+    <Compile Include="Helper\EffectsOutputInformation.cs" />
+    <Compile Include="Helper\EmailInformation.cs" />
+    <Compile Include="Helper\Enums.cs" />
+    <Compile Include="Helper\ErrorInformation.cs" />
+    <Compile Include="Helper\Exportable.cs" />
+    <Compile Include="Helper\IAirMileage.cs" />
+    <Compile Include="Helper\ImageInformation.cs" />
+    <Compile Include="Helper\DateRangeHelper.cs" />
+    <Compile Include="Helper\LongRunningThresholdsHelper.cs" />
+    <Compile Include="Helper\OverdueMonitor\HighAlertAgencyBroadcasts.cs" />
+    <Compile Include="Helper\ProcessCaptionInformation.cs" />
+    <Compile Include="Helper\ReportCriteria.cs" />
+    <Compile Include="Helper\ReportLocation.cs" />
+    <Compile Include="Helper\ReportMessages.cs" />
+    <Compile Include="Helper\CustomTimer.cs" />
+    <Compile Include="Helper\ReturnMessageInformation.cs" />
+    <Compile Include="Helper\TicketInfo.cs" />
+    <Compile Include="Helper\Timer.cs" />
+    <Compile Include="Helper\UdidRecord.cs" />
+    <Compile Include="Interfaces\IEmailer.cs" />
+    <Compile Include="Interfaces\IMileage.cs" />
+    <Compile Include="Interfaces\IXmlSqlScript.cs" />
+    <Compile Include="Interfaces\IXmlTravelerInfo.cs" />
+    <Compile Include="Interfaces\IXmlTripData.cs" />
+    <Compile Include="Interfaces\Repository.Api\IQlikRepository.cs" />
+    <Compile Include="Models\BroadcastServer\ReportPeriodDateRange.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IBatchManager.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IBatchReportRetriever.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IBatchRunner.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IBroadcastQueueRecordRemover.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IBroadcastRecordRetriever.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IBroadcastRecordUpdatesManager.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IBroadcastReportProcessor.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IBroadcastScheduleConditionals.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IEmailSection.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IRecordTimingDetails.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IUserBroadcastSettings.cs" />
+    <Compile Include="Interfaces\BroadcastServer\IUserManager.cs" />
+    <Compile Include="Interfaces\ICarbonCalculations.cs" />
+    <Compile Include="Interfaces\ICollapsible.cs" />
+    <Compile Include="Interfaces\IFareByMileage.cs" />
+    <Compile Include="Interfaces\IFlightSegment.cs" />
+    <Compile Include="Interfaces\IRecKey.cs" />
+    <Compile Include="Interfaces\IRouteItineraryInformation.cs" />
+    <Compile Include="Interfaces\IRouteWhere.cs" />
+    <Compile Include="Interfaces\IUdidData.cs" />
+    <Compile Include="Interfaces\IUserDefinedSqlScript.cs" />
+    <Compile Include="Interfaces\Query\IDatabaseInfoQuery.cs" />
+    <Compile Include="Models\BroadcastServer\BroadcastServerInformation.cs" />
+    <Compile Include="Models\BroadcastServer\Parameters.cs" />
+    <Compile Include="Models\OnlineReportServer\Parameters.cs" />
+    <Compile Include="Models\ReportPrograms\AccountSummary12MonthTrend\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AccountSummary12MonthTrend\GroupedRecord.cs" />
+    <Compile Include="Models\ReportPrograms\AccountSummary12MonthTrend\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\AccountSummary\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AccountSummary\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\AdvanceBookAir\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AdvanceBookAir\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\AdvanceBookAir\SubReportData.cs" />
+    <Compile Include="Models\ReportPrograms\AdvanceBookAir\TimeBucket.cs" />
+    <Compile Include="Models\ReportPrograms\AgentAirActivity\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AgentAirActivity\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\AgentAirActivity\SvcFeeData.cs" />
+    <Compile Include="Models\ReportPrograms\AgentProductivity\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AgentProductivity\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\AgentSummary\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AgentSummary\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\AirActivityByUdidReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AirActivityByUdidReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\AirActivityReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AirActivityReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\AirActivityReport\ServiceFeeInformation.cs" />
+    <Compile Include="Models\ReportPrograms\AirFareSavingsReport\NegotiatedSavingsModel.cs" />
+    <Compile Include="Models\ReportPrograms\AirFareSavingsReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AirFareSavingsReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\AirFareSavingsReport\SubReportData.cs" />
+    <Compile Include="Models\ReportPrograms\AirFareSavingsReport\SummaryDataInformation.cs" />
+    <Compile Include="Models\ReportPrograms\AirFareSavingsReport\UdidData.cs" />
+    <Compile Include="Models\ReportPrograms\AirTopBottomSegment\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\AirTopBottomSegment\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\BroadcastDetails\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\BroadcastDetails\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\BroadcastStatus\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\BroadcastStatus\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ArrivalReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ArrivalReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\CarActivityReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\CarActivityReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\CarFareSavings\SubReportData.cs" />
+    <Compile Include="Models\ReportPrograms\CarFareSavings\UdidData.cs" />
+    <Compile Include="Models\ReportPrograms\CarrierConcentrationReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\CarrierConcentrationReport\IntermediaryData.cs" />
+    <Compile Include="Models\ReportPrograms\CarrierConcentrationReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\CCReconReport\BreakRecord.cs" />
+    <Compile Include="Models\ReportPrograms\CCReconReport\BreakText.cs" />
+    <Compile Include="Models\ReportPrograms\CCReconReport\CcData.cs" />
+    <Compile Include="Models\ReportPrograms\CCReconReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\CCReconReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\CCReconReport\ServiceFee.cs" />
+    <Compile Include="Models\ReportPrograms\CCReconReport\Udid.cs" />
+    <Compile Include="Models\ReportPrograms\ClassOfServiceReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ClassOfServiceReport\GroupedData.cs" />
+    <Compile Include="Models\ReportPrograms\ClassOfServiceReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ClassOfServiceReport\SubReportFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\AccountBarData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\ServiceClassData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\TopCarrierData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\TopGroupData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\IBarGraph.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\AirGraphData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\AirSumData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\CarGraphData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\CarSumData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\CityPairData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\HotelGraphData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\HotelSumData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\TopCarData.cs" />
+    <Compile Include="Models\ReportPrograms\CO2CombinedSummaryReport\TopHotelData.cs" />
+    <Compile Include="Models\ReportPrograms\ConcurrentSegmentsBookedReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ConcurrentSegmentsBookedReport\GroupedRecsByRecKeyWhereSegsIsLessThanThree.cs" />
+    <Compile Include="Models\ReportPrograms\ConcurrentSegmentsBookedReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ConcurrentSegmentsBookedReport\RecsFromRawDataListWhereSegsIsLessThanThree.cs" />
+    <Compile Include="Models\ReportPrograms\ConcurrentSegmentsBookedReport\TempData.cs" />
+    <Compile Include="Models\ReportPrograms\CreditCardDetail\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\CreditCardDetail\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\DeparturesReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\DeparturesReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\DocumentDeliveryLog\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\DocumentDeliveryLog\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\EventLog\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\EventLog\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExceptAirReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ExceptAirReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExceptCarReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ExceptCarReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExceptHotelReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ExceptHotelReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryByHomeCountryReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryByHomeCountryReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryByHomeCountryReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryByHomeCountryReport\LegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryByHomeCountryReport\AirRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryByHomeCountryReport\SvcFeeRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\BarData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\FeeRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\PieData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\AirSumData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\CarSumData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\CityPairRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\HotSumData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\RailSumData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\TopCarData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\TopCityData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummarywithGraphsReport\TopHotData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryYearToYearReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryYearToYearReport\FeeRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryYearToYearReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryYearToYearReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryYearToYearReport\LegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\ExecutiveSummaryYearToYearReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\CarFareSavings\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\CarFareSavings\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\Graphs\Graph1FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\HotelAccountTopBottom\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\HotelAccountTopBottom\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\HotelActivity\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\HotelActivity\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\HotelFareSavings\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\HotelFareSavings\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\HotelFareSavings\SubReportData.cs" />
+    <Compile Include="Models\ReportPrograms\InvoiceReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\InvoiceReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\InvoiceReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\InvoiceReport\KeysAndLocators.cs" />
+    <Compile Include="Models\ReportPrograms\InvoiceReport\LegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\InvoiceReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\InvoiceReport\SubReportData.cs" />
+    <Compile Include="Models\ReportPrograms\InvoiceReport\SvcFeeRawData.cs" />
+    <Compile Include="Models\ReportPrograms\InvoiceReport\UdidRawData.cs" />
+    <Compile Include="Models\ReportPrograms\MarketReport\Carrier.cs" />
+    <Compile Include="Models\ReportPrograms\MarketReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\MarketReport\GroupedData.cs" />
+    <Compile Include="Models\ReportPrograms\MarketReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\MarketReport\TotalSegsAndFares.cs" />
+    <Compile Include="Models\ReportPrograms\MissedHotelOpportunitiesReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\MissedHotelOpportunitiesReport\GraphData.cs" />
+    <Compile Include="Models\ReportPrograms\MissedHotelOpportunitiesReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\NegotiatedSavings\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\NegotiatedSavings\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\PassengersOnPlaneReport\GroupedData.cs" />
+    <Compile Include="Models\ReportPrograms\PassengersOnPlaneReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\PassengersOnPlaneReport\GantData.cs" />
+    <Compile Include="Models\ReportPrograms\PassengersOnPlaneReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\PTARequestActivityReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\PTARequestActivityReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\PTATravelersDetailReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\PTATravelersDetailReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\PTATravelersDetailReport\GroupedTripAuthData.cs" />
+    <Compile Include="Models\ReportPrograms\PTATravelersDetailReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\PTATravelersDetailReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\PTATravelersDetailReport\SummaryFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\PTATravelersDetailReport\SummaryTempData.cs" />
+    <Compile Include="Models\ReportPrograms\PTATravelersDetailReport\TripAuthorizerRawData.cs" />
+    <Compile Include="Models\ReportPrograms\PublishedSavings\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\PublishedSavings\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\PublishedSavings\SubReportData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryByMonthReport\AirFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryByMonthReport\CarFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryByMonthReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryByMonthReport\GraphFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryByMonthReport\HotelFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryByMonthReport\ReportFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryByMonthReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryByMonthReport\AirRawData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\QuickSummaryReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\RailActivityReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\RailActivityReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\RailActivityReport\ServiceFeeInformation.cs" />
+    <Compile Include="Models\ReportPrograms\ReportLog\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ReportLog\ProcessData.cs" />
+    <Compile Include="Models\ReportPrograms\ReportLog\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ReportLog\ReportLogCriteria.cs" />
+    <Compile Include="Models\ReportPrograms\SameCityReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\SameCityReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\SavedReportList\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\SavedReportList\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ServiceFeeDetailByTransaction\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ServiceFeeDetailByTransaction\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ServiceFeeDetailByTransaction\RouteItineraries.cs" />
+    <Compile Include="Models\ReportPrograms\ServiceFeeDetailByTripReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ServiceFeeDetailByTripReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ServiceFeeDetailByTripReport\RouteItineraries.cs" />
+    <Compile Include="Models\ReportPrograms\ServiceFeeSummaryByTransactionReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ServiceFeeSummaryByTransactionReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\SqlScript.cs" />
+    <Compile Include="Models\ReportPrograms\CarTopBottomAccountsReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\CarTopBottomAccountsReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopAccountAir\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopAccountAir\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopAccountAir\SvcFeeData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCars\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCars\GroupedByCar.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCars\GroupedRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCars\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCityPairRail\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCityPairRail\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCityPairReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCityPairReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCityPairReport\SemiFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCostCenter\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCostCenter\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCostCenter\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomCostCenter\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomDestinations\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomDestinations\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomExceptionReasonReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomExceptionReasonReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomHotelsReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomHotelsReport\GroupedData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomHotelsReport\GroupedRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomHotelsReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomTravelerAir\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomTravelerAir\MidData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomTravelerAir\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomTravelersHotelReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomTravelersHotelReport\GroupedData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomTravelersHotelReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomTravelersCar\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomTravelersCar\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomUdids\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomUdids\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomValidatingCarriers\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomValidatingCarriers\GraphFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomValidatingCarriers\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopBottomValidatingCarriers\SubReportData.cs" />
+    <Compile Include="Models\ReportPrograms\TransactionSummary\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TransactionSummary\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopTravelersAuditedReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopTravelersAuditedReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TopTravelersAuditedReport\LegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesAir\RawDataParams.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\KpiApproversData.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\KpiApproversRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\KpiTravelersData.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\KpiReasonCodesData.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\KpiTravelersRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\OneValue.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\ReasonCodeRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravAuthKpi\WhereClauses.cs" />
+    <Compile Include="Models\ReportPrograms\TravelAuditReasonsbyMonthReport\IFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelAuditReasonsbyMonthReport\SummaryFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelAuditReasonsbyMonthReport\GroupedData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelAuditReasonsbyMonthReport\LegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\HibSvcFeesRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\LegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\SegmentRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\ServiceFeesRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\TopTravAllByUdidFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\TopTravAllFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\TravDet1FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\TravDet2FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\TravDetRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelDetail\TravelAtAGlanceFinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelerbyCountryReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelerbyCountryReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\AirDataGrouped.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\CarDataGrouped.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\HotelDataGrouped.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\IGroupedByMonth.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\LegDataGrouped.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\LegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\MonthInfo.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\RailDataGrouped.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\ServiceFeeDataGrouped.cs" />
+    <Compile Include="Models\ReportPrograms\TravelManagementSummary\SvcFeeRawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelAuditReasonsbyMonthReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelAuditReasonsbyMonthReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelOptixReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TravelOptixReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesMeetAndGreetReport\ChangesData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesMeetAndGreetReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesMeetAndGreetReport\FinalDataExport.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesMeetAndGreetReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesMeetAndGreetReport\UdidData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesSendOffReport\ChangesData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesSendOffReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesSendOffReport\FinalDataExport.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesSendOffReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesAir\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesAir\FinalDataExport.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesAir\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesAir\UdidData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesSendOffReport\UdidData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesTypeSummaryReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesTypeSummaryReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\TripChangesTypeSummaryReport\SummaryData.cs" />
+    <Compile Include="Models\ReportPrograms\TripDurationReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TripDurationReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\UpcomingPlans\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\UpcomingPlans\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedLayout\ColumnData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedLayout\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedLayout\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\ChangeLogData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\TravAuthorizerRawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\UdidRawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\LegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\TravAuthRawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\MarketSegmentRawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\MiscSegSharedRawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\MiscRawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\ServiceFeeData.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\UserDefinedHeaders.cs" />
+    <Compile Include="Models\ReportPrograms\UserDefinedReport\UserDefinedParameters.cs" />
+    <Compile Include="Models\ReportPrograms\UserList\AcctData.cs" />
+    <Compile Include="Models\ReportPrograms\UserList\AltAuthData.cs" />
+    <Compile Include="Models\ReportPrograms\UserList\CriteriaData.cs" />
+    <Compile Include="Models\ReportPrograms\UserList\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\UserList\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\ValidatingCarrierReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\ValidatingCarrierReport\RawData.cs" />
+    <Compile Include="Models\Repository.Api\PageSize.cs" />
+    <Compile Include="Models\Repository.Api\AppInfo.cs" />
+    <Compile Include="Models\Repository.Api\FilterInfo.cs" />
+    <Compile Include="Models\Repository.Api\PrintResponse.cs" />
+    <Compile Include="Models\Repository.Api\Result.cs" />
+    <Compile Include="Models\Repository.Api\ServiceBody.cs" />
+    <Compile Include="Models\Repository.Api\ServiceRequest.cs" />
+    <Compile Include="Models\Repository.Api\SourceSize.cs" />
+    <Compile Include="Models\Repository.Api\UserInfo.cs" />
+    <Compile Include="Models\WebModels\BroadcastDiagnostics\BroadcastDiagnosticsRow3.cs" />
+    <Compile Include="Models\WebModels\BroadcastDiagnostics\BroadcastDiagnosticsRow2.cs" />
+    <Compile Include="Models\WebModels\BroadcastDiagnostics\BroadcastDiagnosticsRow1.cs" />
+    <Compile Include="Models\WebModels\BroadcastDiagnostics\DiagnosticsParams.cs" />
+    <Compile Include="Models\WebModels\BroadcastDiagnostics\MainDiagnostics.cs" />
+    <Compile Include="Models\WebModels\Connections.cs" />
+    <Compile Include="Orm\CISMastersQueries\CarbonCalculation\GetAllCarbonHaulsQuery.cs" />
+    <Compile Include="Orm\CISMastersQueries\CarbonCalculation\GetAllCarbonRatesQuery.cs" />
+    <Compile Include="Orm\Classes\BroadcastServerConfiguration.cs" />
+    <Compile Include="Orm\Classes\PendingReportInformation.cs" />
+    <Compile Include="Models\ReportPrograms\WeeklyTravelerActivity\DayHotelsData.cs" />
+    <Compile Include="Models\ReportPrograms\WeeklyTravelerActivity\ExcelExportData.cs" />
+    <Compile Include="Models\ReportPrograms\WeeklyTravelerActivity\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\WeeklyTravelerActivity\HotelData.cs" />
+    <Compile Include="Models\ReportPrograms\WeeklyTravelerActivity\LocationData.cs" />
+    <Compile Include="Models\ReportPrograms\WeeklyTravelerActivity\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\WeeklyTravelerActivity\TripLevelData.cs" />
+    <Compile Include="Models\ReportPrograms\WeeklyTravelerActivity\UdidData.cs" />
+    <Compile Include="Models\ReportPrograms\WtsFareSavings\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\WtsFareSavings\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\WtsFareSavings\ReasonLookup.cs" />
+    <Compile Include="Models\ReportPrograms\WtsFareSavings\SummaryData.cs" />
+    <Compile Include="Models\ReportPrograms\WtsFareSavings\UdidData.cs" />
+    <Compile Include="Models\ReportPrograms\XmlExtractReport\CarRawData.cs" />
+    <Compile Include="Models\ReportPrograms\XmlExtractReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\XmlExtractReport\HotelRawData.cs" />
+    <Compile Include="Models\ReportPrograms\XmlExtractReport\LegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\XmlExtractReport\MktSegRawData.cs" />
+    <Compile Include="Models\ReportPrograms\XmlExtractReport\RawData.cs" />
+    <Compile Include="Models\ReportPrograms\XmlExtractReport\SvcFeeRawData.cs" />
+    <Compile Include="Models\ReportPrograms\XmlExtractReport\UdidRawData.cs" />
+    <Compile Include="Models\ReportPrograms\XmlExtractReport\XmlExtractParameters.cs" />
+    <Compile Include="Orm\CISMastersQueries\GetAllAirMileagesQuery.cs" />
+    <Compile Include="Orm\Classes\AdvancedColumnInformation.cs" />
+    <Compile Include="Orm\Classes\AgencyInformation.cs" />
+    <Compile Include="Orm\Classes\AirportInformation.cs" />
+    <Compile Include="Orm\Classes\BroadcastEmailMasterInfo.cs" />
+    <Compile Include="Orm\Classes\CarbonCalculatorInformation.cs" />
+    <Compile Include="Orm\Classes\CarTypeInfo.cs" />
+    <Compile Include="Orm\Classes\ChainsInformation.cs" />
+    <Compile Include="Orm\Classes\ClassCategoryInformation.cs" />
+    <Compile Include="Orm\Classes\ClientsTLInformation.cs" />
+    <Compile Include="Orm\Classes\CountriesInformation.cs" />
+    <Compile Include="Orm\Classes\CurrencyConversionInformation.cs" />
+    <Compile Include="Orm\Classes\CurrencyCountry.cs" />
+    <Compile Include="Orm\Classes\DatabaseInformation.cs" />
+    <Compile Include="Orm\Classes\EmailLogoPathInfo.cs" />
+    <Compile Include="Orm\Classes\InternationalSettingsInformation.cs" />
+    <Compile Include="Orm\Classes\KeyValue.cs" />
+    <Compile Include="Orm\Classes\LanguageVariableInfo.cs" />
+    <Compile Include="Orm\Classes\MasterAccountInformation.cs" />
+    <Compile Include="Orm\Classes\MasterAgencyInformation.cs" />
+    <Compile Include="Orm\Classes\MasterSourceInformation.cs" />
+    <Compile Include="Orm\Classes\MasterUrlInfo.cs" />
+    <Compile Include="Orm\Classes\MetroInformation.cs" />
+    <Compile Include="Orm\Classes\PickListRow.cs" />
+    <Compile Include="Orm\Classes\ProcessInformation.cs" />
+    <Compile Include="Orm\Classes\RailroadOperatorsInformation.cs" />
+    <Compile Include="Orm\Classes\ReasonCode.cs" />
+    <Compile Include="Orm\Classes\ReasonSetInfo.cs" />
+    <Compile Include="Orm\Classes\RoomTypeInfo.cs" />
+    <Compile Include="Orm\Classes\RRStationInformation.cs" />
+    <Compile Include="Orm\Classes\TimeZoneInformation.cs" />
+    <Compile Include="Orm\Classes\TripChangeCodeInformation.cs" />
+    <Compile Include="Orm\Classes\UserFieldCategory.cs" />
+    <Compile Include="Orm\Classes\XmlTag.cs" />
+    <Compile Include="Orm\GetQueuedReportHandoffsQuery.cs" />
+    <Compile Include="Orm\iBankAdministrationCommands\AddStatusHeartbeatCommand.cs" />
+    <Compile Include="Orm\iBankAdministrationCommands\UpdateConfigurationCommand.cs" />
+    <Compile Include="Orm\iBankAdministrationCommands\UpdateSvrStatusRecordCommand.cs" />
+    <Compile Include="Orm\iBankAdministrationQueries\ConfigurationQueries\GetConfigurationForCleaningOldExcelProcessesQuery.cs" />
+    <Compile Include="Orm\iBankAdministrationQueries\GetBroadcastLongRunningOtherServerQuery.cs" />
+    <Compile Include="Orm\iBankAdministrationQueries\GetBroadcastServerConfigurationQuery.cs" />
+    <Compile Include="Orm\iBankAdministrationQueries\GetBroadcastServerFunctionByServerNumberQuery.cs" />
+    <Compile Include="Orm\iBankAdministrationQueries\GetReportServerFunctionByServerNumberQuery.cs" />
+    <Compile Include="Orm\iBankAdministrationQueries\ConfigurationQueries\GetConfigurationQuery.cs" />
+    <Compile Include="Orm\iBankAdministrationQueries\GetSvrStatusRecordQuery.cs" />
+    <Compile Include="Orm\iBankAdministrationQueries\IsFeatureFlagOnQuery.cs" />
+    <Compile Include="Orm\iBankAdminQueries\GetStyleGroupNameQuery.cs" />
+    <Compile Include="Orm\iBankAdminQueries\GetOrganizationNameQuery.cs" />
+    <Compile Include="Orm\iBankAdminQueries\GetAllSavedReportsByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankAdminQueries\GetAllUserReportsByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankAdminQueries\GetAllUsersByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankAdminQueries\GetAllUsersQuery.cs" />
+    <Compile Include="Orm\iBankAdminQueries\GetLoadLogs.cs" />
+    <Compile Include="Orm\iBankClientCommands\AddBcReportLogRecordCommand.cs" />
+    <Compile Include="Orm\iBankClientCommands\AddiBBatch2Command.cs" />
+    <Compile Include="Orm\iBankClientCommands\AddiBBatchCommand.cs" />
+    <Compile Include="Orm\iBankClientCommands\AddSavedRpt1Command.cs" />
+    <Compile Include="Orm\iBankClientCommands\AddSavedRpt2Command.cs" />
+    <Compile Include="Orm\iBankClientCommands\AddSavedRpt3Command.cs" />
+    <Compile Include="Orm\iBankClientCommands\OverdueMonitor\InsertOverdueBroadcastsCommand.cs" />
+    <Compile Include="Orm\iBankClientCommands\OverdueMonitor\UpdateOverdueBroadcastsCommand.cs" />
+    <Compile Include="Orm\iBankClientCommands\RemoveiBBatch2Command.cs" />
+    <Compile Include="Orm\iBankClientCommands\RemoveiBBatchCommand.cs" />
+    <Compile Include="Orm\iBankClientCommands\RemoveSavedRpt1Command.cs" />
+    <Compile Include="Orm\iBankClientCommands\RemoveSavedRpt2Command.cs" />
+    <Compile Include="Orm\iBankClientCommands\RemoveSavedRpt3Command.cs" />
+    <Compile Include="Orm\iBankClientCommands\AddClientBroadcastBatchHistoryCommand.cs" />
+    <Compile Include="Orm\iBankClientCommands\UpdateClientBroadcastBatchCommand.cs" />
+    <Compile Include="Orm\iBankClientCommands\UpdateUserCommand.cs" />
+    <Compile Include="Orm\iBankClientCommands\UpdateUserReportCommand.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\BatchHistoryRecordExistsQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetAllBatch2ByBatchNumQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetAllBatchesByBatchNumQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetAllClientBatchQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetAllClientHotBatchQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetAllClientStandardBroadcastBatchQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetBroadcastStyleGroupQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetClientBroadcastBatchRecordByBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetErroredOutOfflineBatchesQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetOldOfflineBatchesQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetSavedReportsByBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetSavedRptNumberFromBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetStandardReportsByBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetTravleOptixReportByBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetUserDefinedReportsByBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetXmlStandardReportsByBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\BroadcastQueries\GetXmlUserDefinedReportsByBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\DoesUserSettingExistQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAcctsByAgencyAndAcctTypeQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAgencyTypeAllowedAgenciesByUserNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllAccountsByParentAcctQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllClassCategoriesQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllClientsTlsQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllMasterAccountsQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllParentAccountsQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllSavedReport2ByRecordLinkQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllSavedRpt1ByRecordNumQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllSavedRpt3ByRecordLinkQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllUserFieldCategories.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetAllVendorsByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetApprovedUserMacroByKeyQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetCustomXmlExportTypeQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetCustomXmlTagsByReportKeyQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetLogoByGroupNumAndAgencyQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetMasterAccountNameByAcctAndAgencyQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetOrganizationNameByKeyQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetParentAccountQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetPicklistByRecordNumberAndListTypeQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetReasonCodeByAgencyAndLangCodeQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetReasonSetByAgencyAndLangCodeQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetSavedReport1ByKeyQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetSharerTypeAllowedAgenciesByUserNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetStandardReportFontNameByUserNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetStyleGroupByNumberAndClientCodeQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetTravelOptixReportQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetTravelOptixReport2Query.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetUserAcctsByUserNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetUserByUserNumberQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetUserDefaultCarbCalulatorQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetUserLanguageByUserNumber.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetUserReportQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\GetUserRpt2Query.cs" />
+    <Compile Include="Orm\iBankClientQueries\IsUserSettingEnabledQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\OpenClientQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\OverdueMonitor\GetAllOverdueBroadcastsQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\Udids\GetUdidsByReckeyAndUdidNumbersQuery.cs" />
+    <Compile Include="Orm\iBankClientQueries\UserDefinedQueries\GetHibTripsDerivedDataByRecKeyListQuery.cs" />
+    <Compile Include="Orm\iBankMastersCommands\AddBcstRptInstanceCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Report\AddReportHistoryRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Broadcast\AddBroadcastHistoryRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Broadcast\AddBroadcastQueueRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\AddErrorLogRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Broadcast\RemoveBroadcastHistoryCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Report\UpdateReportHistoryRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Broadcast\UpdateBroadcastHistoryRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\LongRunning\AddLongRunningInstanceRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\LongRunning\AddLongRunningThresholdCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\PendingRecords\AddPendingReportCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\AddReportHandoffRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\AddRptLogCritCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\AddRptLogRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\AddRptLogResultsRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\AddRptLogSqlRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Monitoring\AddTimeoutBroadcastCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Monitoring\UpdateTimeoutBroadcastCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Broadcast\RemoveBatchFromBroadcastQueueCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\PendingRecords\RemovePendingReportsCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\RemoveReportFromRunningReportsCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\Broadcast\UpdateBroadcastQueueRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\UpdateReportHandoffRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\UpdateRptLogRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\PendingRecords\UpdatePendingReportCommand.cs" />
+    <Compile Include="Orm\iBankMastersCommands\UpdateRptLogResultsRecordCommand.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastHistoryQueries\GetLastBroadcastHistoryByBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastHistoryQueries\GetBroadcastHistoryMissingCreatedOfRunQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\Diagnostics\GetMainDiagnosticsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetActiveBroadcastAgenciesByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetActiveBroadcastAgenciesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetActiveBroadcastDatabasesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\Diagnostics\GetLast24HrsErrorLogsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetBroadcastByBatchNumberQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetBroadcastEmailMasterInfoQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetBroadcastInfoByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetBroadcastInfoByCorpAcctQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetBroadcastLanguageTranslationsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetBroadcastLongRunningOtherDatabasesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetBroadcastRecordsByBatchNumberAndDatabaseQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastHistoryQueries\GetBroadcastHistoryMissingAddedToPoolQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetBroadcastsRunningOnServerQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetErrorMessageQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetMasterCorpAcctsBroadcastDatabasesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetMasterCorpActiveBroadcastAgenciesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetNextAvailableBroadcastKeyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetPendingBroadcastQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastRetrieval\BroadcastRetrievalFactory.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastRetrieval\HotServerBroadcastRetrieval.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastRetrieval\IBroadcastRetrieval.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastRetrieval\LoggingServerBroadcastRetrieval.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastRetrieval\LongRunningBroadcastRetrieval.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastRetrieval\OfflineServerBroadcastRetrieval.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastRetrieval\PrimaryServerBroadcastRetrieval.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\BroadcastRetrieval\StageServerBroadcastRetrieval.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\IsBroadcastLogOnSecurityOnQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\IsBroadcastReportQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\IsBroadcastViewLoggingOnQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\IsExistingBroadcastKeyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\LongRunning\GetLongRunningThresholdsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueueManager\GetMinThresholdRunningBroadcastsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueueManager\GetOrphanedBroadcastsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Configuration\IsAgencyStagedForReportQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\eProfile\GetEffectsOutputInformationQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\eProfile\IsExportTypeAuthorizedForEProfileNumberQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\eProfile\IsProcessKeyAuthorizedForEProfileNumberQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\BroadcastQueries\GetBroadcastLongRunningByBatchDatabasesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetActiveColumnsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAdvancedColumnsByUserLanguageQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Agency\GetAgenciesByCorpAcctQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Agency\GetAgenciesByJunctionAgcyCorpQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Agency\GetAgenciesOnDatabaseQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Agency\GetAgencyDotNetSettingsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Agency\GetAgencyiATANumQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Agency\GetAgencyRecordByAgencyNameQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllActiveBroadcastProcessCaptionsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllAirlinesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllAirportsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllCarTypesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllChainsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllCountriesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllCurrencyCountriesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllMetrosQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllRailroadOperatorsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllRailroadStationsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllReportTypesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllTripChangeCodesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllWhereCriteriaQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllWorldRegionsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetClientExtrasByFieldFunctionAndAgencyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetClientImageByAgencyAndNumberQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetClientImageXDataByImgNumberQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetCorpAcctByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetCorpAcctsByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetCurrencyConversionByCurrencyCodeQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetCurrencySettingsByMoneyTypeQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetDatabaseInfoByDatabaseNameQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetDataSourceAddressByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetDefaultClientImageQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetDomesticInternationalQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetEmailLogoPathQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetEProfileByNumberAndAgencyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetEquipmentQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetHibServicesDataSourceAbbrsByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetHomeCountriesByAgencyForNonSharerClientQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetHomeCountriesByAgencyForSharerClientQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetLanguageByLangCodeQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetMasterAgencyByAgencyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetMasterAgencySourcesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetMasterLanguageTagsByProcessKeyAndOutputLangQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetMasterUrlPathQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetMasterXmlTagsByReportKeyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetMiscParamListQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetMiscParamQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetOperatorsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\ReportQueueManager\GetOldQueueRecordsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\ReportServer\GetReportHistoryByIdQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\ReportServer\GetPendingReportById.cs" />
+    <Compile Include="Orm\iBankMastersQueries\ReportServer\GetPendingReportsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\IsUserAllowToTestDotNetReportQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetReportByProcessIdQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetReportHandoffParmsByReportIdQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetReportInputCriteriaByReportIdQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetReportLogByLogKeyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetReportLogResultsByLogKeyQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetReportOutputLocationQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetReportServerStageRecordsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetReportStatusHandoffRecordQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetRoomTypeInfoQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetRunningReportQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetSettingsByCountryAndLangCodeQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetShortMonthMlTranslationsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetSiteDefaultLanguageQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetStandardXmlExportTypeQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetAllStateNamesAndAbbreviationsQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetTimeZoneQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetTranslationsByLanguageCodeQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetUserLanguageQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetUserTimeZoneByLangCodeQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetVerbiageByProcessKeyAndLanguageQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\GetXmlReportNamesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\IsCurrencyConversionOnFixedDateQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\IsMultilingualAgentQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\IsSqlLoggingOnForUserQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Monitoring\GetTimeoutBroadcastQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\OpenMasterQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\OverdueMonitor\GetAllActiveAgenciesOnDatabaseQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\OverdueMonitor\GetAllActiveDatabasesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\OverdueMonitor\GetAllHighAlertAgenciesQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\OverdueMonitor\GetOverdueBroadcastsWithNotificationSentQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\ReportQueueManager\IsOnPendingReportsTableQuery.cs" />
+    <Compile Include="Orm\iBankMastersQueries\Other\UseHibServicesQuery.cs" />
+    <Compile Include="Orm\WebQueries\GetAllLoadLogQuery.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\ReportPrograms\TopTravelersAuditedReport\FinalData.cs" />
+    <Compile Include="Models\ReportPrograms\TopTravelersAuditedReport\RawData.cs" />
+    <Compile Include="Helper\UserInformation.cs" />
+    <Compile Include="Helper\UserBreaks.cs" />
+    <Compile Include="Models\ViewModels\LoadLogViewModelData.cs" />
+    <Compile Include="Models\ViewModels\LoadLogViewModel.cs" />
+    <Compile Include="Models\ViewModels\SearchLoadLogViewModel.cs" />
+    <Compile Include="Models\WebModels\AppSettings.cs" />
+    <Compile Include="Services\CacheService.cs" />
+    <Compile Include="Services\LongRunningService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CISLogger\CISLogger.csproj">
+      <Project>{11333BCA-8CF5-4BE2-AD2C-AE5E23F679A3}</Project>
+      <Name>CISLogger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Scripts\DeleteFeatureFlags.sql" />
+    <Content Include="Scripts\AddFeatureFlags.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

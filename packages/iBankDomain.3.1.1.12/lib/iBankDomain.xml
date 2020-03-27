@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iBankDomain</name>
+    </assembly>
+    <members>
+        <member name="M:iBankDomain.Exceptions.EFExceptionHandling.HandleEntityCommandExecutionException(System.Data.Entity.Core.EntityCommandExecutionException)">
+            <summary>
+            Throws RecoverableSqlException if it is a deadlock or timeout exception. Otherwise throws UnrecoverableSqlException.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:iBankDomain.Exceptions.EFExceptionHandling.HandleDbUpdateException(System.Data.Entity.Infrastructure.DbUpdateException)">
+            <summary>
+            Throws RecoverableSqlException if it is a deadlock or timeout exception. Otherwise throws UnrecoverableSqlException.
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="M:iBankDomain.Exceptions.EFExceptionHandling.HandleDbEntityValidationException(System.Data.Entity.Validation.DbEntityValidationException)">
+            <summary>
+            Parses validation errors and then throws custom UnrecoverableSqlException
+            </summary>
+            <param name="dbEx"></param>
+        </member>
+    </members>
+</doc>

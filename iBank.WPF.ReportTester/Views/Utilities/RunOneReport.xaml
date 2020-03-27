@@ -1,0 +1,14 @@
+<mvvm:View xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:mvvm="clr-namespace:CODE.Framework.Wpf.Mvvm;assembly=CODE.Framework.Wpf.Mvvm"
+           xmlns:controls="clr-namespace:CODE.Framework.Wpf.Controls;assembly=CODE.Framework.Wpf"
+           Title="Run One"
+           >
+    <Grid controls:GridEx.RowHeights="30" controls:GridEx.ColumnWidths="150,400,150,150">
+        <TextBlock Grid.Column="0" Text="Enter a Report Id or Process Key"></TextBlock>
+        <TextBox Grid.Column="1"  Text="{Binding ReportId}"></TextBox>
+        <Button Grid.Column="2" Command="{Binding RunReport}">Run by Report Id</Button>
+        <Button Grid.Column="3" Command="{Binding RunReportByProcessKey}">Run by Process Key</Button>
+    </Grid>
+   
+    
+</mvvm:View>

@@ -1,0 +1,59 @@
+﻿@model Domain.Models.WebModels.BroadcastDiagnostics.DiagnosticsParams
+
+<div class="card-group">
+    <div class="card @Model.BroadcastDiagnosticsRow3.GetNumberOfServerHot27RunningBrodcastInTheQueueTextColor() bg-@Model.BroadcastDiagnosticsRow3.GetNumberOfServerHot27RunningBrodcastInTheQueueTileColor() mb-3" style="max-width: 20rem;">
+        <div class="card-header"><span class="badge badge-light">6</span> Total Records: @Model.BroadcastDiagnosticsRow3.NumberOfServerHot27RunningBrodcastInTheQueue</div>
+        <div class="card-body">
+            <h4 class="card-title">bcstque4 Table</h4>
+            <p class="card-text">
+                Total number of broadcast records in the queue in running status by server number: 27
+            </p>
+        </div>
+        <div class="card-footer">
+            <small>Records could be zero at times</small>
+        </div>
+    </div>
+
+    <div>&nbsp;</div>
+    <div class="card @Model.BroadcastDiagnosticsRow3.GetNumberOfServerStage200RunningBrodcastInTheQueueTextColor() bg-@Model.BroadcastDiagnosticsRow3.GetNumberOfServerStage200RunningBrodcastInTheQueueTileColor() mb-3" style="max-width: 20rem;">
+        <div class="card-header"><span class="badge badge-light">7</span> Total Records: @Model.BroadcastDiagnosticsRow3.NumberOfServerStage200RunningBrodcastInTheQueue</div>
+        <div class="card-body">
+            <h4 class="card-title">bcstque4 Table</h4>
+            <p class="card-text">
+                Total number of broadcast records in the queue in running status by server number: 200
+            </p>
+        </div>
+        <div class="card-footer">
+            <small>Records could be zero at times</small>
+        </div>
+    </div>
+
+    <div>&nbsp;</div>
+    <div class="card @Model.BroadcastDiagnosticsRow3.GetNumberOfHighAlertAgenciesTextColor() bg-@Model.BroadcastDiagnosticsRow3.GetNumberOfHighAlertAgenciesTileColor() mb-3" style="max-width: 20rem;">
+        <div class="card-header"><span class="badge badge-light">8</span> Total Records: @Model.BroadcastDiagnosticsRow3.NumberOfHighAlertAgencies</div>
+        <div class="card-body">
+            <h4 class="card-title">broadcast high alert agency table</h4>
+            <p class="card-text">
+                number of high alert broadcasts table
+            </p>
+        </div>
+        <div class="card-footer">
+            <small>n/a</small>
+        </div>
+    </div>
+
+    <div>&nbsp;</div>
+    <div class="card @Model.BroadcastDiagnosticsRow3.GetNumberOfLongRunningAgenciesTextColor() bg-@Model.BroadcastDiagnosticsRow3.GetNumberOfLongRunningAgenciesTileColor() mb-3" style="max-width: 20rem;">
+        <div class="card-header"><span class="badge badge-light">9</span> Total Records: @Model.BroadcastDiagnosticsRow3.NumberOfLongRunningAgencies</div>
+        <div class="card-body">
+            <h4 class="card-title">broadcast long running agencies table</h4>
+            <p class="card-text">
+                number of long running broadcasts
+            </p>
+        </div>
+        <div class="card-footer">
+            <small>n/a</small>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "exports": {
+    "Domain/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Release/Domain.dll": {}
+      },
+      "runtime": {
+        "bin/Release/Domain.dll": {}
+      },
+      "contentFiles": {
+        "bin/Release/Domain.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "iBank.Services.Orm/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Release/iBank.Services.Orm.dll": {}
+      },
+      "runtime": {
+        "../packages/EntityFramework.6.1.2/lib/net45/EntityFramework.SqlServer.dll": {},
+        "../packages/EntityFramework.6.1.2/lib/net45/EntityFramework.dll": {},
+        "bin/Release/iBank.Services.Orm.dll": {}
+      },
+      "contentFiles": {
+        "bin/Release/iBank.Services.Orm.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

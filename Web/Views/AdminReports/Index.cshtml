@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Administreation";
+}
+
+<br />
+<br/>
+<div class="text-center text-info">
+    <h2>Administration Reports</h2>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <button type="button" onclick="window.location.href = '@Url.Action("BroadcastOverview")'" class="btn-primary form-control input-lg">
+            <span class="glyphicon glyphicon-th-list pull-left"></span>
+            <span class="pull-left">&nbsp;Broadcast Report Overview</span>
+        </button>
+        <br />
+        <button type="button" onclick="window.location.href = '@Url.Action("BroadcastStatus")'" class="btn-primary form-control input-lg">
+            <span class="glyphicon glyphicon-th-list pull-left" aria-hidden="true"></span>
+            <span class="pull-left">&nbsp;Broadcast Report Status</span>
+        </button>
+        <br />
+        <button type="button" onclick="window.location.href = '@Url.Action("CompanyUsers")'" class="btn-primary form-control input-lg" aria-describedby="open external site">
+            <span class="glyphicon glyphicon-th-list pull-left" aria-hidden="true"></span>
+            <span class="pull-left">&nbsp;Company Users</span>
+        </button>
+        <br />
+        <button type="button" onclick="window.location.href = '@Url.Action("Log")'" class="btn-primary form-control input-lg" aria-describedby="open external site">
+            <span class="glyphicon glyphicon-th-list pull-left" aria-hidden="true"></span>
+            <span class="pull-left">&nbsp;Load Logs</span>
+        </button>
+        <br />
+    </div>
+    <div class="col-md-6">
+        <button type="button" onclick="window.location.href = '@Url.Action("CustomLayout")'" class="btn-primary form-control input-lg">
+            <span class="glyphicon glyphicon-th-list pull-left" aria-hidden="true"></span>
+            <span class="pull-left">&nbsp;Custom Report Layout</span>
+        </button>
+        <br />
+        <button type="button" onclick="window.location.href = '@Url.Action("DocumentDeliveryLog")'" class="btn-primary form-control input-lg">
+            <span class="glyphicon glyphicon-th-list pull-left" aria-hidden="true"></span>
+            <span class="pull-left">&nbsp;Document Delivery Log Report</span>
+        </button>
+        <br />
+        <button type="button" onclick="window.location.href = '@Url.Action("iBankEventLog")'" class="btn-primary form-control input-lg">
+            <span class="glyphicon glyphicon-th-list pull-left" aria-hidden="true"></span>
+            <span class="pull-left">&nbsp;iBank Event Log</span>
+        </button>
+        <br />
+        <button type="button" onclick="window.location.href = '@Url.Action("SavedFiltersList")'" class="btn-primary form-control input-lg">
+            <span class="glyphicon glyphicon-th-list pull-left" aria-hidden="true"></span>
+            <span class="pull-left">&nbsp;Saved Filters List</span>
+        </button>
+        <br />
+    </div>
+
+</div>
+
+<br /><br /><br />
+<hr />
+<br /><br />

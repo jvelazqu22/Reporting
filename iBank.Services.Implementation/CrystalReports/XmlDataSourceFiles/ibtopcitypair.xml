@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+ <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="ibtopcitypair">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Origin" type="xs:string" minOccurs="0" />
+<xs:element name="Orgdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Destinat" type="xs:string" minOccurs="0" />
+<xs:element name="Destdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Cpsegs" type="xs:int" minOccurs="0" />
+<xs:element name="Cpnumticks" type="xs:decimal" minOccurs="0" />
+<xs:element name="Cpcost" type="xs:decimal" minOccurs="0" />
+<xs:element name="Cpavgcost" type="xs:decimal" minOccurs="0" />
+<xs:element name="Cpmiles" type="xs:decimal" minOccurs="0" />
+<xs:element name="Airline" type="xs:string" minOccurs="0" />
+<xs:element name="Alinedesc" type="xs:string" minOccurs="0" />
+<xs:element name="Segments" type="xs:int" minOccurs="0" />
+<xs:element name="Numticks" type="xs:decimal" minOccurs="0" />
+<xs:element name="Cost" type="xs:decimal" minOccurs="0" />
+<xs:element name="Miles" type="xs:decimal" minOccurs="0" />
+<xs:element name="Grp1fld" type="xs:int" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</NewDataSet>

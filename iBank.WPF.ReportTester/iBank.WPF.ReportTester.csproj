@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0EBB4D41-B5D2-45C1-8C8A-8D61AACBB20E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iBank.WPF.ReportTester</RootNamespace>
+    <AssemblyName>iBank.WPF.ReportTester</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|x64'">
+    <OutputPath>bin\Keystone\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Keystone\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CODE.Framework.Core">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Core.Utilities">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Core.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Services.Client">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Wpf">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Wpf.Documents">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Wpf.Mvvm">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Wpf.Theme.Battleship">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.Theme.Battleship.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Wpf.Theme.Geek">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.Theme.Geek.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Wpf.Theme.Metro">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.Theme.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Wpf.Theme.Vapor">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.Theme.Vapor.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Wpf.Theme.Wildcat">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.Theme.Wildcat.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Wpf.Theme.Workplace">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Wpf.Theme.Workplace.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iBank.Entities, Version=2.0.1.17, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.2.0.2.8\lib\iBank.Entities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iBank.Repository.SQL, Version=2.0.2.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.2.0.2.8\lib\iBank.Repository.SQL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iBankDomain, Version=2.0.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.2.0.2.8\lib\iBankDomain.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UtilitiesController.cs" />
+    <Compile Include="Models\Home\StartViewModel.cs" />
+    <Compile Include="Models\Utilities\GenPOCOViewModel.cs" />
+    <Compile Include="Models\Utilities\RunOneReportViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ShellBackground.jpg" />
+    <Resource Include="Images\ShellLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Workplace\Workplace-Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Workplace\Workplace-Fonts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Workplace\Workplace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Utilities\genPOCO.Default.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>genPOCO.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Utilities\genPOCO.Layout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>genPOCO.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Utilities\genPOCO.Workplace.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>genPOCO.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Utilities\genPOCO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Utilities\RunOneReport.Default.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>RunOneReport.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Utilities\RunOneReport.Layout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>RunOneReport.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Utilities\RunOneReport.Workplace.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <DependentUpon>RunOneReport.xaml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Utilities\RunOneReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iBank.Client\iBank.ReportServer.csproj">
+      <Project>{f4391a53-da71-4086-8112-ab8114f14739}</Project>
+      <Name>iBank.ReportServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBank.Server.Utilities\iBank.Server.Utilities.csproj">
+      <Project>{60903167-ead8-4741-9031-51673db68f11}</Project>
+      <Name>iBank.Server.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBank.Services.Contracts\iBank.Services.Contracts.csproj">
+      <Project>{d8414df4-4e49-468a-be03-f4e3c1bdbeeb}</Project>
+      <Name>iBank.Services.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBank.Services.Implementation\iBank.Services.Implementation.csproj">
+      <Project>{123a9ef3-72ad-4489-a3c0-9b61bb746990}</Project>
+      <Name>iBank.Services.Implementation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

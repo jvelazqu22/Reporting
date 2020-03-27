@@ -1,0 +1,13 @@
+﻿@model Domain.Models.WebModels.BroadcastDiagnostics.DiagnosticsParams
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Broadcasts</h2>
+
+@Html.Partial("_Row1", Model)
+@Html.Partial("_Row2", Model)
+@Html.Partial("_Row3", Model)
+@Html.Partial("_Errors", Model)

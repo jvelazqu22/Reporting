@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DFB45277-6957-49A4-A351-183560AE7373}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iBank.BroadcastServer</RootNamespace>
+    <AssemblyName>iBank.BroadcastServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\Production\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|x64'">
+    <OutputPath>bin\Keystone\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Production\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Keystone|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Keystone\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CODE.Framework.Core">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Core.Utilities">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Core.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="CODE.Framework.Services.Client">
+      <HintPath>..\_ExternalComponents\CODEFramework\CODE.Framework.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="iBank.Entities, Version=3.7.18.79, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBank.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="iBank.Repository.SQL, Version=19.6.19.100, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBank.Repository.SQL.dll</HintPath>
+    </Reference>
+    <Reference Include="iBankDomain, Version=3.1.1.12, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\iBank.Repository.SQL.19.6.19.100\lib\iBankDomain.dll</HintPath>
+    </Reference>
+    <Reference Include="ParallelExtensionsExtras, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSFT.ParallelExtensionsExtras.1.2.0\lib\ParallelExtensionsExtras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BroadcastBatch\BroadcastRecordRetriever.cs" />
+    <Compile Include="BroadcastReport\BroadcastReportLogging.cs" />
+    <Compile Include="BroadcastReport\RecoverableFoxProErrorHandler.cs" />
+    <Compile Include="BroadcastReport\ReportRunResults.cs" />
+    <Compile Include="BroadcastReport\ServiceHandoff.cs" />
+    <Compile Include="BroadcastReport\BatchReportRetriever.cs" />
+    <Compile Include="BroadcastBatch\BatchRunner.cs" />
+    <Compile Include="Email\AdminEmailer.cs" />
+    <Compile Include="Email\AdminEmailErrorMessageBuilder.cs" />
+    <Compile Include="Email\EmailAssembler.cs" />
+    <Compile Include="Email\EmailDateFormatter.cs" />
+    <Compile Include="Email\EmailLogText.cs" />
+    <Compile Include="ExceptionHandler.cs" />
+    <Compile Include="Helper\BatchHistoryHandler.cs" />
+    <Compile Include="Helper\BroadcastHistoryHandler.cs" />
+    <Compile Include="Helper\ErrorHandler.cs" />
+    <Compile Include="Helper\HighAlertHandler.cs" />
+    <Compile Include="Helper\LongRunningHandler.cs" />
+    <Compile Include="Helper\TimeoutBroadcastMapper.cs" />
+    <Compile Include="Service\Consumer.cs" />
+    <Compile Include="Timing\BroadcastScheduleConditionals.cs" />
+    <Compile Include="Email\BroadcastEmailInformationRetriever.cs" />
+    <Compile Include="Email\LogoRetriever.cs" />
+    <Compile Include="Service\Producer.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\BackOfficeDailyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\GeneralReportPeriodCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\INextReportPeriodCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\MonthToDateDailyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\MonthToDateWeeklyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\NextReportPeriodCalculatorFactory.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\ReservationDailyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\ReservationMonWedFriCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\ReservationSunTuesThursCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\ReservationTuesThursSatCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\ReservationWeeklyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\RunAnnualCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\RunBiMonthlyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\RunBiWeeklyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\RunDailyNextBusinessDayCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\RunDailyOrCurrentDayCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\RunDailyPriorBusinessDayCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\RunQuarterlyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\RunSemiAnnualCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\RunWeeklyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\VariableTimePeriodCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\YearToDateMonthlyCalculator.cs" />
+    <Compile Include="Timing\NextPeriodCalculators\YearToDateWeeklyCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeDailyFrequencyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeNextWeekFridayNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeNextWeekMondayNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeNextWeekSaturdayNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeNextWeekSundayNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeNextWeekThursdayNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeNextWeekTuesdayNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeNextWeekWednesdayNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeOrReservationWeeklyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BackOfficeTuesdayWeeklyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\BiWeeklyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\CurrentDayNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\DailyBusinessDayNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\FutureNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\INextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\MonthToDateDailyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\MultipleDayOfWeekNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\NextRunCalculatorFactory.cs" />
+    <Compile Include="Timing\NextRunCalculators\NotScheduledNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\PreviousDayDailyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\MonthlyCalendarRangeNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\ReservationDailyFrequencyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\ReservationDailyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\ReservationPreviousWeekWeeklyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\ReservationWeeklyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\VariableRunTimeNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\YearToDateMonthlyNextRunCalculator.cs" />
+    <Compile Include="Timing\NextRunCalculators\YTDOrMTDOrBackOfficeMondayWeeklyNextRunCalculator.cs" />
+    <Compile Include="Timing\PostRunTimingCalculator.cs" />
+    <Compile Include="Timing\PreRunTimingCalculator.cs" />
+    <Compile Include="User\UserManager.cs" />
+    <Compile Include="Email\AbstractEmailBuilder.cs" />
+    <Compile Include="Email\EmailBodyBuilder.cs" />
+    <Compile Include="Email\EmailConditionals.cs" />
+    <Compile Include="Email\EmailFooterBuilder.cs" />
+    <Compile Include="Email\EmailHeaderBuilder.cs" />
+    <Compile Include="Email\ViewLoggingHandler.cs" />
+    <Compile Include="Email\WorkingEmailSection.cs" />
+    <Compile Include="BroadcastBatch\QueueFilter.cs" />
+    <Compile Include="Email\BroadcastEmail.cs" />
+    <Compile Include="BroadcastReport\BroadcastReportRunner.cs" />
+    <Compile Include="BroadcastReport\BroadcastReportProcessor.cs" />
+    <Compile Include="Service\BroadcastServer.cs" />
+    <Compile Include="User\UserBroadcastSettings.cs" />
+    <Compile Include="Email\EmailTemplates.cs" />
+    <Compile Include="BroadcastBatch\BatchManager.cs" />
+    <Compile Include="BroadcastBatch\BroadcastRecordUpdatesManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\BroadcastService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service\BroadcastService.Designer.cs" />
+    <Compile Include="Timing\RecordTimingDetails.cs" />
+    <Compile Include="Timing\TimingCalculator.cs" />
+    <Compile Include="Utilities\BroadcastReportLogger.cs" />
+    <Compile Include="BroadcastReport\BroadcastReportGlobalsSetter.cs" />
+    <Compile Include="Utilities\FoxProReportHandoffRecordRetriever.cs" />
+    <Compile Include="Utilities\SavedReportCriteriaGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CISLogger\CISLogger.csproj">
+      <Project>{11333bca-8cf5-4be2-ad2c-ae5e23f679a3}</Project>
+      <Name>CISLogger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{a1189aca-c062-41eb-a985-22b735e830b7}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBank.Server.Utilities\iBank.Server.Utilities.csproj">
+      <Project>{60903167-EAD8-4741-9031-51673DB68F11}</Project>
+      <Name>iBank.Server.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iBank.Services.Implementation\iBank.Services.Implementation.csproj">
+      <Project>{123a9ef3-72ad-4489-a3c0-9b61bb746990}</Project>
+      <Name>iBank.Services.Implementation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <TransformOnBuild>true</TransformOnBuild>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="App.Keystone.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="App.Production.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.ProductionGSA.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.SlowCheetah.3.0.61\build\Microsoft.VisualStudio.SlowCheetah.targets'))" />
+  </Target>
+  <!--<Target Name="BeforeBuild">
+    <Exec Command="&quot;$(SolutionDir).nuget\NuGet&quot; update &quot;$(ProjectDir)packages.config&quot; -Id iBank.Repository.SQL" />
+    <Exec Command="&quot;$(SolutionDir).nuget\NuGet&quot; update &quot;$(ProjectDir)packages.config&quot; -Id iBank.Entities" />
+  </Target>-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

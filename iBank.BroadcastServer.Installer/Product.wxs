@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+
+  <Product Id="*"
+           Name="iBank.BroadcastServer.20"
+           Language="1033"
+           Version="!(bind.FileVersion.F_exe)"
+           Manufacturer="Cornerstone Information Systems"
+           UpgradeCode="{3A74B8EA-C6EE-4074-A27D-E7D3499927FE}">
+
+    <Package Manufacturer="Cornerstone Information Systems"
+             InstallerVersion="200"
+             Compressed="yes"
+             InstallScope="perMachine"
+             Platform="x64"/>
+
+    <Property Id="PREVIOUSVERSIONINSTALLED" Secure="yes"/>
+    <Property Id="SERVERNUMBER" Value="20"/>
+    <Property Id="SERVICENAME" Value="iBank.BroadcastServer.20.Primary"/>
+    <Property Id="USER" Value="dev\keystoneapp4"/>
+    <Property Id="PSWD" Value="CISapp4#"/>
+    <Property Id="BCSTBCHMAXTHREADS" Value="10"/>
+    <Property Id="BCSTRPTMAXTHREADS" Value="10"/>
+    <Property Id="LOG4NETLOGLEVEL" Value="INFO"/>
+
+    <Property Id="INSTANCEID" Value="0"/>
+    <InstanceTransforms Property="INSTANCEID">
+      <Instance Id="I21" ProductCode="*" UpgradeCode="{7C56C52F-F19C-480B-B9AC-0E19088A104F}" ProductName="iBank.BroadcastServer.21" /><!--primary-->
+      <Instance Id="I24" ProductCode="*" UpgradeCode="{C6224643-750F-410A-B617-4B9EE5524FDF}" ProductName="iBank.BroadcastServer.24" /><!--offline-->
+      <Instance Id="I25" ProductCode="*" UpgradeCode="{E389F216-44AC-43F6-9CFA-69ECE91A8377}" ProductName="iBank.BroadcastServer.25" /><!--offline-->
+      <Instance Id="I26" ProductCode="*" UpgradeCode="{2AABBE98-091C-46EB-B588-C9114DAC67F4}" ProductName="iBank.BroadcastServer.26" /><!--hot-->
+      <Instance Id="I27" ProductCode="*" UpgradeCode="{B17E327B-2C19-485B-9230-4DC3EC0CF11A}" ProductName="iBank.BroadcastServer.27" /><!--hot-->
+      <Instance Id="I200" ProductCode="*" UpgradeCode="{05C53A19-B992-4A5C-BD45-04DAEE0A2E4C}" ProductName="iBank.BroadcastServer.200" /><!--stage-->
+      <Instance Id="I201" ProductCode="*" UpgradeCode="{60EA1F7A-46A0-48CD-8838-96AB5845B682}" ProductName="iBank.BroadcastServer.201" /><!--logging-->
+      <Instance Id="I30" ProductCode="*" UpgradeCode="{AA464DDB-1317-4CEB-B59A-026AE2E6AB4D}" ProductName="iBank.BroadcastServer.30" /><!--long running-->
+      <Instance Id="I31" ProductCode="*" UpgradeCode="{E52F7B4B-1439-4B91-9AB5-474F6FC56377}" ProductName="iBank.BroadcastServer.31" /><!--long running-->
+    </InstanceTransforms>
+
+    <MajorUpgrade Schedule="afterInstallInitialize"
+                  AllowDowngrades="yes"/>
+
+    <Media Id="1" Cabinet="iBank.BroadcastServer.cab" EmbedCab="yes"/>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder" Name="PFiles">
+        <Directory Id="iBankFolder" Name="iBank">
+          <Directory Id="ServersFolder" Name="Servers">
+            <Directory Id="LogoFolder" Name="TempLogos"/>
+            <Directory Id="DefaultLogo" Name="DefaultLogo"/>
+            <Directory Id="UserDefinedReportsFolder" Name="UserDefinedReports">
+              <Directory Id="BaseReportsFolder" Name="BaseReports"/>
+            </Directory>
+            <Directory Id="INSTALLFOLDER" Name="iBank.BroadcastServer.20">
+              <Directory Id="bin" Name="bin"/>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <ComponentGroup Id="Logos" Directory="LogoFolder">
+      <Component Id="C_Logos" Guid="" Win64="yes">
+        <CreateFolder/>
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="DefaultLogo" Directory="DefaultLogo">
+      <Component Id="C_DefaultLogo" Guid="" Win64="yes">
+        <File Id="F_DefaultLogo.jpg" Name="ibanklogo.jpg" KeyPath="no" Vital="yes" DiskId="1" Source="..\iBank.Services.Implementation\Images\"/>
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="UserDefinedReportTemplate" Directory="BaseReportsFolder">
+      <Component Id="C_UserDefinedReportTemplate" Guid="" Win64="yes">
+        <File Id="F_StandardPortrait.rdlc" Name="StandardPortrait.rdlc" KeyPath="no" Vital="yes" DiskId="1" Source="..\UserDefinedReports\BaseReports\"/>
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="Dlls" Directory="INSTALLFOLDER">
+
+      <Component Id="C_exe" Guid="*" Win64="yes" >
+        <File Id="F_exe" Name="iBank.BroadcastServer.exe" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+        <ServiceInstall
+          Id="ServiceInstaller"
+          Type="ownProcess"
+          Vital="yes"
+          Name="[SERVICENAME]"
+          DisplayName="[SERVICENAME]"
+          Description="Processes scheduled broadcast and offline reports generated via the iBank Reporting UI."
+          Start="auto"
+          Account="[USER]"
+          Password="[PSWD]"
+          ErrorControl="normal"
+          Interactive="no" >
+          
+          <util:ServiceConfig
+            FirstFailureActionType='restart'
+            SecondFailureActionType='restart'
+            ThirdFailureActionType='restart'            
+            RestartServiceDelayInSeconds='30'
+            ResetPeriodInDays='1'/>
+
+        </ServiceInstall>
+        <ServiceControl
+          Id="StartService"
+          Start="install"
+          Stop="both"
+          Remove="uninstall"
+          Name="[SERVICENAME]"
+          Wait="yes"/>
+      </Component>
+      <Component Id="C_exe.config" Guid="*" Win64="yes">
+        <File Id="F_exe.config" Name="iBank.BroadcastServer.exe.config" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+        <util:XmlFile
+           Id="UpdateServiceNumber"
+           Action="setValue"
+           File="[INSTALLFOLDER]iBank.BroadcastServer.exe.config"
+           SelectionLanguage="XPath"
+           Permanent="yes"
+           ElementPath="/configuration/appSettings/add[\[]@key='ServerNumber'[\]]/@value"
+           Value="[SERVERNUMBER]" />
+        <util:XmlFile
+          Id="UpdateRptMaxThreads"
+          Action="setValue"
+          File="[INSTALLFOLDER]iBank.BroadcastServer.exe.config"
+          SelectionLanguage="XPath"
+          Permanent="yes"
+          ElementPath="/configuration/appSettings/add[\[]@key='BroadcastReportProcessorMaxThreads'[\]]/@value"
+          Value="[BCSTRPTMAXTHREADS]" />
+        <util:XmlFile
+          Id="UpdateBchMaxThreads"
+          Action="setValue"
+          File="[INSTALLFOLDER]iBank.BroadcastServer.exe.config"
+          SelectionLanguage="XPath"
+          Permanent="yes"
+          ElementPath="/configuration/appSettings/add[\[]@key='BatchProcessorMaxThreads'[\]]/@value"
+          Value="[BCSTBCHMAXTHREADS]" />
+      </Component>
+      <Component Id="C_AutoMapper.dll" Guid="*" Win64="yes">
+        <File Id="F_AutoMapper.dll" Name="AutoMapper.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CISLogger.dll" Guid="*" Win64="yes">
+        <File Id="F_CISLogger.dll" Name="CISLogger.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CODE.Framework.Core.dll" Guid="*" Win64="yes">
+        <File Id="F_CODE.Framework.Core.dll" Name="CODE.Framework.Core.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CODE.Framework.Core.pdb" Guid="*" Win64="yes">
+        <File Id="F_CODE.Framework.Core.pdb" Name="CODE.Framework.Core.pdb" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CODE.Framework.Core.Utilities.dll" Guid="*" Win64="yes">
+        <File Id="F_CODE.Framework.Core.Utilities.dll" Name="CODE.Framework.Core.Utilities.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CODE.Framework.Core.Utilities.pdb" Guid="*" Win64="yes">
+        <File Id="F_CODE.Framework.Core.Utilities.pdb" Name="CODE.Framework.Core.Utilities.pdb" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CODE.Framework.Services.Client.dll" Guid="*" Win64="yes">
+        <File Id="F_CODE.Framework.Services.Client.dll" Name="CODE.Framework.Services.Client.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CODE.Framework.Services.Client.pdb" Guid="*" Win64="yes">
+        <File Id="F_CODE.Framework.Services.Client.pdb" Name="CODE.Framework.Services.Client.pdb" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CODE.Framework.Services.Contracts.dll" Guid="*" Win64="yes">
+        <File Id="F_CODE.Framework.Services.Contracts.dll" Name="CODE.Framework.Services.Contracts.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CODE.Framework.Services.Contracts.pdb" Guid="*" Win64="yes">
+        <File Id="F_CODE.Framework.Services.Contracts.pdb" Name="CODE.Framework.Services.Contracts.pdb" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.CrystalReports.Engine.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.CrystalReports.Engine.dll" Name="CrystalDecisions.CrystalReports.Engine.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.ClientDoc.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.ClientDoc.dll" Name="CrystalDecisions.ReportAppServer.ClientDoc.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.CommLayer.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.CommLayer.dll" Name="CrystalDecisions.ReportAppServer.CommLayer.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.CommonControls.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.CommonControls.dll" Name="CrystalDecisions.ReportAppServer.CommonControls.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.CommonObjectModel.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.CommonObjectModel.dll" Name="CrystalDecisions.ReportAppServer.CommonObjectModel.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.Controllers.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.Controllers.dll" Name="CrystalDecisions.ReportAppServer.Controllers.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.CubeDefModel.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.CubeDefModel.dll" Name="CrystalDecisions.ReportAppServer.CubeDefModel.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.DataDefModel.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.DataDefModel.dll" Name="CrystalDecisions.ReportAppServer.DataDefModel.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.DataSetConversion.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.DataSetConversion.dll" Name="CrystalDecisions.ReportAppServer.DataSetConversion.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.ObjectFactory.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.ObjectFactory.dll" Name="CrystalDecisions.ReportAppServer.ObjectFactory.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.Prompting.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.Prompting.dll" Name="CrystalDecisions.ReportAppServer.Prompting.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.ReportDefModel.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.ReportDefModel.dll" Name="CrystalDecisions.ReportAppServer.ReportDefModel.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportAppServer.XmlSerialize.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportAppServer.XmlSerialize.dll" Name="CrystalDecisions.ReportAppServer.XmlSerialize.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.ReportSource.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.ReportSource.dll" Name="CrystalDecisions.ReportSource.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_CrystalDecisions.Shared.dll" Guid="*" Win64="yes">
+        <File Id="F_CrystalDecisions.Shared.dll" Name="CrystalDecisions.Shared.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Domain.pdb" Guid="*" Win64="yes">
+        <File Id="F_Domain.pdb" Name="Domain.pdb" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Domain.dll" Guid="*" Win64="yes">
+        <File Id="F_Domain.dll" Name="Domain.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_EntityFramework.dll" Guid="*" Win64="yes">
+        <File Id="F_EntityFramework.dll" Name="EntityFramework.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_EntityFramework.SqlServer.dll" Guid="*" Win64="yes">
+        <File Id="F_EntityFramework.SqlServer.dll" Name="EntityFramework.SqlServer.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_EntityFramework.xml" Guid="*" Win64="yes">
+        <File Id="F_EntityFramework.xml" Name="EntityFramework.xml" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_EntityFramework.SqlServer.xml" Guid="*" Win64="yes">
+        <File Id="F_EntityFramework.SqlServer.xml" Name="EntityFramework.SqlServer.xml" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_EPPlus.dll" Guid="*" Win64="yes">
+        <File Id="F_EPPlus.dll" Name="EPPlus.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_EPPlus.xml" Guid="*" Win64="yes">
+        <File Id="F_EPPlus.xml" Name="EPPlus.xml" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Fasterflect.dll" Guid="*" Win64="yes">
+        <File Id="F_Fasterflect.dll" Name="Fasterflect.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_iBank.Entities.dll" Guid="*" Win64="yes">
+        <File Id="F_iBank.Entities.dll" Name="iBank.Entities.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Repository.SQL.dll" Guid="*" Win64="yes">
+        <File Id="F_Repository.SQL.dll" Name="iBank.Repository.SQL.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_iBank.Server.Utilities.dll" Guid="*" Win64="yes">
+        <File Id="F_iBank.Server.Utilities.dll" Name="iBank.Server.Utilities.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_iBank.Server.Utilities.pdb" Guid="*" Win64="yes">
+        <File Id="F_iBank.Server.Utilities.pdb" Name="iBank.Server.Utilities.pdb" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_iBank.Services.Implementation.dll" Guid="*" Win64="yes">
+        <File Id="F_iBank.Services.Implementation.dll" Name="iBank.Services.Implementation.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_iBank.Services.Implementation.pdb" Guid="*" Win64="yes">
+        <File Id="F_iBank.Services.Implementation.pdb" Name="iBank.Services.Implementation.pdb" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Repository.Api.dll" Guid="*" Win64="yes">
+        <File Id="F_Repository.Api.dll" Name="Repository.Api.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Repository.Api.pdb" Guid="*" Win64="yes">
+        <File Id="F_Repository.Api.pdb" Name="Repository.Api.pdb" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_iBankDomain.dll" Guid="*" Win64="yes">
+        <File Id="F_iBankDomain.dll" Name="iBankDomain.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_log4net.dll" Guid="*" Win64="yes">
+        <File Id="F_log4net.dll" Name="log4net.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_log4net.config" Guid="*" Win64="yes">
+        <util:XmlFile
+          Id="UpdateLogLevel"
+          Action="setValue"
+          File="[INSTALLFOLDER]log4net.config"
+          SelectionLanguage="XPath"
+          Permanent="yes"
+          PreserveModifiedDate="yes"
+          ElementPath="/log4net/root/level[\[]@value='INFO'[\]]"
+          Name="value"
+          Value="[LOG4NETLOGLEVEL]" />
+        <File Id="F_log4net.config" Name="log4net.config" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_System.Net.Http.Formatting.dll" Guid="*" Win64="yes">
+        <File Id="F_System.Net.Http.Formatting.dll" Name="System.Net.Http.Formatting.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Microsoft.Office.Interop.Excel.dll" Guid="*" Win64="yes">
+        <File Id="F_Microsoft.Office.Interop.Excel.dll" Name="Microsoft.Office.Interop.Excel.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Microsoft.ReportViewer.Common.dll" Guid="*" Win64="yes">
+        <File Id="F_Microsoft.ReportViewer.Common.dll" Name="Microsoft.ReportViewer.Common.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Microsoft.ReportViewer.DataVisualization.dll" Guid="*" Win64="yes">
+        <File Id="F_Microsoft.ReportViewer.DataVisualization.dll" Name="Microsoft.ReportViewer.DataVisualization.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Microsoft.ReportViewer.ProcessingObjectModel.dll" Guid="*" Win64="yes">
+        <File Id="F_Microsoft.ReportViewer.ProcessingObjectModel.dll" Name="Microsoft.ReportViewer.ProcessingObjectModel.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Microsoft.ReportViewer.WinForms.dll" Guid="*" Win64="yes">
+        <File Id="F_Microsoft.ReportViewer.WinForms.dll" Name="Microsoft.ReportViewer.WinForms.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Microsoft.SqlServer.Types.dll" Guid="*" Win64="yes">
+        <File Id="F_Microsoft.SqlServer.Types.dll" Name="Microsoft.SqlServer.Types.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_MoreLinq.dll" Guid="*" Win64="yes">
+        <File Id="F_MoreLinq.dll" Name="MoreLinq.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_Newtonsoft.Json.dll" Guid="*" Win64="yes">
+        <File Id="F_Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_NodaTime.dll" Guid="*" Win64="yes">
+        <File Id="F_NodaTime.dll" Name="NodaTime.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_PagedList.dll" Guid="*" Win64="yes">
+        <File Id="F_PagedList.dll" Name="PagedList.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_ParallelExtensionsExtras.dll" Guid="*" Win64="yes">
+        <File Id="F_ParallelExtensionsExtras.dll" Name="ParallelExtensionsExtras.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_stdole.dll" Guid="*" Win64="yes">
+        <File Id="F_stdole.dll" Name="stdole.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_UserDefinedReports.dll" Guid="*" Win64="yes">
+        <File Id="F_UserDefinedReports.dll" Name="UserDefinedReports.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_UserDefinedReports.pdb" Guid="*" Win64="yes">
+        <File Id="F_UserDefinedReports.pdb" Name="UserDefinedReports.pdb" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.BroadcastServer\bin\$(var.Configuration)\"/>
+      </Component>
+    </ComponentGroup>
+
+    <Feature Id="Complete"
+             Title="iBank.BroadcastServer.[SERVERNUMBER]"
+             Level="1"
+             Display="expand">
+      <ComponentGroupRef Id="Dlls"/>
+      <ComponentGroupRef Id="UserDefinedReportTemplate"/>
+      <ComponentGroupRef Id="DefaultLogo"/>
+      <ComponentGroupRef Id="Logos"/>
+    </Feature>
+
+  </Product>
+
+  
+  
+</Wix>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  
+  <Product Id="*"
+           Name="iBank.ReportQueueManager.50"
+           Language="1033"
+           Version="!(bind.FileVersion.F_exe)"
+           Manufacturer="Cornerstone Information Systems"
+           UpgradeCode="9ae5704c-03d4-4e8b-ac38-7e2eb622c38a">
+
+    <Package Manufacturer="Cornerstone Information Systems"
+             InstallerVersion="200"
+             Compressed="yes"
+             InstallScope="perMachine"
+             Platform="x64"/>
+
+    <Property Id="PREVIOUSVERSIONINSTALLED" Secure="yes"/>
+    <Property Id="SERVERNUMBER" Value="50"/>
+    <Property Id="SERVICENAME" Value="iBank.ReportQueueManager.50"/>
+    <Property Id="USER" Value="dev\keystoneapp4"/>
+    <Property Id="PSWD" Value="CISapp4#"/>
+
+    <Property Id="INSTANCEID" Value="0"/>
+    <InstanceTransforms Property="INSTANCEID">
+      <Instance Id="I51" ProductCode="*" UpgradeCode="{FC7B0A9C-5514-4AAF-B6CF-3B7B1C5EF693}" ProductName="iBank.ReportQueueManager.51"/>
+    </InstanceTransforms>
+
+    <MajorUpgrade Schedule="afterInstallInitialize"
+	                AllowDowngrades="yes"/>
+
+    <Media Id="1" Cabinet="iBank.ReportQueueManager.cab" EmbedCab="yes"/>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder" Name="PFiles">
+        <Directory Id="iBankFolder" Name="iBank">
+          <Directory Id="ServersFolder" Name="Servers">
+            <Directory Id="INSTALLFOLDER" Name="iBank.ReportQueueManager.50">
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <ComponentGroup Id="app" Directory="INSTALLFOLDER">
+      <Component Id="C_exe" Guid="*" Win64="yes">
+        <File Id="F_exe" Name="iBank.ReportQueueManager.exe" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+
+        <ServiceInstall
+          Id="ServiceInstaller"
+          Type="ownProcess"
+          Vital="yes"
+          Name="[SERVICENAME]"
+          DisplayName="[SERVICENAME]"
+          Description="Determines if iBank reports should be run by .NET or FoxPro"
+          Start="auto"
+          Account="[USER]"
+          Password="[PSWD]"
+          ErrorControl="normal"
+          Interactive="no"/>
+
+        <ServiceControl
+          Id="StartService"
+          Start="install"
+          Stop="both"
+          Remove="uninstall"
+          Name="[SERVICENAME]"
+          Wait="yes"/>
+
+      </Component>
+
+      <Component Id="C_exe.config" Guid="*" Win64="yes">
+        <File Id="F_exe.config" Name="iBank.ReportQueueManager.exe.config" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+
+        <util:XmlFile
+          Id="UpdateServiceNumber"
+          Action="setValue"
+          File="[INSTALLFOLDER]iBank.ReportQueueManager.exe.config"
+          SelectionLanguage="XPath"
+          Permanent="yes"
+          ElementPath="/configuration/appSettings/add[\[]@key='ServerNumber'[\]]/@value"
+          Value="[SERVERNUMBER]" />
+      </Component>
+
+      <Component Id="C_CISLogger" Guid="*" Win64="yes">
+        <File Id="F_CISLogger.dll" Name="CISLogger.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_CODE.Framework.Core.dll" Guid="*" Win64="yes">
+        <File Id="F_CODE.Framework.Core.dll" Name="CODE.Framework.Core.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_Domain.dll" Guid="*" Win64="yes">
+        <File Id="F_Domain.dll" Name="Domain.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_EntityFramework.dll" Guid="*" Win64="yes">
+        <File Id="F_EntityFramework.dll" Name="EntityFramework.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_EntityFramework.SqlServer.dll" Guid="*" Win64="yes">
+        <File Id="F_EntityFramework.SqlServer.dll" Name="EntityFramework.SqlServer.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_iBank.Entities.dll" Guid="*" Win64="yes">
+        <File Id="F_iBank.Entities.dll" Name="iBank.Entities.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_iBank.Repository.SQL.dll" Guid="*" Win64="yes">
+        <File Id="F_iBank.Repository.SQL.dll" Name="iBank.Repository.SQL.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_iBank.Server.Utilities.dll" Guid="*" Win64="yes">
+        <File Id="F_iBank.Server.Utilities.dll" Name="iBank.Server.Utilities.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_iBankDomain.dll" Guid="*" Win64="yes">
+        <File Id="F_iBankDomain.dll" Name="iBankDomain.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_log4net.dll" Guid="*" Win64="yes">
+        <File Id="F_log4net.dll" Name="log4net.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+      <Component Id="C_log4net.config" Guid="*" Win64="yes">
+        <File Id="F_log4net.config" Name="log4net.config" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_MoreLinq.dll" Guid="*" Win64="yes">
+        <File Id="F_MoreLinq.dll" Name="MoreLinq.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_NodaTime.dll" Guid="*" Win64="yes">
+        <File Id="F_NodaTime.dll" Name="NodaTime.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_PagedList.dll" Guid="*" Win64="yes">
+        <File Id="F_PagedList.dll" Name="PagedList.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+
+      <Component Id="C_ParallelExtensionsExtras.dll" Guid="*" Win64="yes">
+        <File Id="F_ParallelExtensionsExtras.dll" Name="ParallelExtensionsExtras.dll" KeyPath="yes" Vital="yes" DiskId="1" Source="..\iBank.ReportQueueManager\bin\$(var.Configuration)\"/>
+      </Component>
+    </ComponentGroup>
+
+    <Feature Id="Complete"
+             Title="iBank.ReportQueueManager.[SERVERNUMBER]"
+             Level="1"
+             Display="expand">
+      <ComponentGroupRef Id="app"/>
+    </Feature>
+
+  </Product>
+</Wix>

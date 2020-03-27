@@ -1,0 +1,17 @@
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\CISLogger.dll.config
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\CISLogger.dll
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\CISLogger.pdb
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\EntityFramework.dll
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\EntityFramework.SqlServer.dll
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\iBank.Entities.dll
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\iBank.Repository.SQL.dll
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\iBankDomain.dll
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\log4net.dll
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\EntityFramework.xml
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\EntityFramework.SqlServer.xml
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\iBank.Repository.SQL.pdb
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\iBank.Repository.SQL.xml
+C:\Git\ibankreporting-main-servers\CISLogger\bin\Debug\log4net.xml
+C:\Git\ibankreporting-main-servers\CISLogger\obj\Debug\CISLogger.csproj.CopyComplete
+C:\Git\ibankreporting-main-servers\CISLogger\obj\Debug\CISLogger.dll
+C:\Git\ibankreporting-main-servers\CISLogger\obj\Debug\CISLogger.pdb

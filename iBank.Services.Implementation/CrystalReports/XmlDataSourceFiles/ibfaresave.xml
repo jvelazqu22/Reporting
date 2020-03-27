@@ -1,0 +1,71 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+ <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="ibfaresave">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Reckey" type="xs:int" minOccurs="0" />
+<xs:element name="Seqno" type="xs:int" minOccurs="0" />
+<xs:element name="Ticket" type="xs:string" minOccurs="0" />
+<xs:element name="Homectry" type="xs:string" minOccurs="0" />
+<xs:element name="Acct" type="xs:string" minOccurs="0" />
+<xs:element name="Acctdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Break1" type="xs:string" minOccurs="0" />
+<xs:element name="Break2" type="xs:string" minOccurs="0" />
+<xs:element name="Break3" type="xs:string" minOccurs="0" />
+<xs:element name="Invdate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="Passlast" type="xs:string" minOccurs="0" />
+<xs:element name="Passfrst" type="xs:string" minOccurs="0" />
+<xs:element name="Origin" type="xs:string" minOccurs="0" />
+<xs:element name="Orgdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Destinat" type="xs:string" minOccurs="0" />
+<xs:element name="Destdesc" type="xs:string" minOccurs="0" />
+<xs:element name="Rdepdate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="Connect" type="xs:string" minOccurs="0" />
+<xs:element name="Airline" type="xs:string" minOccurs="0" />
+<xs:element name="ClassCode" type="xs:string" minOccurs="0" />
+<xs:element name="Airchg" type="xs:decimal" minOccurs="0" />
+<xs:element name="Plusmin" type="xs:int" minOccurs="0" />
+<xs:element name="Reascode" type="xs:string" minOccurs="0" />
+<xs:element name="Savingcode" type="xs:string" minOccurs="0" />
+<xs:element name="Offrdchg" type="xs:decimal" minOccurs="0" />
+<xs:element name="Stndchg" type="xs:decimal" minOccurs="0" />
+<xs:element name="Savings" type="xs:decimal" minOccurs="0" />
+<xs:element name="Negosvngs" type="xs:decimal" minOccurs="0" />
+<xs:element name="Lostamt" type="xs:decimal" minOccurs="0" />
+<xs:element name="Lostpct" type="xs:decimal" minOccurs="0" />
+<xs:element name="Origacct" type="xs:string" minOccurs="0" />
+<xs:element name="Sourceabbr" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl1" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext1" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl2" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext2" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl3" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext3" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl4" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext4" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl5" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext5" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl6" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext6" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl7" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext7" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl8" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext8" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl9" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext9" type="xs:string" minOccurs="0" />
+<xs:element name="Udidlbl10" type="xs:string" minOccurs="0" />
+<xs:element name="Udidtext10" type="xs:string" minOccurs="0" />
+<xs:element name="Invdatetxt" type="xs:string" minOccurs="0" />
+<xs:element name="Rdepdattxt" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</NewDataSet>

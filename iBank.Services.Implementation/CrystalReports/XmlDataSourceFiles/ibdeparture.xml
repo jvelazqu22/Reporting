@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+ <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="ibdepart">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="reckey" type="xs:string" minOccurs="0" />
+<xs:element name="acct" type="xs:string" minOccurs="0" />
+<xs:element name="break1" type="xs:string" minOccurs="0" />
+<xs:element name="break2" type="xs:string" minOccurs="0" />
+<xs:element name="break3" type="xs:string" minOccurs="0" />
+<xs:element name="origin" type="xs:string" minOccurs="0" />
+<xs:element name="orgdesc" type="xs:string" minOccurs="0" />
+<xs:element name="invoice" type="xs:string" minOccurs="0" />
+<xs:element name="pseudocity" type="xs:string" minOccurs="0" />
+<xs:element name="recloc" type="xs:string" minOccurs="0" />
+<xs:element name="plusmin" type="xs:int" minOccurs="0" />
+<xs:element name="rdepdate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="passlast" type="xs:string" minOccurs="0" />
+<xs:element name="passfrst" type="xs:string" minOccurs="0" />
+<xs:element name="airline" type="xs:string" minOccurs="0" />
+<xs:element name="alinedesc" type="xs:string" minOccurs="0"/> 
+<xs:element name="fltno" type="xs:string" minOccurs="0" />
+<xs:element name="destinat" type="xs:string" minOccurs="0" />
+<xs:element name="destdesc" type="xs:string" minOccurs="0" />
+<xs:element name="deptime" type="xs:string" minOccurs="0" />
+<xs:element name="fltsort" type="xs:string" minOccurs="0" />
+<xs:element name="sortarrtim" type="xs:string" minOccurs="0" />
+<xs:element name="seg_cntr" type="xs:int" minOccurs="0" />
+<xs:element name="txtdepdate" type="xs:string" minOccurs="0" />
+<xs:element name="cryspgbrk" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</NewDataSet>

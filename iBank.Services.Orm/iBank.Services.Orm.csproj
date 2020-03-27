@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{341D8273-E9D8-4DED-AD5F-63F6CF288F94}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iBank.Services.Orm</RootNamespace>
+    <AssemblyName>iBank.Services.Orm</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <OutputPath>bin\Production\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProductionGSA|AnyCPU'">
+    <OutputPath>bin\ProductionGSA\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="acctmast.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="acctparent.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="airlines.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AirMileage.cs">
+      <DependentUpon>CISMasters.tt</DependentUpon>
+    </Compile>
+    <Compile Include="airports.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bcreportlog.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bcstAllowMultiples.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bcstque4.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bcstrptinstance.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="broadcast_high_alert_agency.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="broadcast_long_running_agencies.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="broadcast_servers.cs">
+      <DependentUpon>iBankAdministration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="broadcast_server_function.cs">
+      <DependentUpon>iBankAdministration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="broadcast_stage_agencies.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarbonCalculators.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cartypes.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="chainClass.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="chainParents.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="chains.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CISMasters.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CISMasters.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CISMasters.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CISMasters.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CISMasters.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CISMasters.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ClassCatMstr.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientExtras.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientImages.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientImageXData.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clientsTL.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="collist2.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Collist2Captions.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CorpAcctNbrs.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Countries.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="curconversion.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="curcountry.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eProfExpTypes.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eProfileProcs.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="eProfiles.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="errorlog.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankAdministration.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iBankAdministration.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankAdministration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iBankAdministration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankAdministration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iBankAdministration.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ibank_feature_flag.cs">
+      <DependentUpon>iBankAdministration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibbatchhistory.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibRptLogSQL.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibRunningRpts.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankDatabases.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankServers.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibFuncLangTags.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibproccrit.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibproces.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibProcVerbiage.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibreascd.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibRptLog.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibRptLogCrit.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibRptLogResults.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibUserMacro.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibUserMacroData.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibUserMacroRpt.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibwhcrit.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="intlparm.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JunctionAgcyCorp.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Languages.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageTags.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LanguageTranslations.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="metro.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="miscparams.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mstragcy.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mstrAgcySourceExtras.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MstrAgcySources.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MstrCorpAccts.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="overdue_broadcasts.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReasonSet.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reporthandoff.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hibcar.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hibhotel.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hibMiscSeg.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hibSvcFee.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hibudid.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibcar.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibhotel.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibMiscSeg.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibtravauth.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibudid.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartialClientModel.cs" />
+    <Compile Include="hibleg.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hibtrip.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankClientModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iBankClientModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankClientModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankClientModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iBankClientModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="iBankMasterModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iBankMasterModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankMasterModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="iBankMasterModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iBankMasterModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ibbatch.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibbatch2.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibleg.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibtrip.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibuser.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ibUserExtra.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Organization.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="picklist.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="report_rollout_stage.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="report_servers.cs">
+      <DependentUpon>iBankAdministration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="report_server_function.cs">
+      <DependentUpon>iBankAdministration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="report_server_stage.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="roomtype.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RROperators.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RRStations.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="savedrpt1.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="savedrpt2.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="savedrpt3.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="state_names.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StyleGroup.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StyleGroupExtra.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SvrStatus.cs">
+      <DependentUpon>iBankAdministration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="timeout_broadcasts.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimeZones.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TradingPartners.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="transtrack.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TripChangeCodes.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="useracct.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="userbrks1.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="userbrks2.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserFieldCat.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="userrpt.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="userrpt2.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserSource.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="userTranslations.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vendor.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorldRegions.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="xmlrpt2.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="xmlrpts.cs">
+      <DependentUpon>iBankMasterModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="xmluserrpt.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="xmluserrpt2.cs">
+      <DependentUpon>iBankClientModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="iBankClientModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>iBankClientModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="CISMasters.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CISMasters.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CISMasters.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CISMasters.edmx</DependentUpon>
+      <LastGenOutput>CISMasters.Context.cs</LastGenOutput>
+    </None>
+    <None Include="CISMasters.edmx.diagram">
+      <DependentUpon>CISMasters.edmx</DependentUpon>
+    </None>
+    <None Include="CISMasters.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CISMasters.edmx</DependentUpon>
+      <LastGenOutput>CISMasters.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="iBankAdministration.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>iBankAdministration.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="iBankAdministration.edmx.diagram">
+      <DependentUpon>iBankAdministration.edmx</DependentUpon>
+    </None>
+    <None Include="iBankClientModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iBankClientModel.edmx</DependentUpon>
+      <LastGenOutput>iBankClientModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="iBankClientModel.edmx.diagram">
+      <DependentUpon>iBankClientModel.edmx</DependentUpon>
+    </None>
+    <None Include="iBankClientModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iBankClientModel.edmx</DependentUpon>
+      <LastGenOutput>iBankClientModel.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="iBankMasterModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>iBankMasterModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="iBankMasterModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iBankMasterModel.edmx</DependentUpon>
+      <LastGenOutput>iBankMasterModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="iBankMasterModel.edmx.diagram">
+      <DependentUpon>iBankMasterModel.edmx</DependentUpon>
+    </None>
+    <None Include="iBankMasterModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iBankMasterModel.edmx</DependentUpon>
+      <LastGenOutput>iBankMasterModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="iBankAdministration.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iBankAdministration.edmx</DependentUpon>
+      <LastGenOutput>iBankAdministration.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="iBankAdministration.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>iBankAdministration.edmx</DependentUpon>
+      <LastGenOutput>iBankAdministration.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

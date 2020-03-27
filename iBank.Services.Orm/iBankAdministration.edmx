@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="iBankAdministrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="broadcast_server_function">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="server_function" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="broadcast_servers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="server_number" Type="int" Nullable="false" />
+          <Property Name="server_function_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ibank_feature_flag">
+          <Key>
+            <PropertyRef Name="toggle_name" />
+          </Key>
+          <Property Name="toggle_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="toggle_on" Type="bit" Nullable="false" />
+          <Property Name="toggle_on_stage" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="report_server_function">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="server_function" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="report_servers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="server_number" Type="int" Nullable="false" />
+          <Property Name="server_function_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SvrStatus">
+          <Key>
+            <PropertyRef Name="SvrName" />
+          </Key>
+          <Property Name="SvrName" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="SvrDesc" Type="char" MaxLength="60" Nullable="false" />
+          <Property Name="SvrVer" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="SvrDateTm" Type="datetime" Nullable="false" />
+          <Property Name="LastCheck" Type="datetime" />
+          <Property Name="TimeSince" Type="char" MaxLength="25" />
+          <Property Name="LastStatus" Type="char" MaxLength="10" />
+          <Property Name="CheckFlag" Type="bit" Nullable="false" />
+          <Property Name="SortOrder" Type="tinyint" Nullable="false" />
+          <Property Name="FromServer" Type="char" MaxLength="10" />
+          <Property Name="WroteToLog" Type="bit" Nullable="false" />
+          <Property Name="server_type" Type="varchar" MaxLength="255" />
+          <Property Name="machine_name" Type="varchar" MaxLength="255" />
+          <Property Name="last_started" Type="datetime" />
+          <Property Name="server_number" Type="int" />
+          <Property Name="currently_running" Type="bit" />
+          <Property Name="in_maintenance_mode" Type="bit" Nullable="false" />
+          <Property Name="maintenance_mode_requested" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__broadcast__serve__793DFFAF">
+          <End Role="broadcast_server_function" Type="Self.broadcast_server_function" Multiplicity="1" />
+          <End Role="broadcast_servers" Type="Self.broadcast_servers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="broadcast_server_function">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="broadcast_servers">
+              <PropertyRef Name="server_function_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_server_function">
+          <End Role="report_server_function" Type="Self.report_server_function" Multiplicity="1" />
+          <End Role="report_servers" Type="Self.report_servers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="report_server_function">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="report_servers">
+              <PropertyRef Name="server_function_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="iBankAdministrationModelStoreContainer">
+          <EntitySet Name="broadcast_server_function" EntityType="Self.broadcast_server_function" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="broadcast_servers" EntityType="Self.broadcast_servers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ibank_feature_flag" EntityType="Self.ibank_feature_flag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="report_server_function" EntityType="Self.report_server_function" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="report_servers" EntityType="Self.report_servers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SvrStatus" EntityType="Self.SvrStatus" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__broadcast__serve__793DFFAF" Association="Self.FK__broadcast__serve__793DFFAF">
+            <End Role="broadcast_server_function" EntitySet="broadcast_server_function" />
+            <End Role="broadcast_servers" EntitySet="broadcast_servers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_server_function" Association="Self.fk_server_function">
+            <End Role="report_server_function" EntitySet="report_server_function" />
+            <End Role="report_servers" EntitySet="report_servers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="iBankAdministrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SvrStatus">
+          <Key>
+            <PropertyRef Name="SvrName" />
+          </Key>
+          <Property Name="SvrName" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SvrDesc" Type="String" MaxLength="60" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SvrVer" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SvrDateTm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastCheck" Type="DateTime" Precision="3" />
+          <Property Name="TimeSince" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Name="LastStatus" Type="String" MaxLength="10" Unicode="false" FixedLength="true" />
+          <Property Name="CheckFlag" Type="Boolean" Nullable="false" />
+          <Property Name="SortOrder" Type="Byte" Nullable="false" />
+          <Property Name="FromServer" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="WroteToLog" Type="Boolean" Nullable="false" />
+          <Property Name="server_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="machine_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="last_started" Type="DateTime" Precision="3" />
+          <Property Name="server_number" Type="Int32" />
+          <Property Name="currently_running" Type="Boolean" />
+          <Property Name="in_maintenance_mode" Type="Boolean" Nullable="false" />
+          <Property Name="maintenance_mode_requested" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="iBankAdministrationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SvrStatus" EntityType="iBankAdministrationModel.SvrStatus" />
+          <EntitySet Name="broadcast_server_function" EntityType="iBankAdministrationModel.broadcast_server_function" />
+          <EntitySet Name="broadcast_servers" EntityType="iBankAdministrationModel.broadcast_servers" />
+          <AssociationSet Name="FK__broadcast__serve__793DFFAF" Association="iBankAdministrationModel.FK__broadcast__serve__793DFFAF">
+            <End Role="broadcast_server_function" EntitySet="broadcast_server_function" />
+            <End Role="broadcast_servers" EntitySet="broadcast_servers" />
+          </AssociationSet>
+          <EntitySet Name="report_server_function" EntityType="iBankAdministrationModel.report_server_function" />
+          <EntitySet Name="report_servers" EntityType="iBankAdministrationModel.report_servers" />
+          <AssociationSet Name="fk_server_function" Association="iBankAdministrationModel.fk_server_function">
+            <End Role="report_server_function" EntitySet="report_server_function" />
+            <End Role="report_servers" EntitySet="report_servers" />
+          </AssociationSet>
+          <EntitySet Name="ibank_feature_flag" EntityType="iBankAdministrationModel.ibank_feature_flag" />
+        </EntityContainer>
+        <EntityType Name="broadcast_server_function">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="server_function" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="broadcast_servers" Relationship="iBankAdministrationModel.FK__broadcast__serve__793DFFAF" FromRole="broadcast_server_function" ToRole="broadcast_servers" />
+        </EntityType>
+        <EntityType Name="broadcast_servers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="server_number" Type="Int32" Nullable="false" />
+          <Property Name="server_function_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="broadcast_server_function" Relationship="iBankAdministrationModel.FK__broadcast__serve__793DFFAF" FromRole="broadcast_servers" ToRole="broadcast_server_function" />
+        </EntityType>
+        <Association Name="FK__broadcast__serve__793DFFAF">
+          <End Type="iBankAdministrationModel.broadcast_server_function" Role="broadcast_server_function" Multiplicity="1" />
+          <End Type="iBankAdministrationModel.broadcast_servers" Role="broadcast_servers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="broadcast_server_function">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="broadcast_servers">
+              <PropertyRef Name="server_function_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="report_server_function">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="server_function" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="report_servers" Relationship="iBankAdministrationModel.fk_server_function" FromRole="report_server_function" ToRole="report_servers" />
+        </EntityType>
+        <EntityType Name="report_servers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="server_number" Type="Int32" Nullable="false" />
+          <Property Name="server_function_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="report_server_function" Relationship="iBankAdministrationModel.fk_server_function" FromRole="report_servers" ToRole="report_server_function" />
+        </EntityType>
+        <Association Name="fk_server_function">
+          <End Type="iBankAdministrationModel.report_server_function" Role="report_server_function" Multiplicity="1" />
+          <End Type="iBankAdministrationModel.report_servers" Role="report_servers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="report_server_function">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="report_servers">
+              <PropertyRef Name="server_function_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ibank_feature_flag">
+          <Key>
+            <PropertyRef Name="toggle_name" />
+          </Key>
+          <Property Name="toggle_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="toggle_on" Type="Boolean" Nullable="false" />
+          <Property Name="toggle_on_stage" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="iBankAdministrationModelStoreContainer" CdmEntityContainer="iBankAdministrationEntities">
+          <EntitySetMapping Name="SvrStatus">
+            <EntityTypeMapping TypeName="iBankAdministrationModel.SvrStatus">
+              <MappingFragment StoreEntitySet="SvrStatus">
+                <ScalarProperty Name="maintenance_mode_requested" ColumnName="maintenance_mode_requested" />
+                <ScalarProperty Name="in_maintenance_mode" ColumnName="in_maintenance_mode" />
+                <ScalarProperty Name="currently_running" ColumnName="currently_running" />
+                <ScalarProperty Name="server_number" ColumnName="server_number" />
+                <ScalarProperty Name="last_started" ColumnName="last_started" />
+                <ScalarProperty Name="machine_name" ColumnName="machine_name" />
+                <ScalarProperty Name="server_type" ColumnName="server_type" />
+                <ScalarProperty Name="SvrName" ColumnName="SvrName" />
+                <ScalarProperty Name="SvrDesc" ColumnName="SvrDesc" />
+                <ScalarProperty Name="SvrVer" ColumnName="SvrVer" />
+                <ScalarProperty Name="SvrDateTm" ColumnName="SvrDateTm" />
+                <ScalarProperty Name="LastCheck" ColumnName="LastCheck" />
+                <ScalarProperty Name="TimeSince" ColumnName="TimeSince" />
+                <ScalarProperty Name="LastStatus" ColumnName="LastStatus" />
+                <ScalarProperty Name="CheckFlag" ColumnName="CheckFlag" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="FromServer" ColumnName="FromServer" />
+                <ScalarProperty Name="WroteToLog" ColumnName="WroteToLog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="broadcast_server_function">
+            <EntityTypeMapping TypeName="iBankAdministrationModel.broadcast_server_function">
+              <MappingFragment StoreEntitySet="broadcast_server_function">
+                <ScalarProperty Name="server_function" ColumnName="server_function" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="broadcast_servers">
+            <EntityTypeMapping TypeName="iBankAdministrationModel.broadcast_servers">
+              <MappingFragment StoreEntitySet="broadcast_servers">
+                <ScalarProperty Name="server_function_id" ColumnName="server_function_id" />
+                <ScalarProperty Name="server_number" ColumnName="server_number" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="report_server_function">
+            <EntityTypeMapping TypeName="iBankAdministrationModel.report_server_function">
+              <MappingFragment StoreEntitySet="report_server_function">
+                <ScalarProperty Name="server_function" ColumnName="server_function" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="report_servers">
+            <EntityTypeMapping TypeName="iBankAdministrationModel.report_servers">
+              <MappingFragment StoreEntitySet="report_servers">
+                <ScalarProperty Name="server_function_id" ColumnName="server_function_id" />
+                <ScalarProperty Name="server_number" ColumnName="server_number" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ibank_feature_flag">
+            <EntityTypeMapping TypeName="iBankAdministrationModel.ibank_feature_flag">
+              <MappingFragment StoreEntitySet="ibank_feature_flag">
+                <ScalarProperty Name="toggle_on_stage" ColumnName="toggle_on_stage" />
+                <ScalarProperty Name="toggle_on" ColumnName="toggle_on" />
+                <ScalarProperty Name="toggle_name" ColumnName="toggle_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

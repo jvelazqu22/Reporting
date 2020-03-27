@@ -1,0 +1,59 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+ <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="ibccrecon">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="grpcode" type="xs:string" minOccurs="0" />
+<xs:element name="acct" type="xs:string" minOccurs="0" />
+<xs:element name="acctdesc" type="xs:string" minOccurs="0" />
+<xs:element name="break1" type="xs:string" minOccurs="0" />
+<xs:element name="break2" type="xs:string" minOccurs="0" />
+<xs:element name="break3" type="xs:string" minOccurs="0" />
+<xs:element name="breakfld" type="xs:string" minOccurs="0" />
+<xs:element name="breakscol" type="xs:string" minOccurs="0" />
+<xs:element name="cardnum" type="xs:string" minOccurs="0" />
+<xs:element name="airlinenbr" type="xs:string" minOccurs="0" />
+<xs:element name="ticket" type="xs:string" minOccurs="0" />
+<xs:element name="airlndesc" type="xs:string" minOccurs="0" />
+<xs:element name="trantype" type="xs:string" minOccurs="0" />
+<xs:element name="invoice" type="xs:string" minOccurs="0" />
+<xs:element name="trandate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="passname" type="xs:string" minOccurs="0" />
+<xs:element name="descript" type="xs:string" minOccurs="0" />
+<xs:element name="airchg" type="xs:decimal" minOccurs="0" />
+<xs:element name="cctransamt" type="xs:decimal" minOccurs="0"/> 
+<xs:element name="ccrefnbr" type="xs:string" minOccurs="0" />
+<xs:element name="udidnbr1" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext1" type="xs:string" minOccurs="0"/> 
+<xs:element name="udidnbr2" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext2" type="xs:string" minOccurs="0" />
+<xs:element name="udidnbr3" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext3" type="xs:string" minOccurs="0" />
+<xs:element name="udidnbr4" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext4" type="xs:string" minOccurs="0" />
+<xs:element name="udidnbr5" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext5" type="xs:string" minOccurs="0" />
+<xs:element name="udidnbr6" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext6" type="xs:string" minOccurs="0" />
+<xs:element name="udidnbr7" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext7" type="xs:string" minOccurs="0" />
+<xs:element name="udidnbr8" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext8" type="xs:string" minOccurs="0" />
+<xs:element name="udidnbr9" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext9" type="xs:string" minOccurs="0" />
+<xs:element name="udidnbr10" type="xs:int" minOccurs="0" />
+<xs:element name="udidtext10" type="xs:string" minOccurs="0" />
+<xs:element name="depdate" type="xs:dateTime" minOccurs="0" />
+<xs:element name="arrdate" type="xs:dateTime" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</NewDataSet>

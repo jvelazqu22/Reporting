@@ -1,0 +1,32 @@
+﻿@model Domain.Models.WebModels.BroadcastDiagnostics.DiagnosticsParams
+
+<h3>Broadcast errors logs from the last 24 hours</h3>
+
+<table class="table table-sm table-hover" >
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Log</th>
+            <th scope="col">Server type</th>
+            <th scope="col">Server#</th>
+            <th scope="col">Time</th>
+            <th scope="col">Message</th>
+            <th scope="col">Exception</th>
+            <th scope="col">Logger</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var rec in Model.ReportingErrorLogs)
+    {
+        <tr>
+            <td>@rec.log_level</td>
+            <td>@rec.server_type</td>
+            <td>@rec.server_number</td>
+            <td>@rec.time_stamp</td>
+            <td>@rec.message</td>
+            <td>@rec.exception</td>
+            <td>@rec.logger</td>
+        </tr>
+    }
+    </tbody>
+</table>
+

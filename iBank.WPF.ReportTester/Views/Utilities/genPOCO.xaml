@@ -1,0 +1,14 @@
+<mvvm:View xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:mvvm="clr-namespace:CODE.Framework.Wpf.Mvvm;assembly=CODE.Framework.Wpf.Mvvm"
+           xmlns:controls="clr-namespace:CODE.Framework.Wpf.Controls;assembly=CODE.Framework.Wpf"
+           Title="Generate POCO Class"
+           >
+
+    <Grid controls:GridEx.RowHeights="30,500" controls:GridEx.ColumnWidths="150,400,150">
+        <TextBlock Grid.Column="0" Text="Enter a field list"></TextBlock>
+        <TextBox Grid.Column="1"  Text="{Binding FieldList}"></TextBox>
+        <Button Grid.Column="2" Command="{Binding GenClass}">Run</Button>
+        <TextBox Text="{Binding POCOClass}" Grid.Row="1" Grid.Column="1"></TextBox>
+    </Grid>
+    
+</mvvm:View>
